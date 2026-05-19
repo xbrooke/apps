@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>软件直链下载</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "Microsoft YaHei", Arial, sans-serif; background: #f5f5f5; padding: 40px 20px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        h1 { text-align: center; color: #333; margin-bottom: 40px; }
+        .software-list { display: grid; gap: 20px; }
+        .software-item { background: white; border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        .software-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+        .software-info h3 { color: #333; font-size: 18px; margin-bottom: 4px; }
+        .software-info p { color: #666; font-size: 14px; }
+        .download-btn { background: #00ad9f; color: white; padding: 10px 24px; border-radius: 8px; text-decoration: none; font-weight: bold; transition: background 0.3s; }
+        .download-btn:hover { background: #009e94; }
+        .url-row { display: flex; gap: 8px; }
+        .url-input { flex: 1; background: #f8f8f8; border: 1px solid #ddd; border-radius: 6px; padding: 10px 14px; font-size: 13px; color: #555; font-family: monospace; }
+        .copy-btn { background: #666; color: white; border: none; padding: 10px 16px; border-radius: 6px; cursor: pointer; font-size: 14px; transition: background 0.3s; }
+        .copy-btn:hover { background: #555; }
+        .copy-btn.copied { background: #4caf50; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📦 软件直链下载中心</h1>
+        
+        <div class="software-list">
+            <div class="software-item" data-url="./apps/hyapp.apk">
+                <div class="software-header">
+                    <div class="software-info">
+                        <h3>hyapp</h3>
+                        <p>Android 应用 / 6.15 MB</p>
+                    </div>
+                    <a href="./apps/hyapp.apk" class="download-btn" download>下载</a>
+                </div>
+                <div class="url-row">
+                    <input type="text" class="url-input" value="" readonly>
+                    <button class="copy-btn" onclick="copyUrl(this)">复制</button>
+                </div>
+            </div>
+            
+            <div class="software-item" data-url="./apps/qishui.apk">
+                <div class="software-header">
+                    <div class="software-info">
+                        <h3>qishui</h3>
+                        <p>Android 应用 / 39 MB</p>
+                    </div>
+                    <a href="./apps/qishui.apk" class="download-btn" download>下载</a>
+                </div>
+                <div class="url-row">
+                    <input type="text" class="url-input" value="" readonly>
+                    <button class="copy-btn" onclick="copyUrl(this)">复制</button>
+                </div>
+            </div>
+            
+            <div class="software-item" data-url="./apps/yingongguanjia.apk">
+                <div class="software-header">
+                    <div class="software-info">
+                        <h3>yingongguanjia</h3>
+                        <p>Android 应用 / 15.6 MB</p>
+                    </div>
+                    <a href="./apps/yingongguanjia.apk" class="download-btn" download>下载</a>
+                </div>
+                <div class="url-row">
+                    <input type="text" class="url-input" value="" readonly>
+                    <button class="copy-btn" onclick="copyUrl(this)">复制</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function getBaseUrl() {
+            return window.location.href.replace(/\/[^\/]*$/, '');
+        }
+        
+        document.querySelectorAll('.software-item').forEach(item => {
+            const url = getBaseUrl() + '/' + item.dataset.url;
+            item.querySelector('.url-input').value = url;
+        });
+        
+        function copyUrl(btn) {
+            const url = btn.parentElement.querySelector('.url-input').value;
+            navigator.clipboard.writeText(url).then(() => {
+                btn.textContent = '已复制';
+                btn.classList.add('copied');
+                setTimeout(() => {
+                    btn.textContent = '复制';
+                    btn.classList.remove('copied');
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
