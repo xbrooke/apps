@@ -3,96 +3,753 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>软件直链下载</title>
+    <title>应用商店</title>
     <style>
+        :root {
+            --bg: #f5f5f7;
+            --card-bg: rgba(255, 255, 255, 0.72);
+            --card-bg-solid: #ffffff;
+            --text: #1d1d1f;
+            --text-secondary: #6e6e73;
+            --primary: #0071e3;
+            --primary-hover: #0077ed;
+            --border: rgba(0, 0, 0, 0.06);
+            --shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.1);
+            --radius: 18px;
+            --radius-lg: 24px;
+            --transition: 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+
+        [data-theme="dark"] {
+            --bg: #000000;
+            --card-bg: rgba(44, 44, 46, 0.72);
+            --card-bg-solid: #1c1c1e;
+            --text: #f5f5f7;
+            --text-secondary: #98989d;
+            --border: rgba(255, 255, 255, 0.08);
+            --shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.5);
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: "Microsoft YaHei", Arial, sans-serif; background: #f5f5f5; padding: 40px 20px; }
-        .container { max-width: 800px; margin: 0 auto; }
-        h1 { text-align: center; color: #333; margin-bottom: 40px; }
-        .software-list { display: grid; gap: 20px; }
-        .software-item { background: white; border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-        .software-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
-        .software-info h3 { color: #333; font-size: 18px; margin-bottom: 4px; }
-        .software-info p { color: #666; font-size: 14px; }
-        .download-btn { background: #00ad9f; color: white; padding: 10px 24px; border-radius: 8px; text-decoration: none; font-weight: bold; transition: background 0.3s; }
-        .download-btn:hover { background: #009e94; }
-        .url-row { display: flex; gap: 8px; }
-        .url-input { flex: 1; background: #f8f8f8; border: 1px solid #ddd; border-radius: 6px; padding: 10px 14px; font-size: 13px; color: #555; font-family: monospace; }
-        .copy-btn { background: #666; color: white; border: none; padding: 10px 16px; border-radius: 6px; cursor: pointer; font-size: 14px; transition: background 0.3s; }
-        .copy-btn:hover { background: #555; }
-        .copy-btn.copied { background: #4caf50; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: "SF Pro Display", "SF Pro Text", "Helvetica Neue", "Microsoft YaHei", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            transition: background var(--transition), color var(--transition);
+            min-height: 100vh;
+            line-height: 1.47059;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container { max-width: 1024px; margin: 0 auto; padding: 0 24px; }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--card-bg);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 24px;
+        }
+
+        .header-content {
+            max-width: 1024px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 52px;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--text);
+            letter-spacing: -0.022em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo svg { width: 22px; height: 22px; }
+
+        .search-box {
+            flex: 1;
+            max-width: 360px;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            height: 32px;
+            padding: 0 16px 0 36px;
+            border: none;
+            border-radius: 980px;
+            background: rgba(0, 0, 0, 0.04);
+            font-size: 15px;
+            color: var(--text);
+            transition: background var(--transition);
+        }
+
+        [data-theme="dark"] .search-box input { background: rgba(255, 255, 255, 0.08); }
+
+        .search-box input:focus {
+            outline: none;
+            background: rgba(0, 113, 227, 0.08);
+        }
+
+        .search-box input::placeholder { color: var(--text-secondary); }
+
+        .search-box svg {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 14px;
+            height: 14px;
+            color: var(--text-secondary);
+        }
+
+        .theme-toggle {
+            width: 32px;
+            height: 32px;
+            border: none;
+            border-radius: 50%;
+            background: transparent;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text);
+            transition: background var(--transition);
+        }
+
+        .theme-toggle:hover { background: rgba(0, 0, 0, 0.04); }
+        [data-theme="dark"] .theme-toggle:hover { background: rgba(255, 255, 255, 0.08); }
+        .theme-toggle svg { width: 18px; height: 18px; }
+
+        /* Main */
+        .main { padding: 10px 0 40px; }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 20px;
+            padding: 0 4px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: -0.022em;
+            color: var(--text);
+        }
+
+        .app-count {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 16px;
+        }
+
+        .app-card {
+            background: var(--card-bg);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-radius: var(--radius);
+            padding: 20px 16px 16px;
+            cursor: pointer;
+            transition: transform var(--transition), box-shadow var(--transition);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        .app-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 16px;
+            margin: 0 auto 12px;
+            object-fit: contain;
+            display: block;
+            background: transparent;
+        }
+
+        .app-card h3 {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text);
+            text-align: center;
+            margin-bottom: 4px;
+            letter-spacing: -0.01em;
+        }
+
+        .app-meta {
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+        }
+
+        .install-btn {
+            width: 100%;
+            height: 32px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 980px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background var(--transition), transform 0.1s;
+            letter-spacing: 0.02em;
+        }
+
+        .install-btn:hover { background: var(--primary-hover); }
+        .install-btn:active { transform: scale(0.97); }
+
+        /* Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            z-index: 200;
+            justify-content: center;
+            align-items: center;
+            padding: 24px;
+            opacity: 0;
+            transition: opacity 0.25s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal {
+            background: #ffffff;
+            border-radius: var(--radius-lg);
+            width: 100%;
+            max-width: 400px;
+            overflow: hidden;
+            transform: scale(0.96) translateY(8px);
+            transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+            border: 1px solid var(--border);
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.15);
+        }
+
+        .modal-overlay.active .modal {
+            transform: scale(1) translateY(0);
+        }
+
+        .modal-header {
+            padding: 32px 24px 24px;
+            text-align: center;
+            position: relative;
+        }
+
+        .modal-close-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 28px;
+            height: 28px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.06);
+            cursor: pointer;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background var(--transition);
+            font-size: 16px;
+        }
+
+        [data-theme="dark"] .modal-close-btn { background: rgba(255, 255, 255, 0.12); color: var(--text); }
+        .modal-close-btn:hover { background: rgba(0, 0, 0, 0.12); }
+
+        .modal-icon {
+            width: 96px;
+            height: 96px;
+            border-radius: 20px;
+            margin: 0 auto 16px;
+            object-fit: contain;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .modal-header h2 {
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: -0.015em;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+
+        .modal-header > p {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .modal-body { padding: 0 24px 24px; }
+
+        .app-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            text-align: center;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 14px;
+        }
+
+        .info-row:last-of-type { border-bottom: none; }
+        .info-label { color: var(--text-secondary); }
+        .info-value { color: var(--text); font-weight: 500; }
+
+        .info-value.tag {
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .url-section { margin-top: 20px; }
+
+        .url-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .url-row {
+            display: flex;
+            gap: 8px;
+        }
+
+        .url-input {
+            flex: 1;
+            height: 36px;
+            background: rgba(0, 0, 0, 0.03);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0 12px;
+            font-size: 12px;
+            color: var(--text-secondary);
+            font-family: "SF Mono", "Menlo", monospace;
+            min-width: 0;
+        }
+
+        [data-theme="dark"] .url-input { background: rgba(255, 255, 255, 0.06); }
+
+        .url-input:focus { outline: none; border-color: var(--primary); }
+
+        .copy-btn {
+            height: 36px;
+            padding: 0 16px;
+            background: rgba(0, 0, 0, 0.05);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--primary);
+            transition: background var(--transition);
+            white-space: nowrap;
+        }
+
+        [data-theme="dark"] .copy-btn { background: rgba(255, 255, 255, 0.1); }
+        .copy-btn:hover { background: rgba(0, 113, 227, 0.1); }
+        .copy-btn.copied { background: rgba(0, 113, 227, 0.15); color: var(--primary); }
+
+        .modal-footer {
+            padding: 16px 24px 24px;
+        }
+
+        .modal-footer .download-btn {
+            width: 100%;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 980px;
+            font-size: 17px;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background var(--transition), transform 0.1s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            letter-spacing: 0.02em;
+        }
+
+        .modal-footer .download-btn:hover { background: var(--primary-hover); }
+        .modal-footer .download-btn:active { transform: scale(0.98); }
+        .modal-footer .download-btn svg { width: 18px; height: 18px; }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--text);
+            color: var(--card-bg-solid);
+            padding: 14px 28px;
+            border-radius: 980px;
+            font-size: 15px;
+            font-weight: 500;
+            z-index: 300;
+            opacity: 0;
+            transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 0.4s;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 0 20px;
+            color: var(--text-secondary);
+            font-size: 12px;
+            border-top: 1px solid var(--border);
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        footer a { color: var(--primary); text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .header-content { padding: 0 16px; gap: 12px; }
+            .logo { font-size: 15px; }
+            .logo svg { width: 18px; height: 18px; }
+            .search-box { max-width: none; }
+            .search-box input { height: 28px; font-size: 13px; }
+            .theme-toggle { width: 28px; height: 28px; }
+            .container { padding: 0 16px; }
+            .main { padding: 16px 0 32px; }
+            .app-grid {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+                gap: 10px;
+                padding: 0 4px;
+            }
+            .app-card { padding: 14px 10px 10px; }
+            .app-icon { width: 64px; height: 64px; border-radius: 12px; margin-bottom: 8px; }
+            .app-card h3 { font-size: 13px; }
+            .app-meta { font-size: 11px; margin-bottom: 8px; }
+            .install-btn { height: 28px; font-size: 12px; }
+            footer { height: 44px; font-size: 11px; padding: 0 12px; }
+            .modal { max-width: 100%; border-radius: 20px 20px 0 0; }
+            .modal-overlay { align-items: flex-end; padding: 0; }
+            .modal-header { padding: 24px 20px 16px; }
+            .modal-icon { width: 72px; height: 72px; border-radius: 16px; }
+            .modal-header h2 { font-size: 20px; }
+            .modal-body { padding: 0 20px 16px; }
+            .modal-footer { padding: 12px 20px 20px; }
+            .modal-footer .download-btn { height: 44px; font-size: 15px; }
+            .toast { bottom: 20px; padding: 10px 20px; font-size: 13px; }
+        }
+
+        @media (max-width: 380px) {
+            .app-grid { grid-template-columns: repeat(2, 1fr); }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>📦 软件直链下载中心</h1>
-        
-        <div class="software-list">
-            <div class="software-item" data-url="./apps/hyapp.apk">
-                <div class="software-header">
-                    <div class="software-info">
-                        <h3>hyapp</h3>
-                        <p>Android 应用 / 6.15 MB</p>
-                    </div>
-                    <a href="./apps/hyapp.apk" class="download-btn" download>下载</a>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <svg viewBox="0 0 24 24" fill="none">
+                    <rect x="3" y="3" width="8" height="8" rx="1.5" fill="currentColor" opacity="0.8"/>
+                    <rect x="13" y="3" width="8" height="8" rx="1.5" fill="currentColor" opacity="0.6"/>
+                    <rect x="3" y="13" width="8" height="8" rx="1.5" fill="currentColor" opacity="0.6"/>
+                    <rect x="13" y="13" width="8" height="8" rx="1.5" fill="currentColor" opacity="0.4"/>
+                </svg>
+                应用商店
+            </div>
+            <div class="search-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"/>
+                    <path d="m21 21-4.35-4.35"/>
+                </svg>
+                <input type="text" id="searchInput" placeholder="搜索应用..." autocomplete="off">
+            </div>
+            <button class="theme-toggle" id="themeToggle" title="切换主题">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" id="themeIcon">
+                    <path d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main class="container main">
+        <div class="section-header">
+            <h2 class="section-title">应用</h2>
+            <span class="app-count" id="appCount">7</span>
+        </div>
+        <div class="app-grid" id="appGrid" role="list"></div>
+        <div class="empty-state" id="emptyState"></div>
+    </main>
+
+    <footer>
+        <p>© 2026 徐大兵维护</p>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true">
+        <div class="modal">
+            <div class="modal-header">
+                <button class="modal-close-btn" id="modalCloseBtn" aria-label="关闭">×</button>
+                <img class="modal-icon" id="modalIcon" src="" alt="" onerror="this.style.display='none'">
+                <h2 id="modalTitle">应用名称</h2>
+                <p id="modalSubtitle">Android 应用</p>
+            </div>
+            <div class="modal-body">
+                <p class="app-desc" id="modalDesc"></p>
+                <div class="info-row">
+                    <span class="info-label">版本</span>
+                    <span class="info-value" id="modalVersion">1.0.0</span>
                 </div>
-                <div class="url-row">
-                    <input type="text" class="url-input" value="" readonly>
-                    <button class="copy-btn" onclick="copyUrl(this)">复制</button>
+                <div class="info-row">
+                    <span class="info-label">大小</span>
+                    <span class="info-value" id="modalSize">-</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">类型</span>
+                    <span class="info-value tag">内部使用</span>
+                </div>
+                <div class="url-section">
+                    <div class="url-label">下载链接</div>
+                    <div class="url-row">
+                        <input type="text" class="url-input" id="modalUrl" readonly>
+                        <button class="copy-btn" id="modalCopy">复制</button>
+                    </div>
                 </div>
             </div>
-            
-            <div class="software-item" data-url="./apps/qishui.apk">
-                <div class="software-header">
-                    <div class="software-info">
-                        <h3>qishui</h3>
-                        <p>Android 应用 / 39 MB</p>
-                    </div>
-                    <a href="./apps/qishui.apk" class="download-btn" download>下载</a>
-                </div>
-                <div class="url-row">
-                    <input type="text" class="url-input" value="" readonly>
-                    <button class="copy-btn" onclick="copyUrl(this)">复制</button>
-                </div>
-            </div>
-            
-            <div class="software-item" data-url="./apps/yingongguanjia.apk">
-                <div class="software-header">
-                    <div class="software-info">
-                        <h3>yingongguanjia</h3>
-                        <p>Android 应用 / 15.6 MB</p>
-                    </div>
-                    <a href="./apps/yingongguanjia.apk" class="download-btn" download>下载</a>
-                </div>
-                <div class="url-row">
-                    <input type="text" class="url-input" value="" readonly>
-                    <button class="copy-btn" onclick="copyUrl(this)">复制</button>
-                </div>
+            <div class="modal-footer">
+                <a href="#" class="download-btn" id="modalDownload">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="7,10 12,15 17,10"/>
+                        <line x1="12" y1="15" x2="12" y2="3"/>
+                    </svg>
+                    下载应用
+                </a>
             </div>
         </div>
     </div>
 
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
     <script>
+        let apps = [];
+
+        async function loadApps() {
+            try {
+                const res = await fetch('./apps.json');
+                apps = await res.json();
+            } catch (e) {
+                apps = [
+                    { "id": "hyapp", "name": "HYCarPlay", "url": "./apps/hyapp.apk", "size": "5.87 MB", "icon": "./icons/hyapp.png", "version": "2.1.0", "description": "需要搭配盒子使用，如需购买请联系徐大兵wechat：554719247" },
+                    { "id": "qishui", "name": "汽水音乐车机版", "url": "./apps/qishui.apk", "size": "37.23 MB", "icon": "./icons/qishui.png", "version": "5.3.1", "description": "字节跳动比较火的音乐播放器" },
+                    { "id": "yingongguanjia", "name": "应用管家", "url": "./apps/yingongguanjia.apk", "size": "14.86 MB", "icon": "./icons/yingongguanjia.png", "version": "3.0.5", "description": "车机应用权限管家" },
+                    { "id": "gaode", "name": "高德地图车机版", "url": "https://1843828265.share.123865.com/123pan/Ny2bTd-JPr8d", "size": "120.26 MB", "icon": "./icons/gaode.png", "version": "9.1", "description": "高德地图9.1.（6群车友修改）正式版-领克OSN专用-科技地图-低调官灯旗帜-玩偶车标-悬浮-8.5fun2026.1.6" },
+                    { "id": "applemusic", "name": "Apple Music", "url": "https://1843828265.share.123865.com/123pan/Ny2bTd-zdp8d", "size": "136.76 MB", "icon": "./icons/AppleMusic.png", "version": "4.2.0", "description": "Apple Music丨v4.9.5.11_大屏版" },
+                    { "id": "shuiguo", "name": "水果互联", "url": "./apps/shuiguo.apk", "size": "28.82 MB", "icon": "./icons/shuiguo.jpg", "version": "176", "description": "免费试用如需购买ukey请联系徐大兵wechat：554719247" },
+                    { "id": "qidongqi", "name": "启动器", "url": "./apps/qidongqi.apk", "size": "4.75 MB", "icon": "./icons/qidongqi.png", "version": "1.2.0", "description": "车机必装应用" }
+                ];
+            }
+            renderApps();
+        }
+
         function getBaseUrl() {
-            return window.location.href.replace(/\/[^\/]*$/, '');
+            return window.location.href.replace(/\/[^\/]*$/, '') || window.location.origin;
         }
+
+        function escapeHtml(str) {
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+
+        function renderApps(filter = '') {
+            const grid = document.getElementById('appGrid');
+            const appCount = document.getElementById('appCount');
+            
+            const filtered = apps.filter(app => 
+                app.name.toLowerCase().includes(filter.toLowerCase())
+            );
+
+            appCount.textContent = filtered.length;
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '';
+                return;
+            }
+
+            grid.innerHTML = filtered.map(app => `
+                <div class="app-card" data-id="${app.id}" role="listitem" tabindex="0">
+                    <img class="app-icon" src="${app.icon}" alt="${escapeHtml(app.name)}" loading="lazy" onerror="this.style.display='none'">
+                    <h3>${escapeHtml(app.name)}</h3>
+                    <p class="app-meta">${app.size}</p>
+                    <button class="install-btn">获取</button>
+                </div>
+            `).join('');
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 2500);
+        }
+
+        function openModal(app) {
+            const overlay = document.getElementById('modalOverlay');
+            const isExternal = app.url.startsWith('http://') || app.url.startsWith('https://');
+            const url = isExternal ? app.url : `${getBaseUrl()}/${app.url.replace(/^\.\//, '')}`;
+            
+            document.getElementById('modalIcon').src = app.icon;
+            document.getElementById('modalIcon').alt = app.name;
+            document.getElementById('modalTitle').textContent = app.name;
+            document.getElementById('modalDesc').textContent = app.description || '';
+            document.getElementById('modalSize').textContent = app.size;
+            document.getElementById('modalVersion').textContent = app.version;
+            document.getElementById('modalUrl').value = url;
+            document.getElementById('modalDownload').href = url;
+            document.getElementById('modalDownload').download = isExternal ? '' : `${app.name}.apk`;
+            
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            document.getElementById('modalCloseBtn').focus();
+        }
+
+        function closeModal() {
+            document.getElementById('modalOverlay').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Event listeners
+        const grid = document.getElementById('appGrid');
         
-        document.querySelectorAll('.software-item').forEach(item => {
-            const url = getBaseUrl() + '/' + item.dataset.url;
-            item.querySelector('.url-input').value = url;
+        grid.addEventListener('click', (e) => {
+            const card = e.target.closest('.app-card');
+            if (!card) return;
+            const app = apps.find(a => a.id === card.dataset.id);
+            if (app) openModal(app);
         });
-        
-        function copyUrl(btn) {
-            const url = btn.parentElement.querySelector('.url-input').value;
+
+        grid.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                const card = e.target.closest('.app-card');
+                if (card) {
+                    e.preventDefault();
+                    const app = apps.find(a => a.id === card.dataset.id);
+                    if (app) openModal(app);
+                }
+            }
+        });
+
+        let searchTimeout;
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => renderApps(e.target.value), 200);
+        });
+
+        document.getElementById('modalCloseBtn').addEventListener('click', closeModal);
+        document.getElementById('modalOverlay').addEventListener('click', (e) => {
+            if (e.target === e.currentTarget) closeModal();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && document.getElementById('modalOverlay').classList.contains('active')) {
+                closeModal();
+            }
+        });
+
+        document.getElementById('modalCopy').addEventListener('click', function() {
+            const url = document.getElementById('modalUrl').value;
             navigator.clipboard.writeText(url).then(() => {
-                btn.textContent = '已复制';
-                btn.classList.add('copied');
+                this.textContent = '已复制';
+                this.classList.add('copied');
+                showToast('链接已复制');
                 setTimeout(() => {
-                    btn.textContent = '复制';
-                    btn.classList.remove('copied');
+                    this.textContent = '复制';
+                    this.classList.remove('copied');
                 }, 2000);
-            });
+            }).catch(() => showToast('复制失败'));
+        });
+
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
         }
+
+        updateThemeIcon();
+
+        themeToggle.addEventListener('click', () => {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+            localStorage.setItem('theme', isDark ? 'light' : 'dark');
+            updateThemeIcon();
+        });
+
+        function updateThemeIcon() {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            if (isDark) {
+                themeIcon.innerHTML = '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>';
+            } else {
+                themeIcon.innerHTML = '<path d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/>';
+            }
+        }
+
+        loadApps();
     </script>
 </body>
 </html>
