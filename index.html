@@ -2,52 +2,50 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>应用商店</title>
+    <link rel="icon" href="./logo.ico" type="image/x-icon">
     <style>
         :root {
             --bg: #f5f5f7;
-            --card-bg: rgba(255, 255, 255, 0.72);
+            --card-bg: rgba(255, 255, 255, 0.85);
             --card-bg-solid: #ffffff;
             --text: #1d1d1f;
             --text-secondary: #6e6e73;
             --primary: #0071e3;
             --primary-hover: #0077ed;
-            --border: rgba(0, 0, 0, 0.06);
-            --shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.1);
-            --radius: 18px;
+            --border: rgba(0, 0, 0, 0.08);
+            --shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.12);
+            --radius: 16px;
             --radius-lg: 24px;
-            --transition: 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+            --transition: 0.25s ease;
         }
 
         [data-theme="dark"] {
-            --bg: #000000;
-            --card-bg: rgba(44, 44, 46, 0.72);
-            --card-bg-solid: #1c1c1e;
+            --bg: #1c1c1e;
+            --card-bg: rgba(44, 44, 46, 0.85);
+            --card-bg-solid: #2c2c2e;
             --text: #f5f5f7;
             --text-secondary: #98989d;
-            --border: rgba(255, 255, 255, 0.08);
-            --shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+            --border: rgba(255, 255, 255, 0.1);
+            --shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
             --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.5);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         html { scroll-behavior: smooth; }
 
         body {
-            font-family: "SF Pro Display", "SF Pro Text", "Helvetica Neue", "Microsoft YaHei", Arial, sans-serif;
+            font-family: "SF Pro Display", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
             background: var(--bg);
             color: var(--text);
-            transition: background var(--transition), color var(--transition);
             min-height: 100vh;
-            line-height: 1.47059;
+            line-height: 1.5;
             font-weight: 400;
             -webkit-font-smoothing: antialiased;
+            font-size: 14px;
         }
-
-        .container { max-width: 1024px; margin: 0 auto; padding: 0 24px; }
 
         /* Header */
         header {
@@ -55,59 +53,60 @@
             top: 0;
             z-index: 100;
             background: var(--card-bg);
-            backdrop-filter: saturate(180%) blur(20px);
-            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            backdrop-filter: saturate(180%) blur(30px);
+            -webkit-backdrop-filter: saturate(180%) blur(30px);
             border-bottom: 1px solid var(--border);
-            padding: 0 24px;
+            padding: 0 20px;
         }
 
         .header-content {
-            max-width: 1024px;
+            max-width: 1200px;
             margin: 0 auto;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            height: 52px;
-            gap: 20px;
+            height: 56px;
+            gap: 16px;
         }
 
         .logo {
-            font-size: 17px;
-            font-weight: 600;
+            font-size: 18px;
+            font-weight: 700;
             color: var(--text);
-            letter-spacing: -0.022em;
             display: flex;
             align-items: center;
             gap: 8px;
+            flex-shrink: 0;
         }
 
-        .logo svg { width: 22px; height: 22px; }
+        .logo svg { width: 28px; height: 28px; }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-left: auto;
+        }
 
         .search-box {
             flex: 1;
-            max-width: 360px;
+            max-width: 320px;
             position: relative;
         }
 
         .search-box input {
             width: 100%;
-            height: 32px;
-            padding: 0 16px 0 36px;
+            height: 36px;
+            padding: 0 14px 0 40px;
             border: none;
-            border-radius: 980px;
-            background: rgba(0, 0, 0, 0.04);
-            font-size: 15px;
+            border-radius: 18px;
+            background: rgba(0, 0, 0, 0.06);
+            font-size: 14px;
             color: var(--text);
-            transition: background var(--transition);
         }
 
         [data-theme="dark"] .search-box input { background: rgba(255, 255, 255, 0.08); }
-
-        .search-box input:focus {
-            outline: none;
-            background: rgba(0, 113, 227, 0.08);
-        }
-
+        .search-box input:focus { outline: none; background: rgba(0, 0, 0, 0.1); }
+        [data-theme="dark"] .search-box input:focus { background: rgba(255, 255, 255, 0.12); }
         .search-box input::placeholder { color: var(--text-secondary); }
 
         .search-box svg {
@@ -115,55 +114,162 @@
             left: 12px;
             top: 50%;
             transform: translateY(-50%);
-            width: 14px;
-            height: 14px;
+            width: 16px;
+            height: 16px;
             color: var(--text-secondary);
         }
 
         .theme-toggle {
-            width: 32px;
-            height: 32px;
+            width: 36px;
+            height: 36px;
             border: none;
             border-radius: 50%;
-            background: transparent;
+            background: rgba(0, 0, 0, 0.06);
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--text);
             transition: background var(--transition);
+            flex-shrink: 0;
         }
 
-        .theme-toggle:hover { background: rgba(0, 0, 0, 0.04); }
-        [data-theme="dark"] .theme-toggle:hover { background: rgba(255, 255, 255, 0.08); }
+        [data-theme="dark"] .theme-toggle { background: rgba(255, 255, 255, 0.1); }
+        .theme-toggle:hover { background: rgba(0, 0, 0, 0.1); }
+        [data-theme="dark"] .theme-toggle:hover { background: rgba(255, 255, 255, 0.15); }
         .theme-toggle svg { width: 18px; height: 18px; }
 
-        /* Main */
-        .main { padding: 10px 0 40px; }
+        .qr-toggle {
+            width: 36px;
+            height: 36px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.06);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+        [data-theme="dark"] .qr-toggle { background: rgba(255, 255, 255, 0.1); }
+        .qr-toggle:hover { background: rgba(0, 0, 0, 0.1); }
+        [data-theme="dark"] .qr-toggle:hover { background: rgba(255, 255, 255, 0.15); }
+        .qr-toggle svg { width: 18px; height: 18px; }
+
+        /* Contact Bar */
+        .contact-bar {
+            background: linear-gradient(135deg, var(--primary) 0%, #5856d6 100%);
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 13px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .contact-bar a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.15);
+            transition: background var(--transition);
+        }
+
+        .contact-bar a:hover { background: rgba(255, 255, 255, 0.25); }
+
+        /* Sidebar Wechat */
+        .sidebar-wechat {
+            position: fixed;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 90;
+            background: var(--card-bg-solid);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 12px;
+            cursor: pointer;
+            transition: transform var(--transition), box-shadow var(--transition);
+            animation: sidebarPulse 3s ease-in-out infinite;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @keyframes sidebarPulse {
+            0%, 100% { box-shadow: var(--shadow); }
+            50% { box-shadow: 0 4px 24px rgba(0, 112, 227, 0.25); }
+        }
+
+        .sidebar-wechat:hover {
+            transform: translateY(-50%) scale(1.05);
+            box-shadow: var(--shadow-lg);
+            animation: none;
+        }
+
+        .sidebar-wechat img {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            display: block;
+            transition: transform var(--transition);
+        }
+
+        .sidebar-wechat:hover img {
+            transform: scale(1.05);
+        }
+
+        .sidebar-wechat-label {
+            font-size: 11px;
+            color: var(--text-secondary);
+            text-align: center;
+            margin-top: 8px;
+            font-weight: 500;
+        }
+
+        @media (max-width: 1024px) {
+            .sidebar-wechat { display: none; }
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .main { padding: 20px 0 40px; }
 
         .section-header {
             display: flex;
             justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 20px;
-            padding: 0 4px;
+            align-items: center;
+            margin-bottom: 16px;
         }
 
         .section-title {
-            font-size: 28px;
-            font-weight: 600;
-            letter-spacing: -0.022em;
-            color: var(--text);
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
         }
 
         .app-count {
-            font-size: 14px;
+            font-size: 13px;
             color: var(--text-secondary);
+            background: var(--card-bg-solid);
+            padding: 6px 12px;
+            border-radius: 16px;
         }
 
+        /* App Grid */
         .app-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
             gap: 16px;
         }
 
@@ -171,70 +277,128 @@
             background: var(--card-bg);
             backdrop-filter: saturate(180%) blur(20px);
             -webkit-backdrop-filter: saturate(180%) blur(20px);
-            border-radius: var(--radius);
-            padding: 20px 16px 16px;
-            cursor: pointer;
-            transition: transform var(--transition), box-shadow var(--transition);
-            box-shadow: var(--shadow);
             border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px 14px 16px;
+            text-align: center;
+            cursor: pointer;
+            transition: all var(--transition);
+            position: relative;
         }
 
         .app-card:hover {
             transform: translateY(-4px);
             box-shadow: var(--shadow-lg);
+            border-color: transparent;
+        }
+
+        .app-card:active { transform: translateY(-2px); }
+
+        .app-icon-wrap {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 12px;
         }
 
         .app-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 16px;
-            margin: 0 auto 12px;
+            width: 64px;
+            height: 64px;
+            border-radius: 14px;
             object-fit: contain;
-            display: block;
-            background: transparent;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+            transition: transform var(--transition), box-shadow var(--transition);
         }
 
+        .app-card:hover .app-icon {
+            transform: scale(1.08);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .app-tags {
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            display: flex;
+            gap: 3px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            max-width: 55px;
+        }
+
+        .app-tag {
+            font-size: 9px;
+            font-weight: 700;
+            padding: 2px 5px;
+            border-radius: 4px;
+            white-space: nowrap;
+            text-transform: uppercase;
+        }
+
+        .app-tag.hot { background: #ff3b30; color: white; }
+        .app-tag.new { background: #34c759; color: white; }
+        .app-tag.recommend { background: #ff9500; color: white; }
+
         .app-card h3 {
-            font-size: 15px;
-            font-weight: 500;
+            font-size: 14px;
+            font-weight: 600;
             color: var(--text);
-            text-align: center;
             margin-bottom: 4px;
-            letter-spacing: -0.01em;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .app-meta {
-            text-align: center;
             font-size: 12px;
             color: var(--text-secondary);
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .install-btn {
             width: 100%;
-            height: 32px;
-            background: var(--primary);
+            height: 36px;
+            background: linear-gradient(135deg, var(--primary) 0%, #005bb5 100%);
             color: white;
             border: none;
-            border-radius: 980px;
-            font-size: 13px;
-            font-weight: 500;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
             cursor: pointer;
-            transition: background var(--transition), transform 0.1s;
-            letter-spacing: 0.02em;
+            transition: all var(--transition);
+            position: relative;
+            overflow: hidden;
         }
 
-        .install-btn:hover { background: var(--primary-hover); }
-        .install-btn:active { transform: scale(0.97); }
+        .install-btn:hover {
+            background: linear-gradient(135deg, var(--primary-hover) 0%, #005bb5 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 113, 227, 0.3);
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-secondary);
+        }
+
+        .empty-state svg {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 16px;
+            opacity: 0.4;
+        }
+
+        .empty-state p { font-size: 15px; }
 
         /* Modal */
         .modal-overlay {
             display: none;
             position: fixed;
             inset: 0;
-            background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(40px);
-            -webkit-backdrop-filter: blur(40px);
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(50px);
+            -webkit-backdrop-filter: blur(50px);
             z-index: 200;
             justify-content: center;
             align-items: center;
@@ -243,31 +407,25 @@
             transition: opacity 0.25s ease;
         }
 
-        .modal-overlay.active {
-            display: flex;
-            opacity: 1;
-        }
+        .modal-overlay.active { display: flex; opacity: 1; }
 
         .modal {
-            background: #ffffff;
+            background: var(--card-bg-solid);
             border-radius: var(--radius-lg);
             width: 100%;
             max-width: 400px;
             overflow: hidden;
-            transform: scale(0.96) translateY(8px);
-            transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+            transform: scale(0.95) translateY(20px);
+            transition: transform 0.3s ease;
             border: 1px solid var(--border);
-            max-height: 90vh;
+            max-height: 80vh;
             overflow-y: auto;
-            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.15);
         }
 
-        .modal-overlay.active .modal {
-            transform: scale(1) translateY(0);
-        }
+        .modal-overlay.active .modal { transform: scale(1) translateY(0); }
 
         .modal-header {
-            padding: 32px 24px 24px;
+            padding: 28px 24px 20px;
             text-align: center;
             position: relative;
         }
@@ -276,36 +434,63 @@
             position: absolute;
             top: 12px;
             right: 12px;
-            width: 28px;
-            height: 28px;
+            width: 32px;
+            height: 32px;
             border: none;
             border-radius: 50%;
-            background: rgba(0, 0, 0, 0.06);
+            background: rgba(0, 0, 0, 0.08);
             cursor: pointer;
             color: var(--text-secondary);
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: background var(--transition);
-            font-size: 16px;
+            font-size: 18px;
+            transition: all var(--transition);
         }
 
         [data-theme="dark"] .modal-close-btn { background: rgba(255, 255, 255, 0.12); color: var(--text); }
-        .modal-close-btn:hover { background: rgba(0, 0, 0, 0.12); }
-
-        .modal-icon {
-            width: 96px;
-            height: 96px;
-            border-radius: 20px;
-            margin: 0 auto 16px;
-            object-fit: contain;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        .modal-close-btn:hover {
+            background: rgba(0, 0, 0, 0.15);
+            color: var(--text);
+            transform: rotate(90deg);
         }
 
+        .modal-icon-wrap {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 14px;
+        }
+
+        .modal-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 16px;
+            object-fit: contain;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .modal-tags {
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            display: flex;
+            gap: 3px;
+        }
+
+        .modal-tag {
+            font-size: 10px;
+            font-weight: 700;
+            padding: 3px 6px;
+            border-radius: 4px;
+        }
+
+        .modal-tag.hot { background: #ff3b30; color: white; }
+        .modal-tag.new { background: #34c759; color: white; }
+        .modal-tag.recommend { background: #ff9500; color: white; }
+
         .modal-header h2 {
-            font-size: 24px;
-            font-weight: 600;
-            letter-spacing: -0.015em;
+            font-size: 22px;
+            font-weight: 700;
             color: var(--text);
             margin-bottom: 4px;
         }
@@ -322,8 +507,8 @@
             color: var(--text-secondary);
             text-align: center;
             line-height: 1.5;
-            margin-bottom: 20px;
-            padding-bottom: 20px;
+            margin-bottom: 18px;
+            padding-bottom: 18px;
             border-bottom: 1px solid var(--border);
         }
 
@@ -337,89 +522,115 @@
 
         .info-row:last-of-type { border-bottom: none; }
         .info-label { color: var(--text-secondary); }
-        .info-value { color: var(--text); font-weight: 500; }
+        .info-value { color: var(--text); font-weight: 600; }
+        .info-value.tag { color: var(--primary); }
 
-        .info-value.tag {
-            color: var(--primary);
-            font-weight: 500;
-        }
-
-        .url-section { margin-top: 20px; }
+        .url-section { margin-top: 18px; }
 
         .url-label {
             font-size: 12px;
             color: var(--text-secondary);
             margin-bottom: 8px;
             text-transform: uppercase;
-            letter-spacing: 0.04em;
+            letter-spacing: 0.05em;
         }
 
-        .url-row {
-            display: flex;
-            gap: 8px;
-        }
+        .url-row { display: flex; gap: 10px; }
 
         .url-input {
             flex: 1;
-            height: 36px;
-            background: rgba(0, 0, 0, 0.03);
+            height: 40px;
+            background: rgba(0, 0, 0, 0.04);
             border: 1px solid var(--border);
             border-radius: 8px;
             padding: 0 12px;
             font-size: 12px;
             color: var(--text-secondary);
-            font-family: "SF Mono", "Menlo", monospace;
-            min-width: 0;
+            font-family: inherit;
         }
 
         [data-theme="dark"] .url-input { background: rgba(255, 255, 255, 0.06); }
-
         .url-input:focus { outline: none; border-color: var(--primary); }
 
         .copy-btn {
-            height: 36px;
-            padding: 0 16px;
-            background: rgba(0, 0, 0, 0.05);
+            height: 40px;
+            padding: 0 18px;
+            background: rgba(0, 0, 0, 0.06);
             border: none;
             border-radius: 8px;
             cursor: pointer;
             font-size: 13px;
-            font-weight: 500;
+            font-weight: 600;
             color: var(--primary);
             transition: background var(--transition);
             white-space: nowrap;
         }
 
         [data-theme="dark"] .copy-btn { background: rgba(255, 255, 255, 0.1); }
-        .copy-btn:hover { background: rgba(0, 113, 227, 0.1); }
-        .copy-btn.copied { background: rgba(0, 113, 227, 0.15); color: var(--primary); }
+        .copy-btn:hover { background: rgba(0, 113, 227, 0.15); }
+        .copy-btn.copied { background: rgba(0, 113, 227, 0.2); color: var(--primary); }
 
-        .modal-footer {
-            padding: 16px 24px 24px;
-        }
+        .modal-footer { padding: 4px 24px 24px; }
 
         .modal-footer .download-btn {
             width: 100%;
             height: 50px;
-            background: var(--primary);
+            background: linear-gradient(135deg, var(--primary) 0%, #005bb5 100%);
             color: white;
             border: none;
-            border-radius: 980px;
+            border-radius: 14px;
             font-size: 17px;
-            font-weight: 500;
+            font-weight: 600;
             cursor: pointer;
             text-decoration: none;
-            transition: background var(--transition), transform 0.1s;
+            transition: all var(--transition);
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            letter-spacing: 0.02em;
+            position: relative;
+            overflow: hidden;
         }
 
-        .modal-footer .download-btn:hover { background: var(--primary-hover); }
-        .modal-footer .download-btn:active { transform: scale(0.98); }
-        .modal-footer .download-btn svg { width: 18px; height: 18px; }
+        .modal-footer .download-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .modal-footer .download-btn:hover {
+            background: linear-gradient(135deg, var(--primary-hover) 0%, #005bb5 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(0, 113, 227, 0.35);
+        }
+
+        .modal-footer .download-btn:hover::before { left: 100%; }
+
+        .modal-footer .download-btn svg { width: 20px; height: 20px; }
+
+        .modal-footer .download-btn.loading {
+            pointer-events: none;
+            opacity: 0.8;
+        }
+
+        .modal-footer .download-btn.loading::after {
+            content: '';
+            width: 18px;
+            height: 18px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: btnSpin 0.8s linear infinite;
+        }
+
+        @keyframes btnSpin {
+            to { transform: rotate(360deg); }
+        }
 
         /* Toast */
         .toast {
@@ -430,70 +641,132 @@
             background: var(--text);
             color: var(--card-bg-solid);
             padding: 14px 28px;
-            border-radius: 980px;
+            border-radius: 14px;
             font-size: 15px;
-            font-weight: 500;
+            font-weight: 600;
             z-index: 300;
             opacity: 0;
-            transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 0.4s;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            transition: transform 0.4s ease, opacity 0.4s;
+            box-shadow: 0 10px 32px rgba(0, 0, 0, 0.25);
         }
 
-        .toast.show {
-            transform: translateX(-50%) translateY(0);
-            opacity: 1;
+        .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+
+        /* QR Modal */
+        .qr-modal {
+            max-width: 400px;
+        }
+
+        .qr-modal .modal-header h2 {
+            font-size: 18px;
+        }
+
+        .qr-body {
+            display: flex;
+            gap: 24px;
+            padding: 20px 24px 28px;
+            align-items: flex-start;
+        }
+
+        .qr-item {
+            flex: 1;
+            text-align: center;
+        }
+
+        .qr-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 10px;
+        }
+
+        .qr-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        @media (max-width: 480px) {
+            .qr-body {
+                flex-direction: column;
+                gap: 16px;
+                padding: 16px 20px 24px;
+            }
+            .qr-img {
+                width: 140px;
+                height: 140px;
+            }
+            .qr-modal .qr-img {
+                width: 140px;
+                height: 140px;
+            }
         }
 
         /* Footer */
         footer {
             text-align: center;
-            padding: 0 20px;
+            padding: 16px;
             color: var(--text-secondary);
             font-size: 12px;
             border-top: 1px solid var(--border);
-            height: 52px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         footer a { color: var(--primary); text-decoration: none; }
         footer a:hover { text-decoration: underline; }
 
         /* Responsive */
-        @media (max-width: 600px) {
-            .header-content { padding: 0 16px; gap: 12px; }
-            .logo { font-size: 15px; }
-            .logo svg { width: 18px; height: 18px; }
+        @media (max-width: 768px) {
+            header { padding: 0 16px; }
+            .header-content { height: 52px; gap: 12px; }
+            .logo { font-size: 16px; }
+            .logo svg { width: 24px; height: 24px; }
             .search-box { max-width: none; }
-            .search-box input { height: 28px; font-size: 13px; }
-            .theme-toggle { width: 28px; height: 28px; }
+            .search-box input { height: 36px; font-size: 14px; padding: 0 12px 0 36px; }
+            .search-box svg { width: 16px; height: 16px; left: 10px; }
+            .theme-toggle, .qr-toggle { width: 36px; height: 36px; }
+            .theme-toggle svg, .qr-toggle svg { width: 18px; height: 18px; }
+
+            .contact-bar { padding: 8px 16px; font-size: 12px; }
+            .contact-bar a { display: inline; }
+
             .container { padding: 0 16px; }
             .main { padding: 16px 0 32px; }
+            .section-header { margin-bottom: 14px; }
+            .section-title { font-size: 18px; }
+            .app-count { font-size: 12px; padding: 4px 10px; }
+
             .app-grid {
-                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-                gap: 10px;
-                padding: 0 4px;
+                grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+                gap: 12px;
             }
-            .app-card { padding: 14px 10px 10px; }
-            .app-icon { width: 64px; height: 64px; border-radius: 12px; margin-bottom: 8px; }
+
+            .app-card { padding: 16px 12px 12px; }
+            .app-icon { width: 56px; height: 56px; border-radius: 12px; }
             .app-card h3 { font-size: 13px; }
-            .app-meta { font-size: 11px; margin-bottom: 8px; }
-            .install-btn { height: 28px; font-size: 12px; }
-            footer { height: 44px; font-size: 11px; padding: 0 12px; }
+            .app-meta { font-size: 11px; margin-bottom: 10px; }
+            .install-btn { height: 32px; font-size: 13px; border-radius: 8px; }
+
             .modal { max-width: 100%; border-radius: 20px 20px 0 0; }
             .modal-overlay { align-items: flex-end; padding: 0; }
             .modal-header { padding: 24px 20px 16px; }
-            .modal-icon { width: 72px; height: 72px; border-radius: 16px; }
+            .modal-icon { width: 72px; height: 72px; border-radius: 14px; }
             .modal-header h2 { font-size: 20px; }
             .modal-body { padding: 0 20px 16px; }
-            .modal-footer { padding: 12px 20px 20px; }
-            .modal-footer .download-btn { height: 44px; font-size: 15px; }
-            .toast { bottom: 20px; padding: 10px 20px; font-size: 13px; }
+            .modal-footer { padding: 4px 20px 20px; }
+            .modal-footer .download-btn { height: 48px; font-size: 16px; border-radius: 12px; }
+            .toast { bottom: 20px; padding: 12px 24px; font-size: 14px; }
+            footer { padding: 14px; font-size: 11px; }
         }
 
-        @media (max-width: 380px) {
-            .app-grid { grid-template-columns: repeat(2, 1fr); }
+        @media (max-width: 480px) {
+            .app-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .app-card { padding: 14px 10px 10px; }
+            .app-icon { width: 52px; height: 52px; border-radius: 10px; }
+            .app-tags { max-width: 45px; }
+            .app-tag { font-size: 8px; padding: 2px 4px; }
+            .app-card h3 { font-size: 12px; }
+            .install-btn { height: 30px; font-size: 12px; }
         }
     </style>
 </head>
@@ -509,6 +782,7 @@
                 </svg>
                 应用商店
             </div>
+
             <div class="search-box">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <circle cx="11" cy="11" r="8"/>
@@ -516,25 +790,57 @@
                 </svg>
                 <input type="text" id="searchInput" placeholder="搜索应用..." autocomplete="off">
             </div>
-            <button class="theme-toggle" id="themeToggle" title="切换主题">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" id="themeIcon">
-                    <path d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/>
-                </svg>
-            </button>
+
+            <div class="header-actions">
+                <button class="theme-toggle" id="themeToggle" title="切换主题">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" id="themeIcon">
+                        <path d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/>
+                    </svg>
+                </button>
+                <button class="qr-toggle" onclick="openQRModal()" title="扫码支持">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <rect x="3" y="3" width="7" height="7"/>
+                        <rect x="14" y="3" width="7" height="7"/>
+                        <rect x="3" y="14" width="7" height="7"/>
+                        <rect x="14" y="14" width="3" height="3"/>
+                        <path d="M21 14h3"/><path d="M21 21h-3"/><path d="M14 21v-3"/>
+                    </svg>
+                </button>
+            </div>
         </div>
     </header>
 
-    <main class="container main">
-        <div class="section-header">
-            <h2 class="section-title">应用</h2>
-            <span class="app-count" id="appCount">7</span>
-        </div>
-        <div class="app-grid" id="appGrid" role="list"></div>
-        <div class="empty-state" id="emptyState"></div>
-    </main>
+    <div class="contact-bar">
+        如需购买安装工具或技术支持，请联系微信：<a href="javascript:;" onclick="copyText('554719247')">554719247（备注来意）</a>
+        <span style="margin-left:16px;">|</span>
+        <a href="javascript:;" onclick="openQRModal()" style="margin-left:16px;">关注公众号回复03获取安装工具</a>
+    </div>
+
+    <!-- Sidebar Wechat -->
+    <a href="javascript:;" class="sidebar-wechat" onclick="openQRModal()">
+        <img src="./wechat_qrcode.png" alt="公众号">
+        <div class="sidebar-wechat-label">扫码下载安装工具</div>
+    </a>
+
+    <div class="container">
+        <main class="main">
+            <div class="section-header">
+                <h2 class="section-title" id="sectionTitle">全部应用</h2>
+                <span class="app-count" id="appCount">0 个应用</span>
+            </div>
+            <div class="app-grid" id="appGrid" role="list"></div>
+            <div class="empty-state" id="emptyState" style="display:none;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="11" cy="11" r="8"/>
+                    <path d="m21 21-4.35-4.35"/>
+                </svg>
+                <p>没有找到应用</p>
+            </div>
+        </main>
+    </div>
 
     <footer>
-        <p>© 2026 徐大兵维护</p>
+        <p>© 2026 徐大兵维护 · 如有疑问请联系客服</p>
     </footer>
 
     <!-- Modal -->
@@ -542,7 +848,10 @@
         <div class="modal">
             <div class="modal-header">
                 <button class="modal-close-btn" id="modalCloseBtn" aria-label="关闭">×</button>
-                <img class="modal-icon" id="modalIcon" src="" alt="" onerror="this.style.display='none'">
+                <div class="modal-icon-wrap">
+                    <img class="modal-icon" id="modalIcon" src="" alt="" onerror="this.style.display='none'">
+                    <div class="modal-tags" id="modalTags"></div>
+                </div>
                 <h2 id="modalTitle">应用名称</h2>
                 <p id="modalSubtitle">Android 应用</p>
             </div>
@@ -557,8 +866,8 @@
                     <span class="info-value" id="modalSize">-</span>
                 </div>
                 <div class="info-row">
-                    <span class="info-label">类型</span>
-                    <span class="info-value tag">内部使用</span>
+                    <span class="info-label">分类</span>
+                    <span class="info-value tag" id="modalCategory">-</span>
                 </div>
                 <div class="url-section">
                     <div class="url-label">下载链接</div>
@@ -584,135 +893,218 @@
     <!-- Toast -->
     <div class="toast" id="toast"></div>
 
+    <!-- QR Modal -->
+    <div class="modal-overlay" id="qrModalOverlay" role="dialog" aria-modal="true">
+        <div class="modal qr-modal">
+            <div class="modal-header">
+                <button class="modal-close-btn" id="qrModalCloseBtn" aria-label="关闭">×</button>
+                <h2>公众号</h2>
+            </div>
+            <div class="modal-body qr-body" style="flex-direction: column; align-items: center;">
+                <div class="qr-item">
+                    <p style="text-align:center; margin-bottom: 16px; font-size: 14px; color: var(--text);">关注公众号回复 03 获取安装工具</p>
+                    <img src="./wechat_qrcode.png" alt="公众号二维码" class="qr-img">
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
-        let apps = [];
+        const state = {
+            apps: [],
+            filteredApps: [],
+            searchQuery: '',
+            currentTag: 'all'
+        };
+
+        const defaultApps = [
+            { id: "hyapp", name: "HYCarPlay", url: "./apps/hyapp.apk", size: "5.87 MB", icon: "./icons/hyapp.png", version: "2.1.0", category: "工具", tags: [], description: "需要搭配盒子使用，如需购买请联系徐大兵wechat：554719247" },
+            { id: "qishui", name: "汽水音乐车机版", url: "./apps/qishui.apk", size: "37.23 MB", icon: "./icons/qishui.png", version: "5.3.1", category: "音乐", tags: [], description: "字节跳动比较火的音乐播放器" },
+            { id: "yingongguanjia", name: "应用管家", url: "./apps/yingongguanjia.apk", size: "14.86 MB", icon: "./icons/yingongguanjia.png", version: "v1.8.6", category: "工具", tags: [], description: "应用管家v1.8.6（5月18日）-修复了文件下载&固定互传IP" },
+            { id: "gaode", name: "高德地图车机版", url: "https://1843828265.share.123865.com/123pan/Ny2bTd-JPr8d", size: "120.26 MB", icon: "./icons/gaode.png", version: "9.1", category: "导航", tags: [], description: "高德地图9.1.（6群车友修改）正式版-领克OSN专用-科技地图-低调官灯旗帜-玩偶车标-悬浮-8.5fun2026.1.6" },
+            { id: "applemusic", name: "Apple Music", url: "https://1843828265.share.123865.com/123pan/Ny2bTd-zdp8d", size: "136.76 MB", icon: "./icons/AppleMusic.png", version: "4.2.0", category: "音乐", tags: [], description: "Apple Music定制版本" },
+            { id: "shuiguo", name: "水果互联", url: "./apps/shuiguo.apk", size: "28.82 MB", icon: "./icons/shuiguo.jpg", version: "176", category: "工具", tags: [], description: "免费试用如需购买ukey请联系徐大兵wechat：554719247" },
+            { id: "qidongqi", name: "启动器", url: "./apps/qidongqi.apk", size: "4.75 MB", icon: "./icons/qidongqi.png", version: "1.2.0", category: "工具", tags: [], description: "车机必装应用" },
+            { id: "lynktool", name: "领克工具箱", url: "./apps/lynktool.apk", size: "4.75 MB", icon: "./icons/lynktool.png", version: "V0.5.6", category: "工具", tags: [], description: "领克OSN车机助手" }
+        ];
+
+        const $ = id => document.getElementById(id);
 
         async function loadApps() {
             try {
-                const res = await fetch('./apps.json');
-                apps = await res.json();
+                const res = await fetch('./apps.json?t=' + Date.now(), { cache: 'no-store' });
+                state.apps = await res.json();
             } catch (e) {
-                apps = [
-                    { "id": "hyapp", "name": "HYCarPlay", "url": "./apps/hyapp.apk", "size": "5.87 MB", "icon": "./icons/hyapp.png", "version": "2.1.0", "description": "需要搭配盒子使用，如需购买请联系徐大兵wechat：554719247" },
-                    { "id": "qishui", "name": "汽水音乐车机版", "url": "./apps/qishui.apk", "size": "37.23 MB", "icon": "./icons/qishui.png", "version": "5.3.1", "description": "字节跳动比较火的音乐播放器" },
-                    { "id": "yingongguanjia", "name": "应用管家", "url": "./apps/yingongguanjia.apk", "size": "14.86 MB", "icon": "./icons/yingongguanjia.png", "version": "3.0.5", "description": "车机应用权限管家" },
-                    { "id": "gaode", "name": "高德地图车机版", "url": "https://1843828265.share.123865.com/123pan/Ny2bTd-JPr8d", "size": "120.26 MB", "icon": "./icons/gaode.png", "version": "9.1", "description": "高德地图9.1.（6群车友修改）正式版-领克OSN专用-科技地图-低调官灯旗帜-玩偶车标-悬浮-8.5fun2026.1.6" },
-                    { "id": "applemusic", "name": "Apple Music", "url": "https://1843828265.share.123865.com/123pan/Ny2bTd-zdp8d", "size": "136.76 MB", "icon": "./icons/AppleMusic.png", "version": "4.2.0", "description": "Apple Music丨v4.9.5.11_大屏版" },
-                    { "id": "shuiguo", "name": "水果互联", "url": "./apps/shuiguo.apk", "size": "28.82 MB", "icon": "./icons/shuiguo.jpg", "version": "176", "description": "免费试用如需购买ukey请联系徐大兵wechat：554719247" },
-                    { "id": "qidongqi", "name": "启动器", "url": "./apps/qidongqi.apk", "size": "4.75 MB", "icon": "./icons/qidongqi.png", "version": "1.2.0", "description": "车机必装应用" }
-                ];
+                state.apps = defaultApps;
             }
+            applyFilters();
+        }
+
+        function applyFilters() {
+            let apps = [...state.apps];
+
+            if (state.searchQuery) {
+                const q = state.searchQuery.toLowerCase();
+                apps = apps.filter(app => app.name.toLowerCase().includes(q));
+            }
+
+            state.filteredApps = apps;
             renderApps();
         }
 
-        function getBaseUrl() {
-            return window.location.href.replace(/\/[^\/]*$/, '') || window.location.origin;
-        }
+        function renderApps() {
+            const { filteredApps, currentTag, searchQuery } = state;
 
-        function escapeHtml(str) {
-            const div = document.createElement('div');
-            div.textContent = str;
-            return div.innerHTML;
-        }
-
-        function renderApps(filter = '') {
-            const grid = document.getElementById('appGrid');
-            const appCount = document.getElementById('appCount');
-            
-            const filtered = apps.filter(app => 
-                app.name.toLowerCase().includes(filter.toLowerCase())
-            );
-
-            appCount.textContent = filtered.length;
-
-            if (filtered.length === 0) {
-                grid.innerHTML = '';
-                return;
+            if (searchQuery) {
+                $('sectionTitle').textContent = `搜索"${searchQuery}"`;
+            } else if (currentTag !== 'all') {
+                $('sectionTitle').textContent = currentTag;
+            } else {
+                $('sectionTitle').textContent = '全部应用';
             }
 
-            grid.innerHTML = filtered.map(app => `
+            $('appCount').textContent = `${filteredApps.length} 个应用`;
+
+            if (filteredApps.length === 0) {
+                $('appGrid').innerHTML = '';
+                $('emptyState').style.display = 'block';
+                return;
+            }
+            $('emptyState').style.display = 'none';
+
+            $('appGrid').innerHTML = filteredApps.map(app => `
                 <div class="app-card" data-id="${app.id}" role="listitem" tabindex="0">
-                    <img class="app-icon" src="${app.icon}" alt="${escapeHtml(app.name)}" loading="lazy" onerror="this.style.display='none'">
-                    <h3>${escapeHtml(app.name)}</h3>
+                    <div class="app-icon-wrap">
+                        <img class="app-icon" src="${app.icon}" alt="${e(app.name)}" loading="lazy" onerror="this.style.display='none'">
+                        ${renderAppTags(app.tags)}
+                    </div>
+                    <h3>${e(app.name)}</h3>
                     <p class="app-meta">${app.size}</p>
                     <button class="install-btn">获取</button>
                 </div>
             `).join('');
         }
 
+        function renderAppTags(tags = []) {
+            return tags.slice(0, 2).map(tag => {
+                const cls = tag === '最新' ? 'new' : tag === '热门' ? 'hot' : 'recommend';
+                return `<span class="app-tag ${cls}">${tag}</span>`;
+            }).join('');
+        }
+
+        function e(str) {
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+
         function showToast(message) {
-            const toast = document.getElementById('toast');
+            const toast = $('toast');
             toast.textContent = message;
             toast.classList.add('show');
             setTimeout(() => toast.classList.remove('show'), 2500);
         }
 
-        function openModal(app) {
-            const overlay = document.getElementById('modalOverlay');
-            const isExternal = app.url.startsWith('http://') || app.url.startsWith('https://');
-            const url = isExternal ? app.url : `${getBaseUrl()}/${app.url.replace(/^\.\//, '')}`;
-            
-            document.getElementById('modalIcon').src = app.icon;
-            document.getElementById('modalIcon').alt = app.name;
-            document.getElementById('modalTitle').textContent = app.name;
-            document.getElementById('modalDesc').textContent = app.description || '';
-            document.getElementById('modalSize').textContent = app.size;
-            document.getElementById('modalVersion').textContent = app.version;
-            document.getElementById('modalUrl').value = url;
-            document.getElementById('modalDownload').href = url;
-            document.getElementById('modalDownload').download = isExternal ? '' : `${app.name}.apk`;
-            
-            overlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            document.getElementById('modalCloseBtn').focus();
+        function copyText(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                showToast('微信号已复制：' + text);
+            }).catch(() => showToast('复制失败'));
         }
 
-        function closeModal() {
-            document.getElementById('modalOverlay').classList.remove('active');
+        function openQRModal() {
+            $('qrModalOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeQRModal() {
+            $('qrModalOverlay').classList.remove('active');
             document.body.style.overflow = '';
         }
 
+        function openModal(app) {
+            const isExternal = app.url.startsWith('http');
+            const url = isExternal ? app.url : `${getBaseUrl()}/${app.url.replace(/^\.\//, '')}`;
+
+            $('modalIcon').src = app.icon;
+            $('modalIcon').alt = app.name;
+            $('modalTitle').textContent = app.name;
+            $('modalSubtitle').textContent = app.category || 'Android 应用';
+            $('modalDesc').textContent = app.description || '';
+            $('modalSize').textContent = app.size;
+            $('modalVersion').textContent = app.version;
+            $('modalCategory').textContent = app.category || '其他';
+            $('modalUrl').value = url;
+            $('modalDownload').href = url;
+            $('modalDownload').download = isExternal ? '' : `${app.name}.apk`;
+            $('modalTags').innerHTML = renderAppTags(app.tags || []);
+
+            $('modalOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            $('modalOverlay').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function getBaseUrl() {
+            return window.location.href.replace(/\/[^\/]*$/, '') || window.location.origin;
+        }
+
+        function updateThemeIcon() {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            $('themeIcon').innerHTML = isDark
+                ? '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>'
+                : '<path d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/>';
+        }
+
         // Event listeners
-        const grid = document.getElementById('appGrid');
-        
-        grid.addEventListener('click', (e) => {
+        $('appGrid').addEventListener('click', (e) => {
             const card = e.target.closest('.app-card');
             if (!card) return;
-            const app = apps.find(a => a.id === card.dataset.id);
+            const app = state.apps.find(a => a.id === card.dataset.id);
             if (app) openModal(app);
         });
 
-        grid.addEventListener('keydown', (e) => {
+        $('appGrid').addEventListener('keydown', (e) => {
             if (e.key === 'Enter' || e.key === ' ') {
                 const card = e.target.closest('.app-card');
                 if (card) {
                     e.preventDefault();
-                    const app = apps.find(a => a.id === card.dataset.id);
+                    const app = state.apps.find(a => a.id === card.dataset.id);
                     if (app) openModal(app);
                 }
             }
         });
 
         let searchTimeout;
-        document.getElementById('searchInput').addEventListener('input', (e) => {
+        $('searchInput').addEventListener('input', (e) => {
             clearTimeout(searchTimeout);
-            searchTimeout = setTimeout(() => renderApps(e.target.value), 200);
+            searchTimeout = setTimeout(() => {
+                state.searchQuery = e.target.value.trim();
+                applyFilters();
+            }, 200);
         });
 
-        document.getElementById('modalCloseBtn').addEventListener('click', closeModal);
-        document.getElementById('modalOverlay').addEventListener('click', (e) => {
+        $('modalCloseBtn').addEventListener('click', closeModal);
+        $('modalOverlay').addEventListener('click', (e) => {
             if (e.target === e.currentTarget) closeModal();
         });
 
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && document.getElementById('modalOverlay').classList.contains('active')) {
-                closeModal();
+            if (e.key === 'Escape') {
+                if ($('modalOverlay').classList.contains('active')) closeModal();
+                if ($('qrModalOverlay').classList.contains('active')) closeQRModal();
             }
         });
 
-        document.getElementById('modalCopy').addEventListener('click', function() {
-            const url = document.getElementById('modalUrl').value;
-            navigator.clipboard.writeText(url).then(() => {
+        $('qrModalCloseBtn').addEventListener('click', closeQRModal);
+        $('qrModalOverlay').addEventListener('click', (e) => {
+            if (e.target === e.currentTarget) closeQRModal();
+        });
+
+        $('modalCopy').addEventListener('click', function() {
+            navigator.clipboard.writeText($('modalUrl').value).then(() => {
                 this.textContent = '已复制';
                 this.classList.add('copied');
                 showToast('链接已复制');
@@ -723,31 +1115,17 @@
             }).catch(() => showToast('复制失败'));
         });
 
-        // Theme toggle
-        const themeToggle = document.getElementById('themeToggle');
-        const themeIcon = document.getElementById('themeIcon');
-        
-        if (localStorage.getItem('theme') === 'dark') {
-            document.documentElement.setAttribute('data-theme', 'dark');
-        }
-
-        updateThemeIcon();
-
-        themeToggle.addEventListener('click', () => {
+        $('themeToggle').addEventListener('click', () => {
             const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
             document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
             localStorage.setItem('theme', isDark ? 'light' : 'dark');
             updateThemeIcon();
         });
 
-        function updateThemeIcon() {
-            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-            if (isDark) {
-                themeIcon.innerHTML = '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>';
-            } else {
-                themeIcon.innerHTML = '<path d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/>';
-            }
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
         }
+        updateThemeIcon();
 
         loadApps();
     </script>
