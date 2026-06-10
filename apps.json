@@ -3,9 +3,9 @@
     "id": "hyapp",
     "name": "HYCarPlay",
     "url": "./apps/hyapp.apk",
-    "size": "v5.87 MB",
+    "size": "5.87 MB",
     "icon": "./icons/hyapp.png",
-    "version": "2.1.0",
+    "version": "v1.10.4",
     "category": "工具",
     "tags": [],
     "description": "需要搭配盒子使用，如需购买请联系徐大兵wechat：554719247"
@@ -16,7 +16,7 @@
     "url": "./apps/qishui.apk",
     "size": "37.23 MB",
     "icon": "./icons/qishui.png",
-    "version": "v5.3.1",
+    "version": "v1.0.9",
     "category": "音乐",
     "tags": [],
     "description": "字节跳动比较火的音乐播放器"
