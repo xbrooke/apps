@@ -1176,7 +1176,7 @@
             grid.innerHTML = filteredApps.map(app => `
                 <div class="app-card" data-id="${app.id}" role="listitem" tabindex="0">
                     <div class="app-icon-wrap">
-                        <img class="app-icon" src="${app.icon}" alt="${esc(app.name)}" loading="lazy" onerror="this.style.opacity='0'">
+                        <img class="app-icon" src="${app.icon}" data-base="${app.icon}" alt="${esc(app.name)}" loading="lazy" onerror="this.style.opacity='0'">
                         ${renderAppTags(app.tags)}
                     </div>
                     <h3>${esc(app.name)}</h3>
@@ -1247,7 +1247,7 @@
             const isExternal = app.url.startsWith('http');
             const url = isExternal ? app.url : `${getBaseUrl()}/${app.url.replace(/^\.\//, '')}`;
 
-            $('modalIcon').src = app.icon;
+            $('modalIcon').src = resolveUrl(app.icon);
             $('modalIcon').alt = app.name;
             $('modalTitle').textContent = app.name;
             $('modalSubtitle').textContent = (app.category || '应用') + ' · Android';
@@ -1271,6 +1271,18 @@
 
         function getBaseUrl() {
             return window.location.href.replace(/\/[^\/]*$/, '') || window.location.origin;
+        }
+
+        // 标准化相对路径为完整 file:// / http:// URL，避免 file:// 协议下相对路径解析不一致
+        function resolveUrl(relativePath) {
+            if (!relativePath) return '';
+            if (/^(https?:|file:)/.test(relativePath)) return relativePath;
+            const cleaned = relativePath.replace(/^\.\//, '');
+            try {
+                return new URL(cleaned, document.baseURI).href;
+            } catch (e) {
+                return `${getBaseUrl()}/${cleaned}`;
+            }
         }
 
         function updateThemeIcon() {
@@ -1318,7 +1330,7 @@
             $('heroEyebrow').textContent = '编辑精选';
             $('heroTitle').textContent = app.name;
             $('heroDesc').textContent = app.description || '精选车机应用';
-            $('heroIcon').src = app.icon;
+            $('heroIcon').src = resolveUrl(app.icon);
             $('heroIcon').alt = app.name;
             $('heroCta').onclick = () => openModal(app);
 
