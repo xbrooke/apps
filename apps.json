@@ -152,5 +152,16 @@
     "category": "工具",
     "tags": [],
     "description": "MT管理器，用于管理车机"
+  },
+  {
+    "id": "zk",
+    "name": "小八智控大师",
+    "url": "https://lz0.qaiu.top/parser?url=https://share.feijipan.com/s/Sm2rkIOS",
+    "size": "7.97 MB",
+    "icon": "./icons/zhikong.png",
+    "version": "v1.6.3",
+    "category": "工具",
+    "tags": [],
+    "description": "小八智控大师，用于第三方APP方控"
   }
 ]
