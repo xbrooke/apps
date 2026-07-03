@@ -12,6 +12,8 @@ on:
       - 'check_urls.py'
       - 'reclassify.py'
       - 'dedup.py'
+      - 'extract_icons.py'
+      - 'check_icons.py'
       - '.github/workflows/sync.yml'
 
 concurrency:
@@ -59,11 +61,14 @@ jobs:
       - name: 5) url 自检 + 失效自动重拉 sign
         run: python check_urls.py --concurrency 8
 
+      - name: 5.5) 提取缺失的 icon（仅缺图标的 apk）
+        run: python extract_icons.py --concurrency 2
+
       - name: 6) commit & push
         run: |
           git config user.name "dbstore-bot"
           git config user.email "dbstore-bot@users.noreply.github.com"
-          git add apps.json apps_remote.json
+          git add apps.json apps_remote.json icons/ check_icons.py 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "无变化，跳过 commit"
           else
