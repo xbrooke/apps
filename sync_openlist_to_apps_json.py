@@ -222,7 +222,7 @@ def walk_apks(client: OpenList, token: str, root: str, max_depth: int) -> list[d
                 dfs(f"{path.rstrip('/')}/{it['name']}", depth + 1)
             else:
                 name = it.get("name", "")
-                if name.lower().endswith((".apk", ".zip", ".apks", ".xapk")):
+                if name.lower().endswith(".apk"):  # 只拉 .apk，过滤掉 .zip/.apks/.xapk
                     apks.append({
                         "name": name,
                         "size": it.get("size", 0),
