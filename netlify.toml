@@ -6,8 +6,3 @@
   from = "/*"
   to = "/:splat"
   status = 200
-
-# Scheduled Function: 每 6 小时跑一次 sync
-# 语法: https://docs.netlify.com/build/scheduled-functions/syntax/
-[functions."sync"]
-  schedule = "@every 6h"
