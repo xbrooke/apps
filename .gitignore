@@ -1,0 +1,25 @@
+# OpenList 配置（包含明文密码，绝不能入仓）
+openlist.config.json
+
+# 待上传 APK 暂存目录
+_inbox/
+
+# 探测 / 临时文件
+_probe*.py
+_*.txt
+_*.json
+_*.log
+_sshkey/
+_list_root.py
+_dirs.log
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Netlify
+.netlify/
+
+# 临时备份
+*.bak

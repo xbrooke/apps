@@ -1,0 +1,71 @@
+name: Sync OpenList → apps.json
+
+on:
+  schedule:
+    - cron: '0 18,0,6,12 * * *'  # 北京时间 02:00 / 08:00 / 14:00 / 20:00
+  workflow_dispatch:
+  paths:
+    - 'manifest.csv'
+    - 'sync_openlist_to_apps_json.py'
+    - 'optimize_name.py'
+    - 'check_urls.py'
+    - 'reclassify.py'
+    - 'dedup.py'
+    - '.github/workflows/sync.yml'
+
+concurrency:
+  group: sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_PAT }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - run: pip install requests
+
+      - name: 写入 openlist.config.json
+        run: |
+          cat > openlist.config.json <<'EOF'
+          {
+            "base_url": "${{ secrets.OPENLIST_BASE }}",
+            "username": "${{ secrets.OPENLIST_USER }}",
+            "password": "${{ secrets.OPENLIST_PASS }}",
+            "url_mode": "openlist"
+          }
+          EOF
+
+      - name: 1) 同步 OpenList → apps.json
+        run: python sync_openlist_to_apps_json.py --url-mode openlist
+
+      - name: 2) 短化 name（长内容进 description）
+        run: python optimize_name.py
+
+      - name: 3) 重新识别 category
+        run: python reclassify.py
+
+      - name: 4) 去重（name + version 相同只留一条）
+        run: python dedup.py
+
+      - name: 5) url 自检 + 失效自动重拉 sign
+        run: python check_urls.py --concurrency 8
+
+      - name: 6) commit & push
+        run: |
+          git config user.name "dbstore-bot"
+          git config user.email "dbstore-bot@users.noreply.github.com"
+          git add apps.json apps_remote.json
+          if git diff --cached --quiet; then
+            echo "无变化，跳过 commit"
+          else
+            git commit -m "chore(sync): auto-update apps.json ($(date -u +'%Y-%m-%dT%H:%M:%SZ'))"
+            git push
+          fi
