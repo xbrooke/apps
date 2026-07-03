@@ -4,14 +4,15 @@ on:
   schedule:
     - cron: '0 18,0,6,12 * * *'  # 北京时间 02:00 / 08:00 / 14:00 / 20:00
   workflow_dispatch:
-  paths:
-    - 'manifest.csv'
-    - 'sync_openlist_to_apps_json.py'
-    - 'optimize_name.py'
-    - 'check_urls.py'
-    - 'reclassify.py'
-    - 'dedup.py'
-    - '.github/workflows/sync.yml'
+  push:
+    paths:
+      - 'manifest.csv'
+      - 'sync_openlist_to_apps_json.py'
+      - 'optimize_name.py'
+      - 'check_urls.py'
+      - 'reclassify.py'
+      - 'dedup.py'
+      - '.github/workflows/sync.yml'
 
 concurrency:
   group: sync
