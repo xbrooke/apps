@@ -949,7 +949,6 @@
                 <div class="category-chips" id="vehicleChips">
                     <button class="category-chip active" data-vehicle="OSN车型">OSN车型</button>
                     <button class="category-chip" data-vehicle="Flyme车型">Flyme车型</button>
-                    <button class="category-chip" data-vehicle="通用">通用</button>
                 </div>
             </div>
         </div>
@@ -1083,29 +1082,29 @@
 
         // Default fallback apps
         const defaultApps = [
-            { id: "hyapp", name: "HYCarPlay", url: "./apps/hyapp.apk", size: "5.87 MB", icon: "./icons/hyapp.png", version: "2.1.0", category: "工具", description: "需要搭配盒子使用，如需购买请联系徐大兵wechat：554719247" },
-            { id: "qishui", name: "汽水音乐车机版", url: "./apps/qishui.apk", size: "37.23 MB", icon: "./icons/qishui.png", version: "5.3.1", category: "音乐", description: "字节跳动比较火的音乐播放器" },
-            { id: "yingongguanjia", name: "应用管家", url: "./apps/yingongguanjia.apk", size: "14.86 MB", icon: "./icons/yingongguanjia.png", version: "v1.8.6", category: "工具", description: "应用管家v1.8.6（5月18日）-修复了文件下载&固定互传IP" },
-            { id: "gaode", name: "高德地图车机版", url: "https://1843828265.share.123865.com/123pan/Ny2bTd-JPr8d", size: "120.26 MB", icon: "./icons/gaode.png", version: "9.1", category: "导航", description: "高德地图9.1.（6群车友修改）正式版-领克OSN专用-科技地图-低调官灯旗帜-玩偶车标-悬浮-8.5fun2026.1.6" },
-            { id: "applemusic", name: "Apple Music", url: "https://1843828265.share.123865.com/123pan/Ny2bTd-zdp8d", size: "136.76 MB", icon: "./icons/AppleMusic.png", version: "4.2.0", category: "音乐", description: "Apple Music丨v4.9.5.11_大屏版" },
-            { id: "shuiguo", name: "水果互联", url: "./apps/shuiguo.apk", size: "28.82 MB", icon: "./icons/shuiguo.jpg", version: "176", category: "工具", description: "免费试用如需购买ukey请联系徐大兵wechat：554719247" },
-            { id: "qidongqi", name: "启动器", url: "./apps/qidongqi.apk", size: "4.75 MB", icon: "./icons/qidongqi.png", version: "1.2.0", category: "工具", description: "车机必装应用" },
-            { id: "lynktool", name: "领克工具箱", url: "./apps/lynktool.apk", size: "4.75 MB", icon: "./icons/lynktool.png", version: "V0.5.6", category: "工具", description: "领克OSN车机助手(HUD自定义，方控支持三方) v0.5.6-By.Cheter.Chao" }
+            { id: "app_car_032", name: "HYCarPlay", url: "./apps/hyapp.apk", size: "5.87 MB", icon: "./icons/app_car_032.png", version: "2.1.0", category: "工具", description: "需要搭配盒子使用，如需购买请联系徐大兵wechat：554719247" },
+            { id: "app_mus_021", name: "汽水音乐车机版", url: "./apps/qishui.apk", size: "37.23 MB", icon: "./icons/app_mus_021.png", version: "5.3.1", category: "音乐", description: "字节跳动比较火的音乐播放器" },
+            { id: "app_tool_043", name: "应用管家", url: "./apps/yingongguanjia.apk", size: "14.86 MB", icon: "./icons/app_tool_043.png", version: "v1.8.6", category: "工具", description: "应用管家v1.8.6（5月18日）-修复了文件下载&固定互传IP" },
+            { id: "app_nav_002", name: "高德地图车机版", url: "https://1843828265.share.123865.com/123pan/Ny2bTd-JPr8d", size: "120.26 MB", icon: "./icons/app_nav_002.png", version: "9.1", category: "导航", description: "高德地图9.1.（6群车友修改）正式版-领克OSN专用-科技地图-低调官灯旗帜-玩偶车标-悬浮-8.5fun2026.1.6" },
+            { id: "app_mus_009", name: "Apple Music", url: "https://1843828265.share.123865.com/123pan/Ny2bTd-zdp8d", size: "136.76 MB", icon: "./icons/app_mus_009.png", version: "4.2.0", category: "音乐", description: "Apple Music丨v4.9.5.11_大屏版" },
+            { id: "app_other_080", name: "水果互联", url: "./apps/shuiguo.apk", size: "28.82 MB", icon: "./icons/app_other_080.png", version: "176", category: "工具", description: "免费试用如需购买ukey请联系徐大兵wechat：554719247" },
+            { id: "app_car_034", name: "启动器", url: "./apps/qidongqi.apk", size: "4.75 MB", icon: "./icons/app_car_034.png", version: "1.2.0", category: "工具", description: "车机必装应用" },
+            { id: "app_car_033", name: "领克工具箱", url: "./apps/lynktool.apk", size: "4.75 MB", icon: "./icons/app_car_033.png", version: "V0.5.6", category: "工具", description: "领克OSN车机助手(HUD自定义，方控支持三方) v0.5.6-By.Cheter.Chao" }
         ];
 
         // Editor picks (first 3 apps featured in hero)
-        const editorPicks = ['applemusic', 'gaode', 'qishui'];
+        const editorPicks = ['app_mus_009', 'app_nav_002', 'app_mus_021'];
 
         // Tag assignments for known apps
         const tagRules = {
-            applemusic: ['热门'],
-            gaode: [ '必备'],
-            qishui: ['最新'],
-            hyapp: ['必备'],
-            qidongqi: ['必备'],
-            lynktool: ['最新'],
-            yingongguanjia: [],
-            shuiguo: []
+            app_mus_009:['热门'],
+            app_nav_002:[ '必备'],
+            app_mus_021:['最新'],
+            app_car_032:['必备'],
+            app_car_034:['必备'],
+            app_car_033:['最新'],
+            app_tool_043:[],
+            app_other_080:[]
         };
 
         // 车机/车型 关键词（启发式归类用，区分 OSN vs Flyme vs 通用）
@@ -1129,10 +1128,12 @@
                 state.apps = defaultApps;
             }
             // Apply tags + 启发式打 vehicle 字段
+            // 注意: 缺失 vehicle 字段的app保持 undefined, 表示"两个tab都显示"
+            //       不要用 detectVehicle 自动填充(会导致很多app被误归到OSN)
             state.apps = state.apps.map(a => ({
                 ...a,
                 tags: tagRules[a.id] || [],
-                vehicle: a.vehicle || detectVehicle(a)
+                vehicle: a.vehicle
             }));
             renderCategoryChips();
             applyFilters();
@@ -1140,10 +1141,17 @@
         }
 
         // 根据当前选中的车型，动态生成二级 chips（应用分类）
+        // 规则:
+        //  - 已标记 vehicle==='OSN车型' / 'Flyme车型' 的app 只出现在对应车型
+        //  - 已标记 vehicle==='通用' 或 未标记 vehicle 的app 同时出现在 OSN/Flyme 车型下
         function renderCategoryChips() {
             const catSet = new Set();
             state.apps
-                .filter(a => a.vehicle === state.currentVehicle)
+                .filter(a => {
+                    const v = a.vehicle;
+                    if (!v || v === '通用') return true;  // 通用+未标记 → 两tab都显示
+                    return v === state.currentVehicle;     // 已标记 → 仅对应tab
+                })
                 .forEach(a => { if (a.category) catSet.add(a.category); });
             // 固定顺序：常用类目排前面
             const order = ['导航', '音乐', '视频', '车机', '工具', '电台', '其他'];
@@ -1164,7 +1172,12 @@
         }
 
         function applyFilters() {
-            let apps = state.apps.filter(a => a.vehicle === state.currentVehicle);
+            // 通用+未标记vehicle的app同时出现在OSN和Flyme车型下
+            let apps = state.apps.filter(a => {
+                const v = a.vehicle;
+                if (!v || v === '通用') return true;
+                return v === state.currentVehicle;
+            });
 
             // Category filter
             if (state.currentCategory && state.currentCategory !== '全部') {

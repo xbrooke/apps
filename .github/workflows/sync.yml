@@ -1,4 +1,4 @@
-name: Sync OpenList → apps.json
+name: Sync OpenList → apps.json (只更新url)
 
 on:
   schedule:
@@ -8,11 +8,7 @@ on:
     paths:
       - 'manifest.csv'
       - 'sync_openlist_to_apps_json.py'
-      - 'optimize_name.py'
       - 'check_urls.py'
-      - 'reclassify.py'
-      - 'dedup.py'
-      - 'check_icons.py'
       - '.github/workflows/sync.yml'
 
 concurrency:
@@ -45,29 +41,58 @@ jobs:
           }
           EOF
 
-      - name: 1) 同步 OpenList → apps.json
-        run: python sync_openlist_to_apps_json.py --url-mode openlist
+      - name: 1) 同步 OpenList → apps.json (只更新url字段, 其他字段全部保持本地)
+        run: |
+          # 备份本地 apps.json
+          cp apps.json apps.json.local.bak
+          # 拉取最新数据
+          python sync_openlist_to_apps_json.py --url-mode openlist
+          # 用 Python 脚本: 保留本地的 name/id/icon/category/description/vehicle/size/version/tags,
+          # 只把 sync 出来的最新 url 应用回 apps.json.local.bak
+          python - <<'PYEOF'
+          import json
+          local = json.load(open('apps.json.local.bak', encoding='utf-8'))
+          synced = json.load(open('apps.json', encoding='utf-8'))
+          # 按 (name, version) 建立 synced url 索引
+          url_map = {}
+          for a in synced:
+              key = (a.get('name', '').strip(), (a.get('version') or '').strip())
+              if a.get('url'):
+                  url_map[key] = a['url']
+          # 也按 name 单独索引 (兼容 version 缺失)
+          name_url_map = {}
+          for a in synced:
+              if a.get('url'):
+                  name_url_map.setdefault(a['name'].strip(), a['url'])
+          # 更新 local 中的 url, 其他字段一律不改
+          updated = 0
+          for a in local:
+              key = (a.get('name', '').strip(), (a.get('version') or '').strip())
+              new_url = url_map.get(key) or name_url_map.get(a.get('name', '').strip())
+              if new_url and a.get('url') != new_url:
+                  a['url'] = new_url
+                  updated += 1
+          json.dump(local, open('apps.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=2)
+          print(f'已更新 {updated} 个app的url, 其他字段全部保持本地不变')
+          PYEOF
+          # 清理备份
+          rm -f apps.json.local.bak
 
-      - name: 2) 短化 name（长内容进 description）
-        run: python optimize_name.py
+      - name: 2) 校验 url 有效性 (不修改任何字段)
+        run: python check_urls.py --concurrency 8 --dry-run || echo "(url失效仅警告, 不影响推送)"
 
-      - name: 3) 重新识别 category
-        run: python reclassify.py
+      - name: 3) 校验图标完整性
+        run: python check_icons.py || echo "(图标异常仅警告)"
 
-      - name: 4) 去重（name + version 相同只留一条）
-        run: python dedup.py
-
-      - name: 5) url 自检 + 失效自动重拉 sign
-        run: python check_urls.py --concurrency 8
-
-      - name: 6) commit & push
+      - name: 4) commit & push (只提交 apps.json)
         run: |
           git config user.name "dbstore-bot"
           git config user.email "dbstore-bot@users.noreply.github.com"
-          git add apps.json apps_remote.json icons/ check_icons.py 2>/dev/null || true
+          # 故意不 git add icons/ 或其他文件
+          git add apps.json 2>/dev/null || true
           if git diff --cached --quiet; then
-            echo "无变化，跳过 commit"
+            echo "无 url 变化, 跳过 commit"
           else
-            git commit -m "chore(sync): auto-update apps.json ($(date -u +'%Y-%m-%dT%H:%M:%SZ'))"
+            git commit -m "chore(sync): auto-update apps.json urls ($(date -u +'%Y-%m-%dT%H:%M:%SZ'))"
             git push
           fi
