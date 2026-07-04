@@ -1329,7 +1329,9 @@
             if (!app) return;
             $('heroEyebrow').textContent = '编辑精选';
             $('heroTitle').textContent = app.name;
-            $('heroDesc').textContent = app.description || '精选车机应用';
+            // 截取 description 的首行（去掉"已移除的低版本"等备注），再限制长度
+            const rawDesc = (app.description || '').split('\n')[0].trim();
+            $('heroDesc').textContent = rawDesc.length > 60 ? rawDesc.slice(0, 60) + '…' : (rawDesc || '精选车机应用');
             $('heroIcon').src = resolveUrl(app.icon);
             $('heroIcon').alt = app.name;
             $('heroCta').onclick = () => openModal(app);
