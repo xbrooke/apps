@@ -943,17 +943,22 @@
             </div>
         </div>
 
-        <!-- iOS-style category chips -->
+        <!-- Vehicle (一级) chips -->
+        <div class="category-bar">
+            <div class="category-bar-inner">
+                <div class="category-chips" id="vehicleChips">
+                    <button class="category-chip active" data-vehicle="OSN车型">OSN车型</button>
+                    <button class="category-chip" data-vehicle="Flyme车型">Flyme车型</button>
+                    <button class="category-chip" data-vehicle="通用">通用</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- App category (二级) chips -->
         <div class="category-bar">
             <div class="category-bar-inner">
                 <div class="category-chips" id="categoryChips">
-                    <button class="category-chip active" data-cat="全部">全部</button>
-                    <button class="category-chip" data-cat="推荐">推荐</button>
-                    <button class="category-chip" data-cat="导航">导航</button>
-                    <button class="category-chip" data-cat="音乐">音乐</button>
-                    <button class="category-chip" data-cat="工具">工具</button>
-                    <button class="category-chip" data-cat="视频">视频</button>
-                    <button class="category-chip" data-cat="生活">生活</button>
+                    <!-- 由 renderCategoryChips() 动态生成 -->
                 </div>
             </div>
         </div>
@@ -1070,6 +1075,7 @@
             apps: [],
             filteredApps: [],
             searchQuery: '',
+            currentVehicle: 'OSN车型',
             currentCategory: '全部',
             heroIndex: 0,
             heroTimer: null
@@ -1102,6 +1108,17 @@
             shuiguo: []
         };
 
+        // 车机/车型 关键词（启发式归类用，区分 OSN vs Flyme vs 通用）
+        const OSN_KEYWORDS = /(OSN|领克|Lynk|LYNK|星越|博越|博瑞|极氪|oneOS|车鱼|奥风|OSN23|OSN通用|吉利|银河|帝豪|豪越|缤越|缤瑞|星瑞|嘉际|博越L|星越L|银河L)/i;
+        const FLYME_KEYWORDS = /(Flyme|魅族|meizu|MEIZU|FlymeAuto|领克08)/i;
+
+        function detectVehicle(app) {
+            const text = `${app.name || ''} ${app.url || ''} ${app.description || ''}`;
+            if (FLYME_KEYWORDS.test(text)) return 'Flyme车型';
+            if (OSN_KEYWORDS.test(text)) return 'OSN车型';
+            return '通用';
+        }
+
         const $ = id => document.getElementById(id);
 
         async function loadApps() {
@@ -1111,25 +1128,47 @@
             } catch (e) {
                 state.apps = defaultApps;
             }
-            // Apply tags based on rules
+            // Apply tags + 启发式打 vehicle 字段
             state.apps = state.apps.map(a => ({
                 ...a,
-                tags: tagRules[a.id] || []
+                tags: tagRules[a.id] || [],
+                vehicle: a.vehicle || detectVehicle(a)
             }));
+            renderCategoryChips();
             applyFilters();
             initHero();
         }
 
+        // 根据当前选中的车型，动态生成二级 chips（应用分类）
+        function renderCategoryChips() {
+            const catSet = new Set();
+            state.apps
+                .filter(a => a.vehicle === state.currentVehicle)
+                .forEach(a => { if (a.category) catSet.add(a.category); });
+            // 固定顺序：常用类目排前面
+            const order = ['导航', '音乐', '视频', '车机', '工具', '电台', '其他'];
+            const cats = ['全部', ...order.filter(c => catSet.has(c)), ...[...catSet].filter(c => !order.includes(c))];
+
+            const container = $('categoryChips');
+            container.innerHTML = cats.map(c =>
+                `<button class="category-chip${c === state.currentCategory ? ' active' : ''}" data-cat="${c}">${c}</button>`
+            ).join('');
+            container.querySelectorAll('.category-chip').forEach(chip => {
+                chip.addEventListener('click', () => {
+                    container.querySelectorAll('.category-chip').forEach(c => c.classList.remove('active'));
+                    chip.classList.add('active');
+                    state.currentCategory = chip.dataset.cat;
+                    applyFilters();
+                });
+            });
+        }
+
         function applyFilters() {
-            let apps = [...state.apps];
+            let apps = state.apps.filter(a => a.vehicle === state.currentVehicle);
 
             // Category filter
             if (state.currentCategory && state.currentCategory !== '全部') {
-                if (state.currentCategory === '推荐') {
-                    apps = apps.filter(a => a.tags && (a.tags.includes('编辑推荐') || a.tags.includes('必备')));
-                } else {
-                    apps = apps.filter(a => a.category === state.currentCategory);
-                }
+                apps = apps.filter(a => a.category === state.currentCategory);
             }
 
             // Search filter
@@ -1147,10 +1186,10 @@
         }
 
         function renderApps() {
-            const { filteredApps, currentCategory, searchQuery } = state;
+            const { filteredApps, currentVehicle, currentCategory, searchQuery } = state;
             const title = searchQuery
                 ? `搜索"${searchQuery}"`
-                : (currentCategory === '全部' ? '全部应用' : currentCategory);
+                : (currentCategory === '全部' ? `${currentVehicle} · 全部应用` : `${currentVehicle} · ${currentCategory}`);
 
             $('sectionTitle').textContent = title;
             $('appCount').textContent = `${filteredApps.length} 个应用`;
@@ -1377,15 +1416,19 @@
             }, 200);
         });
 
-        // Category chips
-        document.querySelectorAll('.category-chip').forEach(chip => {
+        // Vehicle (一级) chips
+        document.querySelectorAll('#vehicleChips .category-chip').forEach(chip => {
             chip.addEventListener('click', () => {
-                document.querySelectorAll('.category-chip').forEach(c => c.classList.remove('active'));
+                document.querySelectorAll('#vehicleChips .category-chip').forEach(c => c.classList.remove('active'));
                 chip.classList.add('active');
-                state.currentCategory = chip.dataset.cat;
+                state.currentVehicle = chip.dataset.vehicle;
+                state.currentCategory = '全部'; // 切车型时重置二级
+                renderCategoryChips();
                 applyFilters();
             });
         });
+
+        // Category (二级) chips 由 renderCategoryChips() 内部绑定
 
         $('modalCloseBtn').addEventListener('click', closeModal);
         $('modalOverlay').addEventListener('click', (e) => {
