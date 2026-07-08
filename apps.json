@@ -237,7 +237,7 @@
     "tags": []
   },
   {
-    "id": "app_tool_040",
+    "id": "app_tool_040_v2",
     "name": "FUCK-Lynk&Co-ADB-作…",
     "version": "-",
     "size": "8.05 MB",
@@ -403,7 +403,7 @@
     "vehicle": "OSN车型"
   },
   {
-    "id": "app_tool_059",
+    "id": "app_tool_059_v2",
     "name": "LynkCo启动器",
     "version": "v1.1.7",
     "size": "4.73 MB",
@@ -492,7 +492,7 @@
     "vehicle": "OSN车型"
   },
   {
-    "id": "app_mus_015",
+    "id": "app_mus_015_v2",
     "name": "QQ音乐HD",
     "version": "v6.12.0.5",
     "size": "101.79 MB",
@@ -503,7 +503,7 @@
     "tags": []
   },
   {
-    "id": "app_mus_015",
+    "id": "app_mus_015_v3",
     "name": "QQ音乐车机官方正式版",
     "version": "v3.12.0.5",
     "size": "98.18 MB",
@@ -724,7 +724,7 @@
     "vehicle": "OSN车型"
   },
   {
-    "id": "app_mus_015",
+    "id": "app_mus_015_v4",
     "name": "QQ音乐_领克OSN",
     "version": "-",
     "size": "98.62 MB",
@@ -769,7 +769,7 @@
     "tags": []
   },
   {
-    "id": "app_mus_011",
+    "id": "app_mus_011_v2",
     "name": "酷狗音乐车机版",
     "version": "v6.0.9.1",
     "size": "95.54 MB",
@@ -890,7 +890,7 @@
     "tags": []
   },
   {
-    "id": "app_car_035",
+    "id": "app_car_035_v2",
     "name": "水果互联 V176",
     "version": "-",
     "size": "28.82 MB",
@@ -923,7 +923,7 @@
     "tags": []
   },
   {
-    "id": "app_nav_002",
+    "id": "app_nav_002_v2",
     "name": "高德车机",
     "version": "v9.1",
     "size": "157.43 MB",
@@ -934,7 +934,7 @@
     "tags": []
   },
   {
-    "id": "app_nav_002",
+    "id": "app_nav_002_v3",
     "name": "高德地图车机版",
     "version": "v9.1.0.600087",
     "size": "120.26 MB",
@@ -969,7 +969,7 @@
     "tags": []
   },
   {
-    "id": "app_nav_001",
+    "id": "app_nav_001_v2",
     "name": "百度地图",
     "version": "v21.6.3",
     "size": "157.01 MB",
@@ -991,7 +991,7 @@
     "tags": []
   },
   {
-    "id": "app_nav_001",
+    "id": "app_nav_001_v3",
     "name": "百度地图V21尝鲜版",
     "version": "v21.4.1",
     "size": "299.34 MB",
@@ -1024,7 +1024,7 @@
     "tags": []
   },
   {
-    "id": "app_nav_002",
+    "id": "app_nav_002_v4",
     "name": "高德地图16手机版_安卓11可用",
     "version": "-",
     "size": "160.25 MB",
@@ -1035,7 +1035,7 @@
     "tags": []
   },
   {
-    "id": "app_nav_002",
+    "id": "app_nav_002_v5",
     "name": "高德手机版",
     "version": "v16.01.1.2018",
     "size": "165.38 MB",
@@ -1046,7 +1046,7 @@
     "tags": []
   },
   {
-    "id": "app_nav_002",
+    "id": "app_nav_002_v6",
     "name": "高德地图真车道级巡航版本",
     "version": "v15.21.0.1363",
     "size": "192.95 MB",
@@ -1057,7 +1057,7 @@
     "tags": []
   },
   {
-    "id": "app_nav_001",
+    "id": "app_nav_001_v4",
     "name": "百度地图汽车版",
     "version": "v21.7.3",
     "size": "158.84 MB",
@@ -1068,7 +1068,7 @@
     "tags": []
   },
   {
-    "id": "app_nav_002",
+    "id": "app_nav_002_v7",
     "name": "高德手机版_低性能消耗",
     "version": "v16.06.0.2023",
     "size": "191.71 MB",
@@ -1139,14 +1139,16 @@
     "tags": []
   },
   {
-    "id": "app_nav_002",
+    "id": "app_nav_002_mod",
     "name": "高德地图手机魔改版",
     "version": "v16.01.1.2018",
     "size": "165.38 MB",
     "category": "导航",
     "description": "高德地图手机修改版",
-    "icon": "./icons/app_nav_002.png",
-    "url": "https://lz0.qaiu.top/parser?url=https://share.feijipan.com/s/B6cHdXft",
-    "tags": []
+    "icon": "./icons/dbtool.png",
+    "url": "https://lz0.qaiu.top/parser?url=https://share.feijipan.com/s/bueEOhRv&auth=jgVisDQe8l5uza0fXDdLwNH7Wgazn%2BKNtSCIeuQDcDmQo6fqLsR4FOGIUSwks4W1LVyS2T%2FY0i3iBWHNkUhFpI0pVcPSNOhzacQHAiORij2M7umpVl0INSxVn0NKgXviz787Zeqj3F8KuHY5dZZQxxkWqs6GisQOz2yA%2BMEbapgFDC%2BEySQyn5nMqnFB45x0tMF0Oc4PKrSt%2Fq22JlNFwLHCU%2FC%2B0jlN310OfmC%2FE%2F8G9ERTh0yml4EpuMGTmY%2F0ePtHEALgxpMJ51qeFRrOeEE0IU0HJx5lCwgzPhPBV60%3D",
+    "tags": [
+      "必备"
+    ]
   }
 ]
