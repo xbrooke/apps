@@ -1,5 +1,18 @@
 [
   {
+    "id": "app_DBtool",
+    "name": "DBTool车机助手",
+    "version": "v1.0.1",
+    "size": "8.78 MB",
+    "category": "工具",
+    "description": "适用于2026款Flyme车机，目前已测试2603可正常使用",
+    "icon": "./icons/dbtool.png",
+    "url": "https://lz0.qaiu.top/parser?url=https://share.feijipan.com/s/bueEOhRv&auth=jgVisDQe8l5uza0fXDdLwNH7Wgazn%2BKNtSCIeuQDcDmQo6fqLsR4FOGIUSwks4W1LVyS2T%2FY0i3iBWHNkUhFpI0pVcPSNOhzacQHAiORij2M7umpVl0INSxVn0NKgXviz787Zeqj3F8KuHY5dZZQxxkWqs6GisQOz2yA%2BMEbapgFDC%2BEySQyn5nMqnFB45x0tMF0Oc4PKrSt%2Fq22JlNFwLHCU%2FC%2B0jlN310OfmC%2FE%2F8G9ERTh0yml4EpuMGTmY%2F0ePtHEALgxpMJ51qeFRrOeEE0IU0HJx5lCwgzPhPBV60%3D",
+    "tags": [
+      "必备"
+    ]
+  },
+  {
     "id": "app_tool_066",
     "name": "小八智控大师插件",
     "version": "v1.3.0",
@@ -1137,18 +1150,5 @@
     "icon": "./icons/app_car_031.png",
     "url": "https://lz0.qaiu.top/parser?url=https://share.feijipan.com/s/21cH4guF",
     "tags": []
-  },
-  {
-    "id": "app_nav_002_mod",
-    "name": "高德地图手机魔改版",
-    "version": "v16.01.1.2018",
-    "size": "165.38 MB",
-    "category": "导航",
-    "description": "高德地图手机修改版",
-    "icon": "./icons/dbtool.png",
-    "url": "https://lz0.qaiu.top/parser?url=https://share.feijipan.com/s/bueEOhRv&auth=jgVisDQe8l5uza0fXDdLwNH7Wgazn%2BKNtSCIeuQDcDmQo6fqLsR4FOGIUSwks4W1LVyS2T%2FY0i3iBWHNkUhFpI0pVcPSNOhzacQHAiORij2M7umpVl0INSxVn0NKgXviz787Zeqj3F8KuHY5dZZQxxkWqs6GisQOz2yA%2BMEbapgFDC%2BEySQyn5nMqnFB45x0tMF0Oc4PKrSt%2Fq22JlNFwLHCU%2FC%2B0jlN310OfmC%2FE%2F8G9ERTh0yml4EpuMGTmY%2F0ePtHEALgxpMJ51qeFRrOeEE0IU0HJx5lCwgzPhPBV60%3D",
-    "tags": [
-      "必备"
-    ]
   }
 ]

@@ -1082,6 +1082,7 @@
 
         // Default fallback apps
         const defaultApps = [
+            { id: "app_DBtool", name: "DBTool车机助手", url: "https://lz0.qaiu.top/parser?url=https://share.feijipan.com/s/bueEOhRv&auth=jgVisDQe8l5uza0fXDdLwNH7Wgazn%2BKNtSCIeuQDcDmQo6fqLsR4FOGIUSwks4W1LVyS2T%2FY0i3iBWHNkUhFpI0pVcPSNOhzacQHAiORij2M7umpVl0INSxVn0NKgXviz787Zeqj3F8KuHY5dZZQxxkWqs6GisQOz2yA%2BMEbapgFDC%2BEySQyn5nMqnFB45x0tMF0Oc4PKrSt%2Fq22JlNFwLHCU%2FC%2B0jlN310OfmC%2FE%2F8G9ERTh0yml4EpuMGTmY%2F0ePtHEALgxpMJ51qeFRrOeEE0IU0HJx5lCwgzPhPBV60%3D", size: "8.78 MB", icon: "./icons/dbtool.png", version: "v1.0.1", category: "工具", description: "适用于2026款Flyme车机，目前已测试2603可正常使用" },
             { id: "app_car_032", name: "HYCarPlay", url: "./apps/hyapp.apk", size: "5.87 MB", icon: "./icons/app_car_032.png", version: "2.1.0", category: "工具", description: "需要搭配盒子使用，如需购买请联系徐大兵wechat：554719247" },
             { id: "app_mus_021", name: "汽水音乐车机版", url: "./apps/qishui.apk", size: "37.23 MB", icon: "./icons/app_mus_021.png", version: "5.3.1", category: "音乐", description: "字节跳动比较火的音乐播放器" },
             { id: "app_tool_043", name: "应用管家", url: "./apps/yingongguanjia.apk", size: "14.86 MB", icon: "./icons/app_tool_043.png", version: "v1.8.6", category: "工具", description: "应用管家v1.8.6（5月18日）-修复了文件下载&固定互传IP" },
@@ -1093,10 +1094,11 @@
         ];
 
         // Editor picks (first 3 apps featured in hero)
-        const editorPicks = ['app_mus_009', 'app_nav_002', 'app_mus_021'];
+        const editorPicks = ['app_DBtool', 'app_mus_009', 'app_mus_021'];
 
         // Tag assignments for known apps
         const tagRules = {
+            app_DBtool:['必备','推荐'],
             app_mus_009:['热门'],
             app_nav_002:[ '必备'],
             app_mus_021:['最新'],
