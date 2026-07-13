@@ -13,6 +13,19 @@
     ]
   },
   {
+    "id": "app_shuiguo01",
+    "name": "水果互联26款03适配版",
+    "version": "",
+    "size": "27.8 MB",
+    "category": "Carplay",
+    "description": "适用于2026款Flyme车机的Carplay，已测试2026款03可用",
+    "icon": "./icons/app_other_080.png",
+    "url": "https://zldb.netlify.app/apks/DBtool3.0_v1.0.1_20260708_123933_protected_signed.apk",
+    "tags": [
+      "必备"
+    ]
+  },
+  {
     "id": "app_tool_066",
     "name": "小八智控大师插件",
     "version": "v1.3.0",
