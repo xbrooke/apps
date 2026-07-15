@@ -1,18 +1,5 @@
 [
   {
-    "id": "app_DBtool",
-    "name": "DBTool车机助手（直链有时效，尽快下载）",
-    "version": "v1.0.1",
-    "size": "8.78 MB",
-    "category": "工具",
-    "description": "适用于2026款Flyme车机，目前已测试2603可正常使用",
-    "icon": "./icons/dbtool.png",
-    "url": "https://zldb.netlify.app/apks/DBtool3.0_v1.0.1_20260708_123933_protected_signed.apk",
-    "tags": [
-      "必备"
-    ]
-  },
-  {
     "id": "app_shuiguo01",
     "name": "水果互联26款03适配版",
     "version": "",
