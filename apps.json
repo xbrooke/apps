@@ -1,5 +1,5 @@
 [
-    {
+  {
     "id": "dbtool",
     "name": "DBtool车机助手",
     "version": "v1.0.2",
@@ -7,20 +7,18 @@
     "category": "工具",
     "description": "适用于2026款Flyme车机领克03",
     "icon": "./icons/dbtool.png",
-    "url": "https://zldb.netlify.app/apks/DBtool3.0_v1.0_protected.2_20260714_214658_resigned.apk",
-    "tags": [
-
-    ]
+    "url": "https://zldb.netlify.app/apks/DBtool3.0_v1.0.3_20260813_171802_protected_signed.apk",
+    "tags": []
   },
   {
     "id": "app_shuiguo01",
     "name": "水果互联26款03适配版",
-    "version": "",
+    "version": "v199",
     "size": "27.8 MB",
     "category": "Carplay",
     "description": "适用于2026款Flyme车机的Carplay，已测试2026款03可用",
     "icon": "./icons/app_other_080.png",
-    "url": "https://zldb.netlify.app/apks/shuiguo_flyme_protected.apk",
+    "url": "http://oss.iamonroad.com/app/shuiguo_flyme_v199.apk",
     "tags": []
   },
   {
@@ -32,9 +30,7 @@
     "description": "汽水音乐官方车机版本",
     "icon": "./icons/app_mus_021.png",
     "url": "https://zldb.netlify.app/apks/qishuiyinyue_1.1.27(101027).apk",
-    "tags": [
-
-    ]
+    "tags": []
   },
   {
     "id": "app_tool_066",
