@@ -164,6 +164,29 @@ def extract_version(name):
     return "-"
 
 
+def local_apk_name_for_app(app, original_name):
+    """
+    优先复用 apps.json 里已有的服务器文件名（英文 URL），避免 OpenList
+    同步把已改好的英文 URL 覆盖回中文文件名。若还没有本地 URL，则使用
+    app.id + version 生成英文文件名。
+    """
+    url = app.get("url") or ""
+    if url.startswith(SERVER_BASE_URL):
+        existing = urllib.parse.unquote(url.split("/")[-1])
+        if existing:
+            return existing
+
+    app_id = app.get("id", "")
+    version = app.get("version") or extract_version(original_name) or "v1"
+    if app_id:
+        stem = re.sub(r"[^A-Za-z0-9_-]+", "_", app_id).strip("_")
+        if stem:
+            safe = f"{stem}_v{version}.apk".replace("__", "_")
+            return safe
+
+    return safe_filename(original_name)
+
+
 def format_size(size):
     if size < 1024:
         return f"{size} B"
@@ -348,7 +371,7 @@ HTML_PAGE = """
         </div>
 
         <div id="serverStatus" style="display:none; background:#fff3cd; color:#856404; padding:12px 16px; border-radius:8px; margin-bottom:16px; font-size:14px; border:1px solid #ffeeba;">
-            未设置 ROOT_PASSWORD 环境变量，APK 上传和 OpenList 同步功能不可用。请在启动命令前加上：<code>$env:ROOT_PASSWORD="你的密码"</code>
+            未设置 ROOT_PASSWORD 环境变量，APK 上传、服务器文件管理和 OpenList 同步功能不可用。请在启动前设置环境变量：<code>ROOT_PASSWORD=你的密码</code>（PowerShell: <code>$env:ROOT_PASSWORD="你的密码"</code>）
         </div>
         <div class="toolbar">
             <input type="text" id="searchInput" placeholder="搜索应用名称/ID/分类..." oninput="renderApps()">
@@ -362,6 +385,10 @@ HTML_PAGE = """
             </select>
             <button class="btn btn-primary" type="button" onclick="openEditModal()">+ 新增应用</button>
             <button class="btn btn-success" id="topSyncBtn" onclick="openSyncModal()">同步 OpenList</button>
+            <button class="btn btn-warning" type="button" onclick="openServerFilesModal()">服务器文件</button>
+            <button class="btn" style="background:#17a2b8;color:white;" type="button" onclick="openSystemStatusModal()">系统状态</button>
+            <button class="btn" style="background:#6f42c1;color:white;" type="button" onclick="openOpenlistConfigModal()">OpenList 配置</button>
+            <button class="btn" style="background:#6c757d;color:white;" type="button" onclick="openToolsModal()">更多</button>
         </div>
 
         <table>
@@ -411,6 +438,11 @@ HTML_PAGE = """
                 <div class="form-group">
                     <label>图标路径</label>
                     <input type="text" id="appIcon" placeholder="./icons/xxx.png">
+                    <div style="margin-top:8px;">
+                        <input type="file" id="iconFile" accept=".png,.jpg,.jpeg,.gif,.webp" onchange="onIconSelected()" style="display:none;">
+                        <button type="button" class="btn" style="background:#6c757d;color:white;padding:6px 12px;font-size:13px;" onclick="document.getElementById('iconFile').click()">上传图标</button>
+                        <span id="iconInfo" style="font-size:12px;color:#666;margin-left:8px;"></span>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label>下载链接</label>
@@ -441,6 +473,76 @@ HTML_PAGE = """
             <div class="sync-log" id="syncLog" style="margin-top: 16px; display: none;"></div>
             <div class="modal-actions">
                 <button type="button" class="btn" onclick="closeSyncModal()" style="background:#eee;color:#333;">关闭</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="serverFilesModal">
+        <div class="modal-content" style="max-width: 900px;">
+            <h3>服务器 APK 文件管理</h3>
+            <p style="margin: 12px 0; color: #666; font-size: 14px;">列出 /opt/dbdns/static/downloads/ 下的 APK 文件。绿色表示被 apps.json 引用，红色表示孤儿文件可清理。</p>
+            <button class="btn btn-primary" type="button" onclick="loadServerFiles()">刷新</button>
+            <div id="serverFilesList" style="margin-top: 16px; max-height: 400px; overflow-y: auto;"></div>
+            <div class="modal-actions">
+                <button type="button" class="btn" onclick="closeServerFilesModal()" style="background:#eee;color:#333;">关闭</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="toolsModal">
+        <div class="modal-content" style="max-width: 500px;">
+            <h3>工具箱</h3>
+            <div style="display:flex;flex-direction:column;gap:12px;margin-top:16px;">
+                <button class="btn btn-primary" type="button" onclick="exportApps()">导出 apps.json</button>
+                <button class="btn" type="button" onclick="document.getElementById('importFile').click()" style="background:#6c757d;color:white;">导入 apps.json</button>
+                <input type="file" id="importFile" accept=".json" onchange="importApps()" style="display:none;">
+                <button class="btn btn-warning" type="button" onclick="startHealthCheck()">URL 健康检查</button>
+            </div>
+            <div id="healthResult" style="margin-top:16px;display:none;">
+                <h4>检查结果</h4>
+                <div id="healthStats" style="margin-bottom:8px;font-size:14px;color:#666;"></div>
+                <div id="healthList" style="max-height:250px;overflow-y:auto;font-size:13px;"></div>
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn" onclick="closeToolsModal()" style="background:#eee;color:#333;">关闭</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="systemStatusModal">
+        <div class="modal-content" style="max-width: 700px;">
+            <h3>服务器系统状态</h3>
+            <pre id="systemStatusOutput" style="background:#1e1e1e;color:#d4d4d4;padding:12px;border-radius:4px;font-family:monospace;font-size:12px;max-height:400px;overflow-y:auto;white-space:pre-wrap;margin-top:16px;">加载中...</pre>
+            <div class="modal-actions">
+                <button type="button" class="btn btn-primary" onclick="loadSystemStatus()">刷新</button>
+                <button type="button" class="btn" onclick="closeSystemStatusModal()" style="background:#eee;color:#333;">关闭</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="openlistConfigModal">
+        <div class="modal-content" style="max-width: 500px;">
+            <h3>OpenList 配置</h3>
+            <div class="form-group" style="margin-top:16px;">
+                <label>Base URL</label>
+                <input type="text" id="olBaseUrl" placeholder="http://appstore.cnmlynk.org">
+            </div>
+            <div class="form-group">
+                <label>用户名</label>
+                <input type="text" id="olUsername" placeholder="OpenList 用户名">
+            </div>
+            <div class="form-group">
+                <label>密码</label>
+                <input type="password" id="olPassword" placeholder="OpenList 密码">
+            </div>
+            <div class="form-group">
+                <label>URL 模式</label>
+                <input type="text" id="olUrlMode" placeholder="openlist">
+            </div>
+            <div id="openlistConfigMsg" style="font-size:14px;color:#34a853;min-height:20px;"></div>
+            <div class="modal-actions">
+                <button type="button" class="btn btn-primary" onclick="saveOpenlistConfig()">保存</button>
+                <button type="button" class="btn" onclick="closeOpenlistConfigModal()" style="background:#eee;color:#333;">关闭</button>
             </div>
         </div>
     </div>
@@ -497,12 +599,13 @@ HTML_PAGE = """
         function updateStats() {
             document.getElementById('totalCount').textContent = apps.length;
             document.getElementById('openlistCount').textContent = apps.filter(a => a.url && a.url.includes('appstore.cnmlynk.org')).length;
-            document.getElementById('localCount').textContent = apps.filter(a => a.url && a.url.includes('39.108.105.65')).length;
+            document.getElementById('localCount').textContent = apps.filter(a => a.url && (a.url.includes('apps.sosun.cc') || a.url.includes('39.108.105.65'))).length;
             document.getElementById('categoryCount').textContent = categories.length;
         }
 
         function getSource(app) {
             if (app.url && app.url.includes('appstore.cnmlynk.org')) return 'openlist';
+            if (app.url && app.url.includes('apps.sosun.cc')) return 'local';
             if (app.url && app.url.includes('39.108.105.65')) return 'local';
             return 'other';
         }
@@ -536,6 +639,7 @@ HTML_PAGE = """
                     <td class="url-cell" title="${a.url || ''}"><a href="${a.url || '#'}" target="_blank">${a.url ? '打开' : '-'}</a></td>
                     <td>
                         <button class="btn btn-primary" style="padding:4px 10px;font-size:12px;" onclick="editApp(${realIdx})">编辑</button>
+                        ${src === 'openlist' ? `<button class="btn btn-success" style="padding:4px 10px;font-size:12px;" onclick="resyncApp(${realIdx})">重同步</button>` : ''}
                         <button class="btn btn-danger" style="padding:4px 10px;font-size:12px;" onclick="deleteApp(${realIdx})">删除</button>
                     </td>
                 </tr>`;
@@ -588,65 +692,6 @@ HTML_PAGE = """
             const file = document.getElementById('apkFile').files[0];
             if (file) {
                 document.getElementById('apkInfo').textContent = `已选择: ${file.name} (${(file.size/1024/1024).toFixed(2)} MB)`;
-            }
-        }
-
-        async function saveApp(e) {
-            e.preventDefault();
-            const index = parseInt(document.getElementById('editIndex').value);
-            const apkFile = document.getElementById('apkFile').files[0];
-
-            const data = {
-                id: document.getElementById('appId').value.trim(),
-                name: document.getElementById('appName').value.trim(),
-                category: document.getElementById('appCategory').value.trim(),
-                version: document.getElementById('appVersion').value.trim(),
-                size: document.getElementById('appSize').value.trim(),
-                icon: document.getElementById('appIcon').value.trim(),
-                url: document.getElementById('appUrl').value.trim(),
-                description: document.getElementById('appDesc').value.trim(),
-            };
-
-            if (apkFile) {
-                const statusRes = await apiFetch('/api/status');
-                if (!statusRes) return;
-                const status = await statusRes.json();
-                if (!status.server_ready) {
-                    showToast('未设置 ROOT_PASSWORD，无法上传 APK。请关闭程序后重新用 $env:ROOT_PASSWORD="密码" 启动。', 'error');
-                    return;
-                }
-                showToast('正在上传 APK...', 'success');
-                const formData = new FormData();
-                formData.append('apk', apkFile);
-                const res = await apiFetch('/api/upload', { method: 'POST', body: formData });
-                if (!res) return;
-                const uploadInfo = await res.json();
-                if (!uploadInfo.success) {
-                    showToast(uploadInfo.error || '上传失败', 'error');
-                    return;
-                }
-                data.url = uploadInfo.url;
-                data.size = uploadInfo.size;
-                if (!data.version || data.version === '-') {
-                    data.version = uploadInfo.version;
-                }
-            }
-
-            const url = index >= 0 ? `/api/apps/${encodeURIComponent(apps[index].id)}` : '/api/apps';
-            const method = index >= 0 ? 'PUT' : 'POST';
-            const res = await apiFetch(url, {
-                method,
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data)
-            });
-            if (!res) return;
-            const result = await res.json();
-            if (result.success) {
-                showToast('保存成功', 'success');
-                closeModal();
-                loadApps();
-            } else {
-                showToast(result.error || '保存失败', 'error');
             }
         }
 
@@ -705,6 +750,304 @@ HTML_PAGE = """
             }
         }
 
+        function onIconSelected() {
+            const file = document.getElementById('iconFile').files[0];
+            if (file) {
+                document.getElementById('iconInfo').textContent = `已选择: ${file.name}`;
+            }
+        }
+
+        async function uploadIconIfNeeded() {
+            const file = document.getElementById('iconFile').files[0];
+            if (!file) return true;
+            const statusRes = await apiFetch('/api/status');
+            if (!statusRes) return false;
+            const status = await statusRes.json();
+            if (!status.server_ready) {
+                showToast('未设置 ROOT_PASSWORD，无法上传图标', 'error');
+                return false;
+            }
+            const formData = new FormData();
+            formData.append('icon', file);
+            const res = await apiFetch('/api/upload-icon', { method: 'POST', body: formData });
+            if (!res) return false;
+            const data = await res.json();
+            if (!data.success) {
+                showToast(data.error || '图标上传失败', 'error');
+                return false;
+            }
+            document.getElementById('appIcon').value = data.icon;
+            document.getElementById('iconInfo').textContent = '';
+            document.getElementById('iconFile').value = '';
+            return true;
+        }
+
+        async function saveApp(e) {
+            e.preventDefault();
+            const index = parseInt(document.getElementById('editIndex').value);
+            const apkFile = document.getElementById('apkFile').files[0];
+
+            if (!await uploadIconIfNeeded()) return;
+
+            const data = {
+                id: document.getElementById('appId').value.trim(),
+                name: document.getElementById('appName').value.trim(),
+                category: document.getElementById('appCategory').value.trim(),
+                version: document.getElementById('appVersion').value.trim(),
+                size: document.getElementById('appSize').value.trim(),
+                icon: document.getElementById('appIcon').value.trim(),
+                url: document.getElementById('appUrl').value.trim(),
+                description: document.getElementById('appDesc').value.trim(),
+            };
+
+            if (apkFile) {
+                const statusRes = await apiFetch('/api/status');
+                if (!statusRes) return;
+                const status = await statusRes.json();
+                if (!status.server_ready) {
+                    showToast('未设置 ROOT_PASSWORD，无法上传 APK。请关闭程序后重新用 $env:ROOT_PASSWORD="密码" 启动。', 'error');
+                    return;
+                }
+                showToast('正在上传 APK...', 'success');
+                const formData = new FormData();
+                formData.append('apk', apkFile);
+                const res = await apiFetch('/api/upload', { method: 'POST', body: formData });
+                if (!res) return;
+                const uploadInfo = await res.json();
+                if (!uploadInfo.success) {
+                    showToast(uploadInfo.error || '上传失败', 'error');
+                    return;
+                }
+                data.url = uploadInfo.url;
+                data.size = uploadInfo.size;
+                if (!data.version || data.version === '-') {
+                    data.version = uploadInfo.version;
+                }
+            }
+
+            const url = index >= 0 ? `/api/apps/${encodeURIComponent(apps[index].id)}` : '/api/apps';
+            const method = index >= 0 ? 'PUT' : 'POST';
+            const res = await apiFetch(url, {
+                method,
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+            if (!res) return;
+            const result = await res.json();
+            if (result.success) {
+                showToast('保存成功', 'success');
+                closeModal();
+                loadApps();
+            } else {
+                showToast(result.error || '保存失败', 'error');
+            }
+        }
+
+        async function resyncApp(index) {
+            const a = apps[index];
+            if (!confirm(`确定要重新同步 ${a.name} 吗？`)) return;
+            openSyncModal();
+            const logEl = document.getElementById('syncLog');
+            const btn = document.getElementById('syncStartBtn');
+            logEl.style.display = 'block';
+            logEl.textContent = '';
+            if (btn) {
+                btn.disabled = true;
+                btn.innerHTML = '<span class="loading"></span>同步中...';
+            }
+            try {
+                const res = await apiFetch(`/api/resync-openlist/${encodeURIComponent(a.id)}`, { method: 'POST' });
+                if (!res) return;
+                const reader = res.body.getReader();
+                const decoder = new TextDecoder();
+                while (true) {
+                    const { done, value } = await reader.read();
+                    if (done) break;
+                    const text = decoder.decode(value, { stream: true });
+                    appendLog(text);
+                }
+                showToast('重新同步完成', 'success');
+                loadApps();
+            } catch (err) {
+                appendLog('错误: ' + err.message);
+                showToast('重新同步失败', 'error');
+            } finally {
+                if (btn) {
+                    btn.disabled = false;
+                    btn.textContent = '开始同步';
+                }
+            }
+        }
+
+        function openServerFilesModal() {
+            document.getElementById('serverFilesModal').classList.add('active');
+            loadServerFiles();
+        }
+
+        function closeServerFilesModal() {
+            document.getElementById('serverFilesModal').classList.remove('active');
+        }
+
+        async function loadServerFiles() {
+            const listEl = document.getElementById('serverFilesList');
+            listEl.innerHTML = '<p>加载中...</p>';
+            const res = await apiFetch('/api/server-files');
+            if (!res) return;
+            const data = await res.json();
+            if (!data.success) {
+                listEl.innerHTML = `<p style="color:#ea4335">加载失败: ${data.error || '未知错误'}</p>`;
+                return;
+            }
+            const files = data.files || [];
+            if (files.length === 0) {
+                listEl.innerHTML = '<p>服务器上没有 APK 文件</p>';
+                return;
+            }
+            let html = '<table style="width:100%;font-size:13px;"><thead><tr><th>文件名</th><th>大小</th><th>状态</th><th>操作</th></tr></thead><tbody>';
+            files.forEach(f => {
+                const status = f.used ? '<span style="color:#34a853">已引用</span>' : '<span style="color:#ea4335">未引用</span>';
+                const delBtn = `<button class="btn btn-danger" style="padding:2px 8px;font-size:12px;" onclick="deleteServerFile('${encodeURIComponent(f.name)}')">删除</button>`;
+                html += `<tr><td title="${f.name}">${f.name.length > 40 ? f.name.slice(0,40)+'...' : f.name}</td><td>${f.size}</td><td>${status}</td><td>${delBtn}</td></tr>`;
+            });
+            html += '</tbody></table>';
+            listEl.innerHTML = html;
+        }
+
+        async function deleteServerFile(name) {
+            if (!confirm(`确定要删除服务器上的 ${decodeURIComponent(name)} 吗？此操作不可恢复。`)) return;
+            const res = await apiFetch('/api/server-files/' + name, { method: 'DELETE' });
+            if (!res) return;
+            const result = await res.json();
+            if (result.success) {
+                showToast('删除成功', 'success');
+                loadServerFiles();
+            } else {
+                showToast(result.error || '删除失败', 'error');
+            }
+        }
+
+        function openToolsModal() {
+            document.getElementById('toolsModal').classList.add('active');
+        }
+
+        function closeToolsModal() {
+            document.getElementById('toolsModal').classList.remove('active');
+        }
+
+        function openSystemStatusModal() {
+            document.getElementById('systemStatusModal').classList.add('active');
+            loadSystemStatus();
+        }
+
+        function closeSystemStatusModal() {
+            document.getElementById('systemStatusModal').classList.remove('active');
+        }
+
+        async function loadSystemStatus() {
+            const out = document.getElementById('systemStatusOutput');
+            out.textContent = '加载中...';
+            const res = await apiFetch('/api/system-status');
+            if (!res) return;
+            const data = await res.json();
+            if (data.success) {
+                out.textContent = `服务状态: ${data.service_active || '未知'}\n\n磁盘:\n${data.disk}\n\n内存:\n${data.memory}`;
+            } else {
+                out.textContent = '加载失败: ' + (data.error || '未知错误');
+            }
+        }
+
+        function openOpenlistConfigModal() {
+            document.getElementById('openlistConfigModal').classList.add('active');
+            loadOpenlistConfig();
+        }
+
+        function closeOpenlistConfigModal() {
+            document.getElementById('openlistConfigModal').classList.remove('active');
+            document.getElementById('openlistConfigMsg').textContent = '';
+        }
+
+        async function loadOpenlistConfig() {
+            const res = await apiFetch('/api/openlist-config');
+            if (!res) return;
+            const cfg = await res.json();
+            document.getElementById('olBaseUrl').value = cfg.base_url || '';
+            document.getElementById('olUsername').value = cfg.username || '';
+            document.getElementById('olPassword').value = cfg.password || '';
+            document.getElementById('olUrlMode').value = cfg.url_mode || 'openlist';
+        }
+
+        async function saveOpenlistConfig() {
+            const cfg = {
+                base_url: document.getElementById('olBaseUrl').value.trim(),
+                username: document.getElementById('olUsername').value.trim(),
+                password: document.getElementById('olPassword').value.trim(),
+                url_mode: document.getElementById('olUrlMode').value.trim(),
+            };
+            const res = await apiFetch('/api/openlist-config', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(cfg),
+            });
+            if (!res) return;
+            const data = await res.json();
+            const msg = document.getElementById('openlistConfigMsg');
+            if (data.success) {
+                msg.textContent = data.message;
+                msg.style.color = '#34a853';
+                showToast('OpenList 配置已保存', 'success');
+            } else {
+                msg.textContent = data.error || '保存失败';
+                msg.style.color = '#ea4335';
+                showToast(data.error || '保存失败', 'error');
+            }
+        }
+
+        function exportApps() {
+            window.location.href = '/api/export';
+        }
+
+        async function importApps() {
+            const file = document.getElementById('importFile').files[0];
+            if (!file) return;
+            const formData = new FormData();
+            formData.append('file', file);
+            const res = await apiFetch('/api/import', { method: 'POST', body: formData });
+            if (!res) return;
+            const result = await res.json();
+            if (result.success) {
+                showToast(`导入成功，共 ${result.count} 个应用`, 'success');
+                loadApps();
+                closeToolsModal();
+            } else {
+                showToast(result.error || '导入失败', 'error');
+            }
+            document.getElementById('importFile').value = '';
+        }
+
+        async function startHealthCheck() {
+            const resultEl = document.getElementById('healthResult');
+            const statsEl = document.getElementById('healthStats');
+            const listEl = document.getElementById('healthList');
+            resultEl.style.display = 'block';
+            statsEl.textContent = '检查中...';
+            listEl.innerHTML = '';
+            const res = await apiFetch('/api/health-check', { method: 'POST' });
+            if (!res) return;
+            const data = await res.json();
+            if (!data.success) {
+                statsEl.textContent = data.error || '检查失败';
+                return;
+            }
+            statsEl.innerHTML = `已检查 ${data.checked} 个，异常 ${data.bad} 个`;
+            let html = '<table style="width:100%;font-size:12px;"><thead><tr><th>名称</th><th>状态</th></tr></thead><tbody>';
+            (data.results || []).forEach(r => {
+                const color = r.status === 'ok' ? '#34a853' : '#ea4335';
+                html += `<tr><td>${r.name}</td><td style="color:${color}">${r.status}</td></tr>`;
+            });
+            html += '</tbody></table>';
+            listEl.innerHTML = html;
+        }
+
         function showToast(msg, type) {
             const toast = document.getElementById('toast');
             toast.textContent = msg;
@@ -739,6 +1082,65 @@ def api_status():
         "server_dir": SERVER_DOWNLOAD_DIR,
         "openlist_configured": bool(OPENLIST_USER and OPENLIST_PASS),
     })
+
+
+@app.route("/api/openlist-config", methods=["GET"])
+@require_login
+def api_get_openlist_config():
+    try:
+        cfg = load_openlist_config()
+    except Exception:
+        cfg = {"base_url": "http://appstore.cnmlynk.org", "username": "", "password": "", "url_mode": "openlist"}
+    return jsonify(cfg)
+
+
+@app.route("/api/openlist-config", methods=["POST"])
+@require_login
+def api_set_openlist_config():
+    data = request.get_json() or {}
+    cfg = {
+        "base_url": data.get("base_url", "http://appstore.cnmlynk.org").strip(),
+        "username": data.get("username", "").strip(),
+        "password": data.get("password", "").strip(),
+        "url_mode": data.get("url_mode", "openlist").strip(),
+    }
+    if not cfg["username"] or not cfg["password"]:
+        return jsonify({"success": False, "error": "用户名和密码不能为空"})
+    OPENLIST_CONFIG_PATH.write_text(
+        json.dumps(cfg, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
+    return jsonify({"success": True, "message": "OpenList 配置已保存"})
+
+
+@app.route("/api/system-status", methods=["GET"])
+@require_login
+def api_system_status():
+    if not SERVER_PASSWORD:
+        return jsonify({"success": False, "error": "未设置 ROOT_PASSWORD"})
+    try:
+        client = ssh_client()
+        sftp = client.open_sftp()
+
+        stdin, stdout, stderr = client.exec_command(f"df -h {SERVER_DOWNLOAD_DIR}")
+        df_output = stdout.read().decode("utf-8", errors="replace").strip()
+
+        stdin, stdout, stderr = client.exec_command("free -h")
+        free_output = stdout.read().decode("utf-8", errors="replace").strip()
+
+        stdin, stdout, stderr = client.exec_command("systemctl is-active dbstore-admin")
+        service_active = stdout.read().decode().strip()
+
+        sftp.close()
+        client.close()
+
+        return jsonify({
+            "success": True,
+            "disk": df_output,
+            "memory": free_output,
+            "service_active": service_active,
+        })
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)})
 
 
 @app.route("/api/apps", methods=["GET"])
@@ -852,6 +1254,7 @@ def api_upload_apk():
 def api_sync_openlist():
     def generate_log():
         try:
+            load_openlist_config()
             yield "登录 OpenList...\n"
             token = login_openlist()
             yield "登录成功\n\n"
@@ -879,7 +1282,7 @@ def api_sync_openlist():
             for idx, app in enumerate(openlist_apps, 1):
                 path = app["openlist_path"]
                 original_name = Path(path).name
-                safe_name = safe_filename(original_name)
+                safe_name = local_apk_name_for_app(app, original_name)
                 remote_path = f"{SERVER_DOWNLOAD_DIR}/{safe_name}"
                 new_url = f"{SERVER_BASE_URL}/{urllib.parse.quote(safe_name)}"
 
@@ -928,6 +1331,217 @@ def api_sync_openlist():
 
         except Exception as e:
             yield f"\n[错误] {str(e)}\n"
+
+    from flask import Response
+    return Response(generate_log(), mimetype="text/plain")
+
+
+@app.route("/api/upload-icon", methods=["POST"])
+@require_login
+def api_upload_icon():
+    if "icon" not in request.files:
+        return jsonify({"success": False, "error": "未上传图标文件"})
+
+    file = request.files["icon"]
+    if file.filename == "":
+        return jsonify({"success": False, "error": "文件名为空"})
+
+    ext = Path(file.filename).suffix.lower()
+    if ext not in (".png", ".jpg", ".jpeg", ".gif", ".webp"):
+        return jsonify({"success": False, "error": "仅支持 png/jpg/gif/webp 格式"})
+
+    safe_name = safe_filename(file.filename)
+    if not any(safe_name.endswith(e) for e in (".png", ".jpg", ".jpeg", ".gif", ".webp")):
+        safe_name += ".png"
+
+    icon_path = ICONS_DIR / safe_name
+    ICONS_DIR.mkdir(parents=True, exist_ok=True)
+    file.save(icon_path)
+
+    # 尝试压缩太大的图标
+    try:
+        from PIL import Image
+        img = Image.open(icon_path)
+        if max(img.size) > 256:
+            img.thumbnail((256, 256))
+            img.save(icon_path)
+    except Exception:
+        pass
+
+    return jsonify({"success": True, "icon": f"./icons/{safe_name}"})
+
+
+@app.route("/api/export", methods=["GET"])
+@require_login
+def api_export():
+    import io
+    data = json.dumps(load_apps(), ensure_ascii=False, indent=2)
+    return (
+        data,
+        200,
+        {
+            "Content-Type": "application/json; charset=utf-8",
+            "Content-Disposition": "attachment; filename=apps.json",
+        },
+    )
+
+
+@app.route("/api/import", methods=["POST"])
+@require_login
+def api_import():
+    if "file" not in request.files:
+        return jsonify({"success": False, "error": "未上传文件"})
+
+    file = request.files["file"]
+    if file.filename == "":
+        return jsonify({"success": False, "error": "文件名为空"})
+
+    try:
+        content = file.read().decode("utf-8")
+        new_apps = json.loads(content)
+        if not isinstance(new_apps, list):
+            return jsonify({"success": False, "error": "文件内容必须是应用数组"})
+        save_apps(new_apps)
+        return jsonify({"success": True, "count": len(new_apps)})
+    except Exception as e:
+        return jsonify({"success": False, "error": f"导入失败: {str(e)}"})
+
+
+@app.route("/api/health-check", methods=["POST"])
+@require_login
+def api_health_check():
+    apps = load_apps()
+    results = []
+    checked = 0
+    bad = 0
+
+    for app in apps[:50]:  # 一次最多检查 50 个
+        url = app.get("url", "")
+        if not url:
+            results.append({"id": app["id"], "name": app.get("name", ""), "status": "no_url"})
+            continue
+        try:
+            r = requests.head(url, timeout=10, allow_redirects=True)
+            status = "ok" if 200 <= r.status_code < 400 else f"http_{r.status_code}"
+            if status != "ok":
+                bad += 1
+        except Exception as e:
+            status = f"error: {str(e)[:100]}"
+            bad += 1
+        results.append({"id": app["id"], "name": app.get("name", ""), "status": status})
+        checked += 1
+
+    return jsonify({"success": True, "checked": checked, "bad": bad, "results": results})
+
+
+@app.route("/api/server-files", methods=["GET"])
+@require_login
+def api_server_files():
+    if not SERVER_PASSWORD:
+        return jsonify({"success": False, "error": "未设置 ROOT_PASSWORD"})
+
+    try:
+        client = ssh_client()
+        sftp = client.open_sftp()
+        files = []
+        for entry in sftp.listdir_attr(SERVER_DOWNLOAD_DIR):
+            if entry.filename.endswith(".apk"):
+                files.append({
+                    "name": entry.filename,
+                    "size": format_size(entry.st_size),
+                    "size_bytes": entry.st_size,
+                    "mtime": entry.st_mtime,
+                })
+        sftp.close()
+        client.close()
+
+        # 标记是否被 apps.json 引用
+        apps = load_apps()
+        used_urls = {a.get("url", "") for a in apps}
+        for f in files:
+            f["used"] = f"{SERVER_BASE_URL}/{urllib.parse.quote(f['name'])}" in used_urls
+        return jsonify({"success": True, "files": files})
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)})
+
+
+@app.route("/api/server-files/<path:filename>", methods=["DELETE"])
+@require_login
+def api_delete_server_file(filename):
+    if not SERVER_PASSWORD:
+        return jsonify({"success": False, "error": "未设置 ROOT_PASSWORD"})
+
+    try:
+        client = ssh_client()
+        sftp = client.open_sftp()
+        remote_path = f"{SERVER_DOWNLOAD_DIR}/{filename}"
+        sftp.remove(remote_path)
+        sftp.close()
+        client.close()
+        return jsonify({"success": True})
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)})
+
+
+@app.route("/api/resync-openlist/<app_id>", methods=["POST"])
+@require_login
+def api_resync_app(app_id):
+    if not SERVER_PASSWORD:
+        return jsonify({"success": False, "error": "未设置 ROOT_PASSWORD"})
+
+    apps = load_apps()
+    app = next((a for a in apps if a["id"] == app_id), None)
+    if not app:
+        return jsonify({"success": False, "error": "应用不存在"})
+
+    url = app.get("url", "")
+    if "appstore.cnmlynk.org" not in url:
+        return jsonify({"success": False, "error": "该应用不是 OpenList 来源"})
+
+    path = get_openlist_path(url)
+    original_name = Path(path).name
+    safe_name = local_apk_name_for_app(app, original_name)
+    remote_path = f"{SERVER_DOWNLOAD_DIR}/{safe_name}"
+    new_url = f"{SERVER_BASE_URL}/{urllib.parse.quote(safe_name)}"
+
+    def generate_log():
+        try:
+            load_openlist_config()
+            yield "登录 OpenList...\n"
+            token = login_openlist()
+            yield "登录成功\n"
+
+            client = ssh_client()
+            yield "已连接服务器\n"
+
+            yield f"重新同步 {app_id} - {original_name}\n"
+            download_url, size = get_openlist_download_url(token, path)
+            if not download_url:
+                yield "[失败] 无法获取下载地址\n"
+                client.close()
+                return
+
+            cmd = (
+                f"curl -fL --max-time 1800 -o {remote_path}.tmp -H 'User-Agent: DBStore-Sync/1.0' "
+                f"'{download_url}' && mv {remote_path}.tmp {remote_path}"
+            )
+            stdin, stdout, stderr = client.exec_command(cmd, timeout=1900)
+            err = stderr.read().decode("utf-8", errors="replace")
+            rc = stdout.channel.recv_exit_status()
+
+            if rc != 0:
+                yield f"[失败] {err[:200]}\n"
+                client.close()
+                return
+
+            app["url"] = new_url
+            app["size"] = format_size(size)
+            app["version"] = extract_version(original_name)
+            save_apps(apps)
+            client.close()
+            yield f"[成功] {new_url}\n"
+        except Exception as e:
+            yield f"[错误] {str(e)}\n"
 
     from flask import Response
     return Response(generate_log(), mimetype="text/plain")
