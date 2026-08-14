@@ -35,15 +35,15 @@
   {
     "id": "app_tool_066",
     "name": "小八智控大师插件",
-    "version": "v1.3.0",
-    "size": "14.69 KB",
+    "version": "v1.4.0",
+    "size": "14.64 KB",
     "category": "工具",
     "description": "车机智控功能插件，适配23/25多车型",
     "icon": "./icons/app_tool_067.png",
-    "url": "http://appstore.cnmlynk.org/d/CarMax/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/%E3%80%90%E5%BC%BA%E7%83%88%E6%8E%A8%E8%8D%90%E3%80%91%E5%B0%8F%E5%85%AB%E6%99%BA%E6%8E%A7%E5%A4%A7%E5%B8%88/%E6%99%BA%E6%8E%A7%E9%9A%8F%E5%90%ACv1.3.0%28%E6%99%BA%E6%8E%A7%E6%8F%92%E4%BB%B6-%E5%8D%A1%E7%89%87%E8%B7%B3%E8%BD%AC-%E9%80%82%E9%85%8D%E8%AF%AD%E9%9F%B3%29.apk?sign=vM7V-l3L5iRkyC0zOgYZhF_7Ifo-2Pb-qlhUUUIlahk%3D%3A0",
+    "url": "http://39.108.105.65/static/downloads/%E6%99%BA%E6%8E%A7%E9%9A%8F%E5%90%ACv1.4.0_%E6%99%BA%E6%8E%A7%E6%8F%92%E4%BB%B6-%E5%8D%A1%E7%89%87%E8%B7%B3%E8%BD%AC-%E9%80%82%E9%85%8D%E8%AF%AD%E9%9F%B3.apk",
     "tags": [],
     "vehicle": "OSN车型",
-    "openlist_path": "/CarMax/实用工具/【强烈推荐】小八智控大师/智控随听v1.3.0(智控插件-卡片跳转-适配语音).apk"
+    "openlist_path": "/CarMax/实用工具/【强烈推荐】小八智控大师/智控随听v1.4.0(智控插件-卡片跳转-适配语音).apk"
   },
   {
     "id": "app_tool_065",
@@ -119,15 +119,15 @@
   {
     "id": "app_tool_050",
     "name": "领克OSN车机助手",
-    "version": "v0.5.8",
-    "size": "5.66 MB",
+    "version": "v1.0.4",
+    "size": "6.28 MB",
     "category": "工具",
     "description": "领克OSN车机多功能助手",
     "icon": "./icons/app_car_033.png",
-    "url": "http://appstore.cnmlynk.org/d/CarMax/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/%E9%A2%86%E5%85%8BOSN%E8%BD%A6%E6%9C%BA%E5%8A%A9%E6%89%8Bv1.0.1.apk?sign=kjgo2QZmKMIWFbHCG3V2NFzZX2CH4smpF9gIOZNeLwg%3D%3A0",
+    "url": "http://39.108.105.65/static/downloads/%E6%8E%A8%E8%8D%90_HUD%E5%B0%8F%E5%9C%B0%E5%9B%BE%E4%B8%8A%E7%BA%BF_%E9%A2%86%E5%85%8BOSN%E8%BD%A6%E6%9C%BA%E5%8A%A9%E6%89%8B_v1.0.4-By.Cheter.Chao.apk",
     "tags": [],
     "vehicle": "OSN车型",
-    "openlist_path": "/CarMax/实用工具/领克OSN车机助手v1.0.1.apk"
+    "openlist_path": "/CarMax/实用工具/【推荐】（HUD小地图上线）领克OSN车机助手 v1.0.4-By.Cheter.Chao.apk"
   },
   {
     "id": "app_tool_056",
@@ -986,26 +986,26 @@
   {
     "id": "app_car_035",
     "name": "水果互联 V177",
-    "version": "-",
-    "size": "28.82 MB",
+    "version": "V183",
+    "size": "30.69 MB",
     "category": "Carplay",
     "description": "CarPlay互联工具V177",
     "icon": "./icons/app_other_080.png",
-    "url": "http://appstore.cnmlynk.org/d/CarMax/%E8%BD%A6%E6%9C%BA%E4%BA%92%E8%81%94/%E6%B0%B4%E6%9E%9C%E4%BA%92%E8%81%94_V177%28%E9%A2%86%E5%85%8B%2003%E3%80%8109%20Dock%E5%B8%B8%E9%A9%BB%E7%89%88%29.apk?sign=r2c_iFEk2OjlEjTtQ6_xl9kc2xQ-yirJPPI_U8lgBrY%3D%3A0",
+    "url": "http://39.108.105.65/static/downloads/%E6%B0%B4%E6%9E%9C%E4%BA%92%E8%81%94_V183_%E9%A2%86%E5%85%8B_03_09_Dock%E5%B8%B8%E9%A9%BB%E7%89%88.apk",
     "tags": [],
-    "openlist_path": "/CarMax/车机互联/水果互联_V177(领克 03、09 Dock常驻版).apk"
+    "openlist_path": "/CarMax/车机互联/水果互联_V183(领克 03、09 Dock常驻版).apk"
   },
   {
     "id": "app_car_035_v2",
     "name": "水果互联 V176",
-    "version": "-",
-    "size": "28.82 MB",
+    "version": "V182",
+    "size": "30.70 MB",
     "category": "车机",
     "description": "CarPlay互联工具V176",
     "icon": "./icons/app_other_080.png",
-    "url": "http://appstore.cnmlynk.org/d/CarMax/%E8%BD%A6%E6%9C%BA%E4%BA%92%E8%81%94/%E6%B0%B4%E6%9E%9C%E4%BA%92%E8%81%94_V176%28%E9%A2%86%E5%85%8B%2001%E3%80%8102%E3%80%8103%28%E5%85%A8%E5%B1%8F%29%E3%80%8105%E3%80%8106%20%E7%AD%89%2023%20%E6%AC%BE%E6%88%96%E4%BB%A5%E5%89%8D%E8%BD%A6%E5%9E%8B%EF%BC%8C%E5%8D%9A%E8%B6%8A%20L%E3%80%81%E6%98%9F%E8%B6%8A%20L%2021-23%20%E6%AC%BE%29.apk?sign=PhpS4jfXEedUdC8tmDmcDw5KByeFNMi681_ktvtA3bc%3D%3A0",
+    "url": "http://39.108.105.65/static/downloads/%E6%B0%B4%E6%9E%9C%E4%BA%92%E8%81%94_V182_%E9%A2%86%E5%85%8B_01_02_03_%E5%85%A8%E5%B1%8F_05_06_%E7%AD%89_23_%E6%AC%BE%E6%88%96%E4%BB%A5%E5%89%8D%E8%BD%A6%E5%9E%8B_%E5%8D%9A%E8%B6%8A_L_%E6%98%9F%E8%B6%8A_L_21-23_%E6%AC%BE.apk",
     "tags": [],
-    "openlist_path": "/CarMax/车机互联/水果互联_V176(领克 01、02、03(全屏)、05、06 等 23 款或以前车型，博越 L、星越 L 21-23 款).apk"
+    "openlist_path": "/CarMax/车机互联/水果互联_V182(领克 01、02、03(全屏)、05、06 等 23 款或以前车型，博越 L、星越 L 21-23 款).apk"
   },
   {
     "id": "app_car_038",
@@ -1034,14 +1034,14 @@
   {
     "id": "app_nav_002_v2",
     "name": "高德车机",
-    "version": "v9.1",
-    "size": "157.43 MB",
+    "version": "v9.5",
+    "size": "167.50 MB",
     "category": "导航",
     "description": "高德地图官方车机版",
     "icon": "./icons/app_nav_002.png",
-    "url": "http://appstore.cnmlynk.org/d/CarMax/%E5%9C%B0%E5%9B%BE%E5%AF%BC%E8%88%AA/%E2%9C%85%E9%AB%98%E5%BE%B7%E8%BD%A6%E6%9C%BA%E7%89%9B%E9%80%BC%E7%89%88V9.1%28%E9%80%82%E9%85%8DOSN%29%E4%B8%A8%E3%80%8C%E5%B0%8F%E5%85%AB%E6%A1%8C%E9%9D%A2HUD%26%E6%82%AC%E6%B5%AE%26%E4%BB%AA%E8%A1%A8%E9%A3%9E%28%E6%8A%95%29%E5%B1%8F%E8%81%94%E5%8A%A8%E3%80%8D%E6%8E%A8%E8%8D%90%E4%B8%93%E6%A0%8F/%5B%E5%8E%BB%E5%BB%BA%E7%AD%91%5D%5B%E7%BB%8F%E5%85%B8%5D%E9%AB%98%E5%BE%B7%E8%BD%A6%E6%9C%BA%E7%89%9B%E9%80%BC%E7%89%88V9.1%28%E9%A2%86%E5%85%8B%26%E6%98%9F%E8%B6%8A%E5%85%A8%E7%B3%BB%E9%80%9A%E7%94%A8%E7%A8%B3%E5%AE%9A%E7%89%88%E2%91%A8%29%E6%96%B0%E7%89%B9%E6%80%A7_%E9%87%8D%E8%A6%81%E6%9B%B4%E6%96%B0%E8%AF%B4%E6%98%8E_%E8%AF%A6%E6%83%85%E7%9C%8B%E7%AC%AC9%EF%B8%8F%E2%83%A3%E7%89%88%E5%9B%BE%E7%A4%BA%E2%80%94%E2%80%94-%40Noidon-t%E5%9C%B0%E5%9B%BE%E5%93%A5%E5%88%B6%E4%BD%9C.apk?sign=tPpvmNGmSRHZfQjXq_LvgG6Ibkz13Ox0iG4Pm-W75LM%3D%3A0",
+    "url": "http://39.108.105.65/static/downloads/%E4%BF%AE%E5%A4%8D%E5%B0%8F%E5%85%ABHUD%E5%B7%A1%E8%88%AA%E7%81%AF_%E6%8A%AC%E9%AB%98%E7%89%88_%E7%BB%8F%E5%85%B8%E5%BA%95%E5%9B%BE_%E9%AB%98%E5%BE%B7%E8%BD%A6%E6%9C%BA%E7%89%9B%E9%80%BC%E7%89%88V9.5_%E9%A2%86%E5%85%8B_%E6%98%9F%E8%B6%8A%E5%85%A8%E7%B3%BB%E9%80%9A%E7%94%A8%E7%A8%B3%E5%AE%9A%E7%89%88_Navi-Link%E7%81%B5%E5%8A%A8%E5%B2%9B%E6%82%AC%E6%B5%AE%E7%AA%97%E6%8F%92%E4%BB%B6%E4%B8%A8%E6%96%B0%E7%89%B9%E6%80%A7_%E8%AF%B7%E7%9C%8B%E4%B8%8B%E6%96%B9%E5%BF%85%E8%AF%BB%E9%87%8D%E8%A6%81%E6%9B%B4%E6%96%B0%E5%9B%BE%E7%A4%BA_.apk",
     "tags": [],
-    "openlist_path": "/CarMax/地图导航/✅高德车机牛逼版V9.1(适配OSN)丨「小八桌面HUD&悬浮&仪表飞(投)屏联动」推荐专栏/[去建筑][经典]高德车机牛逼版V9.1(领克&星越全系通用稳定版⑨)新特性_重要更新说明_详情看第9️⃣版图示——-@Noidon-t地图哥制作.apk"
+    "openlist_path": "/CarMax/地图导航/☑️高德车机牛逼版V9.5(适配OSN)丨「小八桌面HUD&悬浮&仪表飞(投)屏联动」推荐专栏/修复小八HUD巡航灯[抬高版][经典底图]高德车机牛逼版V9.5(领克&星越全系通用稳定版)+Navi-Link灵动岛悬浮窗插件丨新特性_请看下方必读重要更新图示——@Noidon-t小骚哥.apk"
   },
   {
     "id": "app_nav_002_v3",
