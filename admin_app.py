@@ -27,7 +27,7 @@ APPS_JSON = APP_ROOT / "apps.json"
 ICONS_DIR = APP_ROOT / "icons"
 OPENLIST_CONFIG = APP_ROOT / "openlist.config.json"
 
-SERVER_HOST = "39.108.105.65"
+SERVER_HOST = "apps.sosun.cc"
 SERVER_USER = "root"
 SERVER_PASSWORD = os.environ.get("ROOT_PASSWORD", "")
 SERVER_DOWNLOAD_DIR = "/opt/dbdns/static/downloads"

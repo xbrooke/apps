@@ -11,7 +11,7 @@ from pathlib import Path
 from paramiko import SSHClient, AutoAddPolicy, Transport
 from paramiko.auth_handler import AuthenticationException
 
-SERVER_HOST = "39.108.105.65"
+SERVER_HOST = "apps.sosun.cc"
 SERVER_USER = "root"
 SERVER_PASSWORD = os.environ.get("ROOT_PASSWORD", "")
 REMOTE_DIR = "/opt/dbstore-admin"
