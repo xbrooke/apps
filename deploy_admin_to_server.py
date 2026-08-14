@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-部署 DBStore 后台管理到服务器 39.108.105.65
+部署 DBStore 后台管理到服务器 apps.sosun.cc
+默认保留服务器端已有的 apps.json / openlist.config.json，避免覆盖线上数据。
+如需强制覆盖，请设置环境变量 FORCE_DATA_OVERWRITE=true
 """
 import os
 import sys
@@ -14,6 +16,7 @@ from paramiko.auth_handler import AuthenticationException
 SERVER_HOST = "apps.sosun.cc"
 SERVER_USER = "root"
 SERVER_PASSWORD = os.environ.get("ROOT_PASSWORD", "")
+FORCE_DATA_OVERWRITE = os.environ.get("FORCE_DATA_OVERWRITE", "false").lower() == "true"
 REMOTE_DIR = "/opt/dbstore-admin"
 REMOTE_VENV = f"{REMOTE_DIR}/venv"
 LOCAL_DIR = Path(__file__).parent
@@ -82,13 +85,21 @@ def main():
     # 创建远程目录
     ssh_exec(ssh, f"mkdir -p {REMOTE_DIR}")
 
-    # 上传文件
+    # 上传文件（apps.json / openlist.config.json 默认保留服务器端，避免覆盖线上数据）
     for filename in FILES_TO_UPLOAD:
         local = LOCAL_DIR / filename
         if not local.exists():
             safe_print(f"跳过不存在的文件: {local}")
             continue
-        upload_file(sftp, local, f"{REMOTE_DIR}/{filename}")
+        remote = f"{REMOTE_DIR}/{filename}"
+        if filename in ("apps.json", "openlist.config.json") and not FORCE_DATA_OVERWRITE:
+            try:
+                sftp.stat(remote)
+                safe_print(f"保留服务器端 {filename}，如需覆盖请设置 FORCE_DATA_OVERWRITE=true")
+                continue
+            except Exception:
+                pass
+        upload_file(sftp, local, remote)
 
     # 上传目录
     for dirname in DIRS_TO_UPLOAD:
