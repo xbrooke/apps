@@ -124,11 +124,7 @@ def main():
     with open(APPS_JSON, "r", encoding="utf-8") as f:
         apps = json.load(f)
 
-    # 更新 name 和 version
-    for app in apps:
-        app["name"] = build_english_name(app.get("name", ""), app.get("version", ""))
-        app["version"] = normalize_version(app.get("version", ""))
-
+    # 只处理本地 url，不改 name/version
     ssh = paramiko.SSHClient()
     ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     ssh.connect(SERVER_HOST, username=SERVER_USER, password=SERVER_PASSWORD, timeout=20)

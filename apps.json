@@ -1,7 +1,7 @@
 [
   {
     "id": "dbtool",
-    "name": "Dbtool v1.0.4",
+    "name": "DBtool车机助手",
     "version": "v1.0.4",
     "size": "8.4 MB",
     "category": "工具",
@@ -12,7 +12,7 @@
   },
   {
     "id": "app_shuiguo01",
-    "name": "ShuiGuoHuLian v199",
+    "name": "水果互联26款03适配版",
     "version": "v199",
     "size": "27.8 MB",
     "category": "Carplay",
@@ -23,7 +23,7 @@
   },
   {
     "id": "app_qishui0718",
-    "name": "QiShuiYinYue v1.1.27",
+    "name": "汽水音乐官方车机版",
     "version": "v1.1.27",
     "size": "41.2 MB",
     "category": "音乐",
@@ -34,7 +34,7 @@
   },
   {
     "id": "app_tool_066",
-    "name": "XiaoBaZhiKongDaShiChaJian v1.4.0",
+    "name": "小八智控大师插件",
     "version": "v1.4.0",
     "size": "14.64 KB",
     "category": "工具",
@@ -47,7 +47,7 @@
   },
   {
     "id": "app_tool_065",
-    "name": "XiaoBaZhiKongDaShi v1.6.3",
+    "name": "小八智控大师",
     "version": "v1.6.3",
     "size": "7.97 MB",
     "category": "工具",
@@ -59,7 +59,7 @@
   },
   {
     "id": "app_tool_043",
-    "name": "YingYongGuanJia v1.9.0",
+    "name": "应用管家",
     "version": "v1.9.0",
     "size": "18.64 MB",
     "category": "工具",
@@ -70,7 +70,7 @@
   },
   {
     "id": "app_tool_064",
-    "name": "XiaoBaZhuoMian v2.7.3",
+    "name": "小八桌面",
     "version": "v2.7.3",
     "size": "46.55 MB",
     "category": "工具",
@@ -83,8 +83,8 @@
   },
   {
     "id": "app_tool_045",
-    "name": "DingDingPai",
-    "version": "",
+    "name": "盯盯拍车机版",
+    "version": "-",
     "size": "66.78 MB",
     "category": "工具",
     "description": "车机端查看行车记录仪画面",
@@ -95,8 +95,8 @@
   },
   {
     "id": "app_tool_053",
-    "name": "LuFengZhe",
-    "version": "",
+    "name": "录风者",
+    "version": "-",
     "size": "94.3 MB",
     "category": "工具",
     "description": "车机版行车记录仪应用",
@@ -106,7 +106,7 @@
   },
   {
     "id": "app_tool_054",
-    "name": "LuYing v2.6.4",
+    "name": "路影（飞歌隐藏式记录仪）",
     "version": "v2.6.4",
     "size": "99.45 MB",
     "category": "工具",
@@ -118,7 +118,7 @@
   },
   {
     "id": "app_tool_050",
-    "name": "LingKeOsn v1.0.4",
+    "name": "领克OSN车机助手",
     "version": "v1.0.4",
     "size": "6.28 MB",
     "category": "工具",
@@ -131,7 +131,7 @@
   },
   {
     "id": "app_tool_056",
-    "name": "OsnFengLiangXianShiChaJian v2.0",
+    "name": "OSN风量显示插件",
     "version": "v2.0",
     "size": "3.09 MB",
     "category": "工具",
@@ -144,7 +144,7 @@
   },
   {
     "id": "app_tool_052",
-    "name": "LingShiBuMang v2.5.6",
+    "name": "灵视补盲",
     "version": "v2.5.6",
     "size": "7.99 MB",
     "category": "工具",
@@ -156,7 +156,7 @@
   },
   {
     "id": "app_tool_039",
-    "name": "ActivityManager v5.4.13",
+    "name": "ActivityManager",
     "version": "v5.4.13",
     "size": "3.75 MB",
     "category": "工具",
@@ -169,7 +169,7 @@
   {
     "id": "app_tool_041",
     "name": "APK Kit",
-    "version": "",
+    "version": "-",
     "size": "2.91 MB",
     "category": "工具",
     "description": "APK安装包编辑与管理工具",
@@ -180,8 +180,8 @@
   },
   {
     "id": "app_tool_049",
-    "name": "FvXuanFuQiu",
-    "version": "",
+    "name": "Fv悬浮球-小八推荐",
+    "version": "-",
     "size": "29.69 MB",
     "category": "工具",
     "description": "车机悬浮球快捷操作工具",
@@ -192,7 +192,7 @@
   },
   {
     "id": "app_tool_046",
-    "name": "EsWenJianLiuLanQi v4.4.2.8",
+    "name": "ES文件浏览器",
     "version": "v4.4.2.8",
     "size": "58.42 MB",
     "category": "工具",
@@ -204,7 +204,7 @@
   },
   {
     "id": "app_nav_003",
-    "name": "Muviz_Edge-Premium v2.0.3.0",
+    "name": "Muviz_Edge-Premium",
     "version": "v2.0.3.0",
     "size": "24.40 MB",
     "category": "导航",
@@ -216,7 +216,7 @@
   },
   {
     "id": "app_tool_060",
-    "name": "SearchEVO v4.1.1.1",
+    "name": "SearchEVO",
     "version": "v4.1.1.1",
     "size": "7.53 MB",
     "category": "工具",
@@ -228,7 +228,7 @@
   },
   {
     "id": "app_tool_057",
-    "name": "123YunPan v3.1.5",
+    "name": "123云盘",
     "version": "v3.1.5",
     "size": "121.77 MB",
     "category": "工具",
@@ -240,8 +240,8 @@
   },
   {
     "id": "app_tool_044",
-    "name": "Devcheck",
-    "version": "",
+    "name": "DevCheck_设备信息",
+    "version": "-",
     "size": "10.49 MB",
     "category": "工具",
     "description": "设备硬件信息检测工具",
@@ -252,7 +252,7 @@
   },
   {
     "id": "app_tool_055",
-    "name": "MtGuanLiQi v2.14.5",
+    "name": "MT管理器",
     "version": "v2.14.5",
     "size": "23.58 MB",
     "category": "工具",
@@ -264,8 +264,8 @@
   },
   {
     "id": "app_tool_040",
-    "name": "AdbKaiGuan",
-    "version": "",
+    "name": "ADB开关-25款推荐安装(感谢群友…",
+    "version": "-",
     "size": "16.54 KB",
     "category": "工具",
     "description": "车机ADB调试开关工具",
@@ -277,8 +277,8 @@
   },
   {
     "id": "app_tool_042",
-    "name": "AXGBHHQGX",
-    "version": "",
+    "name": "ApktoolM修改版（汉化.去更新…",
+    "version": "-",
     "size": "11.21 MB",
     "category": "工具",
     "description": "APK反编译与修改工具",
@@ -289,8 +289,8 @@
   },
   {
     "id": "app_tool_040_v2",
-    "name": "Fuck",
-    "version": "",
+    "name": "FUCK-Lynk&Co-ADB-作…",
+    "version": "-",
     "size": "8.05 MB",
     "category": "工具",
     "description": "领克车机ADB权限获取工具",
@@ -301,7 +301,7 @@
   },
   {
     "id": "app_tool_047",
-    "name": "EVCam v1.2.1",
+    "name": "EVCam",
     "version": "v1.2.1",
     "size": "24.28 MB",
     "category": "工具",
@@ -313,7 +313,7 @@
   },
   {
     "id": "app_tool_051",
-    "name": "KiwiLiuLanQi v139.0.7339.0",
+    "name": "Kiwi浏览器",
     "version": "v139.0.7339.0",
     "size": "232.94 MB",
     "category": "工具",
@@ -325,7 +325,7 @@
   },
   {
     "id": "app_vid_024",
-    "name": "USXTHBSSPCJKU v3.0",
+    "name": "USB摄像头（海备思视频采集卡USB",
     "version": "v3.0",
     "size": "33.10 MB",
     "category": "视频",
@@ -337,8 +337,8 @@
   },
   {
     "id": "app_tool_058",
-    "name": "QuanXianGou",
-    "version": "",
+    "name": "权限狗",
+    "version": "-",
     "size": "1.37 MB",
     "category": "工具",
     "description": "安卓应用权限管理工具",
@@ -350,7 +350,7 @@
   {
     "id": "app_tool_062",
     "name": "Tasker",
-    "version": "",
+    "version": "-",
     "size": "41.55 MB",
     "category": "工具",
     "description": "安卓端自动化任务执行工具",
@@ -361,7 +361,7 @@
   },
   {
     "id": "app_tool_063",
-    "name": "WuMaiKGe v2.0",
+    "name": "无麦K歌",
     "version": "v2.0",
     "size": "190.33 KB",
     "category": "工具",
@@ -373,8 +373,8 @@
   },
   {
     "id": "app_tool_069",
-    "name": "ChuangJianKuaiJieFangShi",
-    "version": "",
+    "name": "创建快捷方式",
+    "version": "-",
     "size": "1.27 MB",
     "category": "工具",
     "description": "车机桌面快捷方式创建工具",
@@ -385,7 +385,7 @@
   },
   {
     "id": "app_tool_059",
-    "name": "JiLiQiDongQi v1.1.7",
+    "name": "吉利启动器",
     "version": "v1.1.7",
     "size": "4.73 MB",
     "category": "工具",
@@ -397,8 +397,8 @@
   },
   {
     "id": "app_tool_070",
-    "name": "KuaKeLiuLanQi",
-    "version": "",
+    "name": "夸克浏览器-精简去更新",
+    "version": "-",
     "size": "86.65 MB",
     "category": "工具",
     "description": "夸克浏览器精简优化版",
@@ -409,8 +409,8 @@
   },
   {
     "id": "app_tool_067",
-    "name": "Settings",
-    "version": "",
+    "name": "Settings_安卓9",
+    "version": "-",
     "size": "20.21 MB",
     "category": "工具",
     "description": "安卓9系统设置界面工具",
@@ -421,7 +421,7 @@
   },
   {
     "id": "app_tool_072",
-    "name": "KaiFaZhuShou v8.3.0",
+    "name": "开发助手",
     "version": "v8.3.0",
     "size": "8.18 MB",
     "category": "工具",
@@ -433,8 +433,8 @@
   },
   {
     "id": "app_tool_061",
-    "name": "GuanJiChongQi",
-    "version": "",
+    "name": "关机重启_(不需要任何权限，不需要无…",
+    "version": "-",
     "size": "24.72 KB",
     "category": "工具",
     "description": "车机一键关机重启工具",
@@ -445,7 +445,7 @@
   },
   {
     "id": "app_tool_068",
-    "name": "YiJianHengPing v1.6.0",
+    "name": "一键横屏",
     "version": "v1.6.0",
     "size": "1.84 MB",
     "category": "工具",
@@ -457,8 +457,8 @@
   },
   {
     "id": "app_nav_004",
-    "name": "Oneos",
-    "version": "",
+    "name": "oneOS_Recent_防地图启动…",
+    "version": "-",
     "size": "10.01 MB",
     "category": "导航",
     "description": "oneOS系统防地图自启工具",
@@ -470,7 +470,7 @@
   },
   {
     "id": "app_tool_059_v2",
-    "name": "LynkcoQiDongQi v1.1.7",
+    "name": "LynkCo启动器",
     "version": "v1.1.7",
     "size": "4.73 MB",
     "category": "工具",
@@ -482,7 +482,7 @@
   },
   {
     "id": "app_vid_022",
-    "name": "LingKeJiaShiDongHuaQieHuan v1.0",
+    "name": "领克驾驶动画切换",
     "version": "v1.0",
     "size": "135.61 MB",
     "category": "视频",
@@ -493,8 +493,8 @@
   },
   {
     "id": "app_tool_073",
-    "name": "QingZhuoMian",
-    "version": "",
+    "name": "氢桌面-普通版",
+    "version": "-",
     "size": "10.05 MB",
     "category": "工具",
     "description": "车机端氢OS风格桌面",
@@ -505,7 +505,7 @@
   },
   {
     "id": "app_tool_048",
-    "name": "WenJianGuanLiQi v3.3.3",
+    "name": "文件管理器-File_Manager",
     "version": "v3.3.3",
     "size": "8.09 MB",
     "category": "工具",
@@ -517,7 +517,7 @@
   },
   {
     "id": "app_tool_076",
-    "name": "XunLei v8.03.0.9067",
+    "name": "迅雷",
     "version": "v8.03.0.9067",
     "size": "72.39 MB",
     "category": "工具",
@@ -529,7 +529,7 @@
   },
   {
     "id": "app_tool_071",
-    "name": "XiaoBaBiZhiDaShi v2.1",
+    "name": "小八壁纸大师",
     "version": "v2.1",
     "size": "5.01 MB",
     "category": "工具",
@@ -541,7 +541,7 @@
   },
   {
     "id": "app_tool_075",
-    "name": "JiaQiaoChongAdbZhuShou v1.3.1",
+    "name": "甲壳虫adb助手",
     "version": "v1.3.1",
     "size": "7.49 MB",
     "category": "工具",
@@ -553,8 +553,8 @@
   },
   {
     "id": "app_mus_015",
-    "name": "QqYinYueXuanFuBan",
-    "version": "",
+    "name": "QQ音乐悬浮版",
+    "version": "-",
     "size": "99.82 MB",
     "category": "音乐",
     "description": "QQ音乐车机悬浮播放版",
@@ -566,7 +566,7 @@
   },
   {
     "id": "app_mus_015_v2",
-    "name": "QqYinYueHd v6.12.0.5",
+    "name": "QQ音乐HD",
     "version": "v6.12.0.5",
     "size": "101.79 MB",
     "category": "音乐",
@@ -578,7 +578,7 @@
   },
   {
     "id": "app_mus_015_v3",
-    "name": "QqYinYueCheJiGuanFang v3.12.0.5",
+    "name": "QQ音乐车机官方正式版",
     "version": "v3.12.0.5",
     "size": "98.18 MB",
     "category": "音乐",
@@ -590,7 +590,7 @@
   },
   {
     "id": "app_mus_021",
-    "name": "QSYYCJMHYB v1.0.10",
+    "name": "汽水音乐车机免会员版",
     "version": "v1.0.10",
     "size": "45.86 MB",
     "category": "音乐",
@@ -601,7 +601,7 @@
   },
   {
     "id": "app_vid_026",
-    "name": "Mx v2.0.5",
+    "name": "MX_Player_视频播放器",
     "version": "v2.0.5",
     "size": "99.59 MB",
     "category": "视频",
@@ -613,7 +613,7 @@
   },
   {
     "id": "app_mus_009",
-    "name": "Apple Music v4.9.5.11",
+    "name": "Apple Music",
     "version": "v4.9.5.11",
     "size": "136.76 MB",
     "category": "音乐",
@@ -625,7 +625,7 @@
   },
   {
     "id": "app_vid_023",
-    "name": "OkYingShi v5.0.0",
+    "name": "OK影视-电视版",
     "version": "v5.0.0",
     "size": "87.26 MB",
     "category": "视频",
@@ -637,7 +637,7 @@
   },
   {
     "id": "app_other_081",
-    "name": "YunTing v2.8.0.0001",
+    "name": "云听",
     "version": "v2.8.0.0001",
     "size": "18.94 MB",
     "category": "其他",
@@ -649,7 +649,7 @@
   },
   {
     "id": "app_mus_008",
-    "name": "AlgerMusicPlayer v5.1.0",
+    "name": "AlgerMusicPlayer",
     "version": "v5.1.0",
     "size": "16.52 MB",
     "category": "音乐",
@@ -661,8 +661,8 @@
   },
   {
     "id": "app_other_087",
-    "name": "Djuu",
-    "version": "",
+    "name": "DJUU-DJ听歌必备",
+    "version": "-",
     "size": "33.67 MB",
     "category": "其他",
     "description": "车载DJ音乐播放应用，海量潮流DJ曲库",
@@ -673,7 +673,7 @@
   },
   {
     "id": "app_other_083",
-    "name": "HHKMHYSJB v3.3.7",
+    "name": "好好看 免会员手机版",
     "version": "v3.3.7",
     "size": "20.85 MB",
     "category": "其他",
@@ -685,7 +685,7 @@
   },
   {
     "id": "app_vid_030",
-    "name": "OkYingShi v5.1.5",
+    "name": "OK影视_手机版",
     "version": "v5.1.5",
     "size": "140.02 MB",
     "category": "视频",
@@ -697,7 +697,7 @@
   },
   {
     "id": "app_mus_023",
-    "name": "JiaoYanYinYueSalt v11.0.0",
+    "name": "椒盐音乐Salt_Player",
     "version": "v11.0.0",
     "size": "11.12 MB",
     "category": "音乐",
@@ -709,8 +709,8 @@
   },
   {
     "id": "app_vid_029",
-    "name": "DouYin",
-    "version": "",
+    "name": "抖音车机版",
+    "version": "-",
     "size": "18.71 MB",
     "category": "视频",
     "description": "抖音短视频车机适配版",
@@ -720,7 +720,7 @@
   },
   {
     "id": "app_radio_078",
-    "name": "XiaoLiTingShu v1.0.6",
+    "name": "小梨听书",
     "version": "v1.0.6",
     "size": "39.85 MB",
     "category": "电台",
@@ -732,7 +732,7 @@
   },
   {
     "id": "app_mus_016",
-    "name": "JiaoYanYinYue v11.1.0",
+    "name": "椒盐音乐",
     "version": "v11.1.0",
     "size": "10.86 MB",
     "category": "音乐",
@@ -744,8 +744,8 @@
   },
   {
     "id": "app_vid_021",
-    "name": "CheYuShiTing",
-    "version": "",
+    "name": "车鱼视听_@领克07提取com.by…",
+    "version": "-",
     "size": "61.81 MB",
     "category": "视频",
     "description": "领克07提取视听应用",
@@ -756,7 +756,7 @@
   },
   {
     "id": "app_vid_028",
-    "name": "HaoHaoKanTv v1.1.0",
+    "name": "好好看TV车机版",
     "version": "v1.1.0",
     "size": "21.75 MB",
     "category": "视频",
@@ -768,8 +768,8 @@
   },
   {
     "id": "app_radio_077",
-    "name": "XiMaLaYa",
-    "version": "",
+    "name": "喜马拉雅_小八智控适配",
+    "version": "-",
     "size": "43.64 MB",
     "category": "电台",
     "description": "喜马拉雅车机适配版",
@@ -780,7 +780,7 @@
   },
   {
     "id": "app_other_082",
-    "name": "QuanMinKGeMvBan v5.9.0.1",
+    "name": "全民K歌MV版",
     "version": "v5.9.0.1",
     "size": "36.51 MB",
     "category": "其他",
@@ -792,7 +792,7 @@
   },
   {
     "id": "app_vid_027",
-    "name": "BiLiBiLi v2.9.5",
+    "name": "哔哩哔哩",
     "version": "v2.9.5",
     "size": "36.66 MB",
     "category": "视频",
@@ -803,8 +803,8 @@
   },
   {
     "id": "app_car_030",
-    "name": "AiQuTing",
-    "version": "",
+    "name": "爱趣听_领克09提取_小八桌面适配版",
+    "version": "-",
     "size": "182.92 MB",
     "category": "车机",
     "description": "领克09提取音乐应用",
@@ -816,8 +816,8 @@
   },
   {
     "id": "app_mus_015_v4",
-    "name": "QqYinYue",
-    "version": "",
+    "name": "QQ音乐_领克OSN",
+    "version": "-",
     "size": "98.62 MB",
     "category": "音乐",
     "description": "QQ音乐领克OSN适配版",
@@ -829,7 +829,7 @@
   },
   {
     "id": "app_mus_011",
-    "name": "KuGouYinYue v6.0.6.3",
+    "name": "酷狗音乐",
     "version": "v6.0.6.3",
     "size": "60.67 MB",
     "category": "音乐",
@@ -841,7 +841,7 @@
   },
   {
     "id": "app_mus_012",
-    "name": "WangYiYunYinYue v6.2.81",
+    "name": "网易云音乐",
     "version": "v6.2.81",
     "size": "70.90 MB",
     "category": "音乐",
@@ -853,7 +853,7 @@
   },
   {
     "id": "app_mus_017",
-    "name": "KuWoYinYueVipBan v6.0",
+    "name": "酷我音乐VIP版",
     "version": "v6.0",
     "size": "30.36 MB",
     "category": "音乐",
@@ -865,7 +865,7 @@
   },
   {
     "id": "app_mus_011_v2",
-    "name": "KuGouYinYue v6.0.9.1",
+    "name": "酷狗音乐车机版",
     "version": "v6.0.9.1",
     "size": "95.54 MB",
     "category": "音乐",
@@ -877,7 +877,7 @@
   },
   {
     "id": "app_vid_025",
-    "name": "YouKuShiPin v11.0.31.259",
+    "name": "优酷视频_零跑C11提取",
     "version": "v11.0.31.259",
     "size": "55.15 MB",
     "category": "视频",
@@ -889,7 +889,7 @@
   },
   {
     "id": "app_mus_014",
-    "name": "QiShuiYinYueShouJiPoJieBan v14.7.0",
+    "name": "汽水音乐手机破解版",
     "version": "v14.7.0",
     "size": "115.97 MB",
     "category": "音乐",
@@ -901,8 +901,8 @@
   },
   {
     "id": "app_mus_018",
-    "name": "YunYinYue",
-    "version": "",
+    "name": "云音乐(智智子推荐)",
+    "version": "-",
     "size": "59.85 MB",
     "category": "音乐",
     "description": "网易云音乐推荐版",
@@ -913,7 +913,7 @@
   },
   {
     "id": "app_other_084",
-    "name": "HongGuoMianFeiDuanJu v6.5.3.32",
+    "name": "红果免费短剧",
     "version": "v6.5.3.32",
     "size": "84.29 MB",
     "category": "其他",
@@ -925,7 +925,7 @@
   },
   {
     "id": "app_other_086",
-    "name": "GuanYingZhuiJu v3.2.2",
+    "name": "观影追剧-电视版",
     "version": "v3.2.2",
     "size": "88.89 MB",
     "category": "其他",
@@ -937,8 +937,8 @@
   },
   {
     "id": "app_mus_019",
-    "name": "KuWoCheJi",
-    "version": "",
+    "name": "酷我车机_vip_知阳推荐",
+    "version": "-",
     "size": "85.17 MB",
     "category": "音乐",
     "description": "酷我车机VIP推荐版",
@@ -949,7 +949,7 @@
   },
   {
     "id": "app_mus_020",
-    "name": "QingYanYunTing v2.0",
+    "name": "青盐云听",
     "version": "v2.0",
     "size": "37.43 MB",
     "category": "音乐",
@@ -961,7 +961,7 @@
   },
   {
     "id": "app_other_079",
-    "name": "QingFengDj v2.9.40",
+    "name": "清风DJ",
     "version": "v2.9.40",
     "size": "35.78 MB",
     "category": "其他",
@@ -973,8 +973,8 @@
   },
   {
     "id": "app_other_085",
-    "name": "WangYiBaoMiHua",
-    "version": "",
+    "name": "网易爆米花",
+    "version": "-",
     "size": "50.77 MB",
     "category": "其他",
     "description": "网易短视频车机版",
@@ -985,8 +985,8 @@
   },
   {
     "id": "app_car_035",
-    "name": "ShuiGuoHuLian v183",
-    "version": "v183",
+    "name": "水果互联 V177",
+    "version": "V183",
     "size": "30.69 MB",
     "category": "Carplay",
     "description": "CarPlay互联工具V177",
@@ -997,8 +997,8 @@
   },
   {
     "id": "app_car_035_v2",
-    "name": "ShuiGuoHuLian v182",
-    "version": "v182",
+    "name": "水果互联 V176",
+    "version": "V182",
     "size": "30.70 MB",
     "category": "车机",
     "description": "CarPlay互联工具V176",
@@ -1009,8 +1009,8 @@
   },
   {
     "id": "app_car_038",
-    "name": "Hy",
-    "version": "",
+    "name": "HY-Carplay快捷方式",
+    "version": "-",
     "size": "2.69 MB",
     "category": "Carplay",
     "description": "CarPlay快捷方式创建工具",
@@ -1021,7 +1021,7 @@
   },
   {
     "id": "app_nav_002",
-    "name": "GaoDeDiTu v16.02.0.2045",
+    "name": "高德地图",
     "version": "v16.02.0.2045",
     "size": "163.27 MB",
     "category": "导航",
@@ -1033,7 +1033,7 @@
   },
   {
     "id": "app_nav_002_v2",
-    "name": "GaoDeCheJi v9.5",
+    "name": "高德车机",
     "version": "v9.5",
     "size": "167.50 MB",
     "category": "导航",
@@ -1045,7 +1045,7 @@
   },
   {
     "id": "app_nav_002_v3",
-    "name": "GaoDeDiTu v9.1.0.600087",
+    "name": "高德地图车机版",
     "version": "v9.1.0.600087",
     "size": "120.26 MB",
     "category": "导航",
@@ -1058,7 +1058,7 @@
   },
   {
     "id": "app_nav_007",
-    "name": "HongLvDengLuKuang v2.1.2.250816",
+    "name": "红绿灯路况",
     "version": "v2.1.2.250816",
     "size": "9.43 MB",
     "category": "导航",
@@ -1070,7 +1070,7 @@
   },
   {
     "id": "app_nav_001",
-    "name": "BaiDuDiTuChangXianBan v20.8.3",
+    "name": "百度地图V20尝鲜版",
     "version": "v20.8.3",
     "size": "122.37 MB",
     "category": "导航",
@@ -1082,7 +1082,7 @@
   },
   {
     "id": "app_nav_001_v2",
-    "name": "BaiDuDiTu v21.6.3",
+    "name": "百度地图",
     "version": "v21.6.3",
     "size": "157.01 MB",
     "category": "导航",
@@ -1094,7 +1094,7 @@
   },
   {
     "id": "app_nav_005",
-    "name": "AoWeiHuDongDiTu v10.3.9",
+    "name": "奥维互动地图",
     "version": "v10.3.9",
     "size": "106.75 MB",
     "category": "导航",
@@ -1106,7 +1106,7 @@
   },
   {
     "id": "app_nav_001_v3",
-    "name": "BaiDuDiTuChangXianBan v21.4.1",
+    "name": "百度地图V21尝鲜版",
     "version": "v21.4.1",
     "size": "299.34 MB",
     "category": "导航",
@@ -1118,7 +1118,7 @@
   },
   {
     "id": "app_nav_006",
-    "name": "TengXunZhiJiaDiTu v8.4.3.20",
+    "name": "腾讯智驾地图",
     "version": "v8.4.3.20",
     "size": "147.55 MB",
     "category": "导航",
@@ -1130,7 +1130,7 @@
   },
   {
     "id": "app_nav_008",
-    "name": "HongLvDengLingHang v2.2.1",
+    "name": "红绿灯领航",
     "version": "v2.2.1",
     "size": "5.34 MB",
     "category": "导航",
@@ -1142,8 +1142,8 @@
   },
   {
     "id": "app_nav_002_v4",
-    "name": "GaoDeDiTu16ShouJiBan",
-    "version": "",
+    "name": "高德地图16手机版_安卓11可用",
+    "version": "-",
     "size": "160.25 MB",
     "category": "导航",
     "description": "高德16版手机适配版",
@@ -1154,7 +1154,7 @@
   },
   {
     "id": "app_nav_002_v5",
-    "name": "GaoDeShouJiBan v16.01.1.2018",
+    "name": "高德手机版",
     "version": "v16.01.1.2018",
     "size": "165.38 MB",
     "category": "导航",
@@ -1166,7 +1166,7 @@
   },
   {
     "id": "app_nav_002_v6",
-    "name": "GDDTZCDJXHBB v15.21.0.1363",
+    "name": "高德地图真车道级巡航版本",
     "version": "v15.21.0.1363",
     "size": "192.95 MB",
     "category": "导航",
@@ -1178,7 +1178,7 @@
   },
   {
     "id": "app_nav_001_v4",
-    "name": "BaiDuDiTuQiCheBan v21.7.3",
+    "name": "百度地图汽车版",
     "version": "v21.7.3",
     "size": "158.84 MB",
     "category": "导航",
@@ -1190,7 +1190,7 @@
   },
   {
     "id": "app_nav_002_v7",
-    "name": "GaoDeShouJiBan v16.06.0.2023",
+    "name": "高德手机版_低性能消耗",
     "version": "v16.06.0.2023",
     "size": "191.71 MB",
     "category": "导航",
@@ -1202,7 +1202,7 @@
   },
   {
     "id": "app_car_032",
-    "name": "HYCarPlay v1.10.4",
+    "name": "HYCarPlay",
     "version": "v1.10.4",
     "size": "5.87 MB",
     "category": "车机",
@@ -1213,7 +1213,7 @@
   },
   {
     "id": "app_other_080",
-    "name": "ShuiGuoHuLian v176",
+    "name": "水果互联",
     "version": "v176",
     "size": "28.82 MB",
     "category": "其他",
@@ -1224,7 +1224,7 @@
   },
   {
     "id": "app_car_034",
-    "name": "QiDongQi v1.2.0",
+    "name": "启动器",
     "version": "v1.2.0",
     "size": "4.75 MB",
     "category": "车机",
@@ -1237,7 +1237,7 @@
   },
   {
     "id": "app_car_033",
-    "name": "LingKe v0.5.6",
+    "name": "领克车机助手",
     "version": "v0.5.6",
     "size": "4.75 MB",
     "category": "车机",
@@ -1251,7 +1251,7 @@
   },
   {
     "id": "app_car_031",
-    "name": "Carplay v1.2.0",
+    "name": "CarPlay26款03",
     "version": "v1.2.0",
     "size": "6.86 MB",
     "category": "车机",
