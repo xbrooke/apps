@@ -59,12 +59,12 @@
   {
     "id": "app_tool_043",
     "name": "应用管家",
-    "version": "v1.8.6",
-    "size": "17.06 MB",
+    "version": "v1.9.0",
+    "size": "18.64 MB",
     "category": "工具",
     "description": "车机应用管理工具，修复优化版本",
     "icon": "./icons/yingyongguanjia.png",
-    "url": "https://lz0.qaiu.top/parser?url=https://share.feijipan.com/s/Sjcp4ceR",
+    "url": "https://zldb.netlify.app/apks/yingyongguanjiav1.9.0.apk",
     "tags": []
   },
   {
@@ -94,11 +94,11 @@
     "id": "app_tool_053",
     "name": "录风者",
     "version": "-",
-    "size": "59.93 MB",
+    "size": "94.3 MB",
     "category": "工具",
     "description": "车机版行车记录仪应用",
     "icon": "./icons/app_tool_053.png",
-    "url": "https://zldb.netlify.app/apks/录风者【车机版】.apk",
+    "url": "https://zldb.netlify.app/apks/daping-liuzhentanRelease-v1.0.12.260714.apk",
     "tags": []
   },
   {
