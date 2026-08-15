@@ -27,7 +27,7 @@ APPS_JSON = APP_ROOT / "apps.json"
 ICONS_DIR = APP_ROOT / "icons"
 OPENLIST_CONFIG = APP_ROOT / "openlist.config.json"
 
-SERVER_HOST = "apps.sosun.cc"
+SERVER_HOST = "39.108.105.65"
 SERVER_USER = "root"
 SERVER_PASSWORD = os.environ.get("ROOT_PASSWORD", "")
 SERVER_DOWNLOAD_DIR = "/opt/dbdns/static/downloads"
@@ -329,6 +329,9 @@ HTML_PAGE = """
         .tag.openlist { background: #fce8e6; color: #c53929; }
         .tag.local { background: #e6f4ea; color: #2d8e47; }
         .url-cell { max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .sortable { cursor: pointer; user-select: none; }
+        .sortable:hover { background: #e9ecef; }
+        .sortable span { font-size: 12px; color: #999; margin-left: 4px; }
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center; }
         .modal.active { display: flex; }
         .modal-content { background: white; padding: 24px; border-radius: 8px; width: 90%; max-width: 600px; max-height: 90vh; overflow-y: auto; }
@@ -368,6 +371,10 @@ HTML_PAGE = """
                 <div class="number" id="categoryCount">0</div>
                 <div class="label">分类数</div>
             </div>
+            <div class="stat-card">
+                <div class="number" id="totalSize">0 MB</div>
+                <div class="label">总大小</div>
+            </div>
         </div>
 
         <div id="serverStatus" style="display:none; background:#fff3cd; color:#856404; padding:12px 16px; border-radius:8px; margin-bottom:16px; font-size:14px; border:1px solid #ffeeba;">
@@ -395,11 +402,11 @@ HTML_PAGE = """
             <thead>
                 <tr>
                     <th>图标</th>
-                    <th>ID</th>
-                    <th>名称</th>
-                    <th>分类</th>
-                    <th>版本</th>
-                    <th>大小</th>
+                    <th class="sortable" onclick="sortApps('id')">ID <span id="sort-id"></span></th>
+                    <th class="sortable" onclick="sortApps('name')">名称 <span id="sort-name"></span></th>
+                    <th class="sortable" onclick="sortApps('category')">分类 <span id="sort-category"></span></th>
+                    <th class="sortable" onclick="sortApps('version')">版本 <span id="sort-version"></span></th>
+                    <th class="sortable" onclick="sortApps('size')">大小 <span id="sort-size"></span></th>
                     <th>来源</th>
                     <th>下载链接</th>
                     <th>操作</th>
@@ -552,6 +559,7 @@ HTML_PAGE = """
     <script>
         let apps = [];
         let categories = [];
+        let sortState = { column: null, direction: 'asc' };
 
         async function apiFetch(url, options = {}) {
             const res = await fetch(url, options);
@@ -598,16 +606,78 @@ HTML_PAGE = """
 
         function updateStats() {
             document.getElementById('totalCount').textContent = apps.length;
-            document.getElementById('openlistCount').textContent = apps.filter(a => a.url && a.url.includes('appstore.cnmlynk.org')).length;
-            document.getElementById('localCount').textContent = apps.filter(a => a.url && (a.url.includes('apps.sosun.cc') || a.url.includes('39.108.105.65'))).length;
+            document.getElementById('openlistCount').textContent = apps.filter(a => getSource(a) === 'openlist').length;
+            document.getElementById('localCount').textContent = apps.filter(a => getSource(a) === 'local').length;
             document.getElementById('categoryCount').textContent = categories.length;
+
+            const totalMB = apps.reduce((sum, a) => {
+                if (!a.size) return sum;
+                const m = a.size.match(/([\\d.]+)\\s*(MB|GB|KB)/i);
+                if (!m) return sum;
+                const v = parseFloat(m[1]);
+                const unit = m[2].toUpperCase();
+                if (unit === 'GB') return sum + v * 1024;
+                if (unit === 'MB') return sum + v;
+                if (unit === 'KB') return sum + v / 1024;
+                return sum;
+            }, 0);
+            document.getElementById('totalSize').textContent = totalMB >= 1024
+                ? (totalMB / 1024).toFixed(2) + ' GB'
+                : totalMB.toFixed(2) + ' MB';
         }
 
         function getSource(app) {
             if (app.url && app.url.includes('appstore.cnmlynk.org')) return 'openlist';
-            if (app.url && app.url.includes('apps.sosun.cc')) return 'local';
             if (app.url && app.url.includes('39.108.105.65')) return 'local';
             return 'other';
+        }
+
+        function parseSize(size) {
+            if (!size) return 0;
+            const m = size.match(/([\\d.]+)\\s*(MB|GB|KB)/i);
+            if (!m) return 0;
+            const v = parseFloat(m[1]);
+            const unit = m[2].toUpperCase();
+            if (unit === 'GB') return v * 1024;
+            if (unit === 'MB') return v;
+            if (unit === 'KB') return v / 1024;
+            return 0;
+        }
+
+        function compareApp(a, b, column, direction) {
+            let va, vb;
+            if (column === 'size') {
+                va = parseSize(a.size);
+                vb = parseSize(b.size);
+            } else {
+                va = (a[column] || '').toLowerCase();
+                vb = (b[column] || '').toLowerCase();
+            }
+            if (va < vb) return direction === 'asc' ? -1 : 1;
+            if (va > vb) return direction === 'asc' ? 1 : -1;
+            return 0;
+        }
+
+        function sortApps(column) {
+            if (sortState.column === column) {
+                sortState.direction = sortState.direction === 'asc' ? 'desc' : 'asc';
+            } else {
+                sortState.column = column;
+                sortState.direction = 'asc';
+            }
+            ['id','name','category','version','size'].forEach(c => {
+                document.getElementById('sort-' + c).textContent = sortState.column === c ? (sortState.direction === 'asc' ? '▲' : '▼') : '';
+            });
+            renderApps();
+        }
+
+        async function copyUrl(url) {
+            try {
+                await navigator.clipboard.writeText(url);
+                showToast('下载链接已复制', 'success');
+            } catch (e) {
+                showToast('复制失败', 'error');
+            }
         }
 
         function renderApps() {
@@ -615,15 +685,19 @@ HTML_PAGE = """
             const category = document.getElementById('categoryFilter').value;
             const source = document.getElementById('sourceFilter').value;
 
-            const filtered = apps.filter(a => {
+            let filtered = apps.filter(a => {
                 if (search && !(`${a.id} ${a.name} ${a.category} ${a.version}`.toLowerCase().includes(search))) return false;
                 if (category && a.category !== category) return false;
                 if (source && getSource(a) !== source) return false;
                 return true;
             });
 
+            if (sortState.column) {
+                filtered = filtered.slice().sort((a, b) => compareApp(a, b, sortState.column, sortState.direction));
+            }
+
             const tbody = document.getElementById('appTableBody');
-            tbody.innerHTML = filtered.map((a, idx) => {
+            tbody.innerHTML = filtered.map((a) => {
                 const src = getSource(a);
                 const tagClass = src === 'openlist' ? 'openlist' : (src === 'local' ? 'local' : '');
                 const tagText = src === 'openlist' ? 'OpenList' : (src === 'local' ? '本地' : '其他');
@@ -636,7 +710,10 @@ HTML_PAGE = """
                     <td>${a.version || '-'}</td>
                     <td>${a.size || '-'}</td>
                     <td><span class="tag ${tagClass}">${tagText}</span></td>
-                    <td class="url-cell" title="${a.url || ''}"><a href="${a.url || '#'}" target="_blank">${a.url ? '打开' : '-'}</a></td>
+                    <td class="url-cell" title="${a.url || ''}">
+                        <a href="${a.url || '#'}" target="_blank">${a.url ? '打开' : '-'}</a>
+                        ${a.url ? `<button class="btn" style="padding:2px 8px;font-size:11px;margin-left:6px;background:#6c757d;color:white;" onclick="event.stopPropagation();copyUrl('${a.url.replace(/'/g, "\\'")}')">复制</button>` : ''}
+                    </td>
                     <td>
                         <button class="btn btn-primary" style="padding:4px 10px;font-size:12px;" onclick="editApp(${realIdx})">编辑</button>
                         ${src === 'openlist' ? `<button class="btn btn-success" style="padding:4px 10px;font-size:12px;" onclick="resyncApp(${realIdx})">重同步</button>` : ''}
