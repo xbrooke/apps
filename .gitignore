@@ -1,5 +1,6 @@
-# OpenList 配置（包含明文密码，绝不能入仓）
+# OpenList / GitHub 配置（包含明文 Token，绝不能入仓）
 openlist.config.json
+github.config.json
 
 # 待上传 APK 暂存目录
 _inbox/

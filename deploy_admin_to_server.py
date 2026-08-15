@@ -24,6 +24,7 @@ FILES_TO_UPLOAD = [
     "admin_app.py",
     "apps.json",
     "openlist.config.json",
+    "github.config.json",
 ]
 DIRS_TO_UPLOAD = [
     "icons",
@@ -92,7 +93,7 @@ def main():
             safe_print(f"跳过不存在的文件: {local}")
             continue
         remote = f"{REMOTE_DIR}/{filename}"
-        if filename in ("apps.json", "openlist.config.json") and not FORCE_DATA_OVERWRITE:
+        if filename in ("apps.json", "openlist.config.json", "github.config.json") and not FORCE_DATA_OVERWRITE:
             try:
                 sftp.stat(remote)
                 safe_print(f"保留服务器端 {filename}，如需覆盖请设置 FORCE_DATA_OVERWRITE=true")

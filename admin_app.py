@@ -7,6 +7,7 @@ DBStore 后台管理应用
 2. 上传 APK 到 /opt/dbdns/static/downloads/
 3. 同步 OpenList 应用到本地服务器
 """
+import base64
 import hashlib
 import json
 import os
@@ -26,6 +27,7 @@ APP_ROOT = Path(__file__).parent
 APPS_JSON = APP_ROOT / "apps.json"
 ICONS_DIR = APP_ROOT / "icons"
 OPENLIST_CONFIG = APP_ROOT / "openlist.config.json"
+GITHUB_CONFIG = APP_ROOT / "github.config.json"
 
 SERVER_HOST = "39.108.105.65"
 SERVER_USER = "root"
@@ -59,6 +61,30 @@ OPENLIST_CONF = load_openlist_config()
 OPENLIST_BASE = OPENLIST_CONF.get("base_url", "http://appstore.cnmlynk.org").rstrip("/")
 OPENLIST_USER = OPENLIST_CONF.get("username", "")
 OPENLIST_PASS = OPENLIST_CONF.get("password", "")
+
+
+def load_github_config():
+    default = {
+        "owner": "xbrooke",
+        "repo": "apps",
+        "branch": "main",
+        "token": os.environ.get("GH_TOKEN", ""),
+    }
+    if not GITHUB_CONFIG.exists():
+        return default
+    try:
+        with open(GITHUB_CONFIG, "r", encoding="utf-8") as f:
+            return {**default, **json.load(f)}
+    except Exception as e:
+        safe_print(f"读取 github.config.json 失败: {e}")
+        return default
+
+
+GITHUB_CONF = load_github_config()
+GH_OWNER = GITHUB_CONF.get("owner", "xbrooke")
+GH_REPO = GITHUB_CONF.get("repo", "apps")
+GH_BRANCH = GITHUB_CONF.get("branch", "main")
+GH_TOKEN = GITHUB_CONF.get("token", "")
 
 ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD", "dbstore2026")
 app = Flask(__name__)
@@ -395,6 +421,8 @@ HTML_PAGE = """
             <button class="btn btn-warning" type="button" onclick="openServerFilesModal()">服务器文件</button>
             <button class="btn" style="background:#17a2b8;color:white;" type="button" onclick="openSystemStatusModal()">系统状态</button>
             <button class="btn" style="background:#6f42c1;color:white;" type="button" onclick="openOpenlistConfigModal()">OpenList 配置</button>
+            <button class="btn" style="background:#24292e;color:white;" type="button" onclick="openGithubConfigModal()">GitHub 配置</button>
+            <button class="btn" style="background:#2ea44f;color:white;" type="button" id="pushGithubBtn" onclick="pushToGithub()">推送到 GitHub</button>
             <button class="btn" style="background:#6c757d;color:white;" type="button" onclick="openToolsModal()">更多</button>
         </div>
 
@@ -550,6 +578,44 @@ HTML_PAGE = """
             <div class="modal-actions">
                 <button type="button" class="btn btn-primary" onclick="saveOpenlistConfig()">保存</button>
                 <button type="button" class="btn" onclick="closeOpenlistConfigModal()" style="background:#eee;color:#333;">关闭</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="githubConfigModal">
+        <div class="modal-content" style="max-width: 500px;">
+            <h3>GitHub 配置</h3>
+            <p style="font-size:13px;color:#666;margin-top:8px;">用于把服务器上的 apps.json 直接推送到 GitHub，触发 Netlify 自动部署。</p>
+            <div class="form-group" style="margin-top:16px;">
+                <label>Owner</label>
+                <input type="text" id="ghOwner" placeholder="xbrooke">
+            </div>
+            <div class="form-group">
+                <label>Repo</label>
+                <input type="text" id="ghRepo" placeholder="apps">
+            </div>
+            <div class="form-group">
+                <label>Branch</label>
+                <input type="text" id="ghBranch" placeholder="main">
+            </div>
+            <div class="form-group">
+                <label>GitHub Token (PAT)</label>
+                <input type="password" id="ghToken" placeholder="ghp_...">
+            </div>
+            <div id="githubConfigMsg" style="font-size:14px;color:#34a853;min-height:20px;"></div>
+            <div class="modal-actions">
+                <button type="button" class="btn btn-primary" onclick="saveGithubConfig()">保存</button>
+                <button type="button" class="btn" onclick="closeGithubConfigModal()" style="background:#eee;color:#333;">关闭</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="githubPushModal">
+        <div class="modal-content" style="max-width: 600px;">
+            <h3>推送到 GitHub</h3>
+            <pre id="githubPushOutput" style="background:#1e1e1e;color:#d4d4d4;padding:12px;border-radius:4px;font-family:monospace;font-size:12px;max-height:300px;overflow-y:auto;white-space:pre-wrap;margin-top:16px;">准备推送 apps.json 到 GitHub...</pre>
+            <div class="modal-actions">
+                <button type="button" class="btn" onclick="closeGithubPushModal()" style="background:#eee;color:#333;">关闭</button>
             </div>
         </div>
     </div>
@@ -1079,6 +1145,87 @@ HTML_PAGE = """
             }
         }
 
+        function openGithubConfigModal() {
+            document.getElementById('githubConfigModal').classList.add('active');
+            loadGithubConfig();
+        }
+
+        function closeGithubConfigModal() {
+            document.getElementById('githubConfigModal').classList.remove('active');
+            document.getElementById('githubConfigMsg').textContent = '';
+        }
+
+        async function loadGithubConfig() {
+            const res = await apiFetch('/api/github-config');
+            if (!res) return;
+            const cfg = await res.json();
+            document.getElementById('ghOwner').value = cfg.owner || '';
+            document.getElementById('ghRepo').value = cfg.repo || '';
+            document.getElementById('ghBranch').value = cfg.branch || '';
+            document.getElementById('ghToken').value = '';
+            const msg = document.getElementById('githubConfigMsg');
+            msg.textContent = cfg.token_set ? '已配置 GitHub Token' : '未配置 GitHub Token';
+            msg.style.color = cfg.token_set ? '#34a853' : '#ea4335';
+        }
+
+        async function saveGithubConfig() {
+            const cfg = {
+                owner: document.getElementById('ghOwner').value.trim(),
+                repo: document.getElementById('ghRepo').value.trim(),
+                branch: document.getElementById('ghBranch').value.trim(),
+                token: document.getElementById('ghToken').value.trim(),
+            };
+            const res = await apiFetch('/api/github-config', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(cfg),
+            });
+            if (!res) return;
+            const data = await res.json();
+            const msg = document.getElementById('githubConfigMsg');
+            if (data.success) {
+                msg.textContent = data.message;
+                msg.style.color = '#34a853';
+                showToast('GitHub 配置已保存', 'success');
+            } else {
+                msg.textContent = data.error || '保存失败';
+                msg.style.color = '#ea4335';
+                showToast(data.error || '保存失败', 'error');
+            }
+        }
+
+        async function pushToGithub() {
+            const btn = document.getElementById('pushGithubBtn');
+            if (btn.disabled) return;
+            btn.disabled = true;
+            btn.innerHTML = '<span class="loading"></span>推送中...';
+            const out = document.getElementById('githubPushOutput');
+            out.textContent = '正在推送到 GitHub...';
+            document.getElementById('githubPushModal').classList.add('active');
+            try {
+                const res = await apiFetch('/api/push-to-github', { method: 'POST' });
+                if (!res) {
+                    out.textContent = '请求失败，未返回响应';
+                    return;
+                }
+                const data = await res.json();
+                if (data.success) {
+                    out.textContent = `推送成功！\n提交: ${data.commit || '未知'}\n仓库: xbrooke/apps (main)`;
+                    showToast('已推送到 GitHub', 'success');
+                } else {
+                    out.textContent = '推送失败: ' + (data.error || '未知错误');
+                    showToast(data.error || '推送失败', 'error');
+                }
+            } finally {
+                btn.disabled = false;
+                btn.textContent = '推送到 GitHub';
+            }
+        }
+
+        function closeGithubPushModal() {
+            document.getElementById('githubPushModal').classList.remove('active');
+        }
+
         function exportApps() {
             window.location.href = '/api/export';
         }
@@ -1216,6 +1363,77 @@ def api_system_status():
             "memory": free_output,
             "service_active": service_active,
         })
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)})
+
+
+@app.route("/api/github-config", methods=["GET"])
+@require_login
+def api_get_github_config():
+    cfg = load_github_config()
+    return jsonify({
+        "owner": cfg.get("owner", "xbrooke"),
+        "repo": cfg.get("repo", "apps"),
+        "branch": cfg.get("branch", "main"),
+        "token_set": bool(cfg.get("token", "")),
+    })
+
+
+@app.route("/api/github-config", methods=["POST"])
+@require_login
+def api_set_github_config():
+    data = request.get_json() or {}
+    cfg = {
+        "owner": data.get("owner", "xbrooke").strip(),
+        "repo": data.get("repo", "apps").strip(),
+        "branch": data.get("branch", "main").strip(),
+        "token": data.get("token", "").strip(),
+    }
+    if not cfg["owner"] or not cfg["repo"]:
+        return jsonify({"success": False, "error": "owner 和 repo 不能为空"})
+    GITHUB_CONFIG.write_text(
+        json.dumps(cfg, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
+    return jsonify({"success": True, "message": "GitHub 配置已保存"})
+
+
+@app.route("/api/push-to-github", methods=["POST"])
+@require_login
+def api_push_to_github():
+    cfg = load_github_config()
+    token = cfg.get("token") or os.environ.get("GH_TOKEN", "")
+    owner = cfg.get("owner", "xbrooke")
+    repo = cfg.get("repo", "apps")
+    branch = cfg.get("branch", "main")
+    if not token:
+        return jsonify({"success": False, "error": "未设置 GitHub Token（GH_TOKEN 环境变量或 GitHub 配置）"})
+
+    try:
+        headers = {
+            "Authorization": f"Bearer {token}",
+            "Accept": "application/vnd.github+json",
+            "X-GitHub-Api-Version": "2022-11-28",
+        }
+        api_url = f"https://api.github.com/repos/{owner}/{repo}/contents/apps.json"
+
+        get_resp = requests.get(api_url, headers=headers, params={"ref": branch}, timeout=30)
+        sha = get_resp.json().get("sha") if get_resp.status_code == 200 else None
+
+        content = APPS_JSON.read_bytes()
+        encoded = base64.b64encode(content).decode()
+
+        payload = {
+            "message": "Update apps.json from DBStore admin",
+            "content": encoded,
+            "branch": branch,
+        }
+        if sha:
+            payload["sha"] = sha
+
+        put_resp = requests.put(api_url, headers=headers, json=payload, timeout=30)
+        if put_resp.status_code in (200, 201):
+            return jsonify({"success": True, "message": "已推送到 GitHub", "commit": put_resp.json().get("commit", {}).get("sha", "")})
+        return jsonify({"success": False, "error": f"GitHub API 返回 {put_resp.status_code}: {put_resp.text}"})
     except Exception as e:
         return jsonify({"success": False, "error": str(e)})
 
