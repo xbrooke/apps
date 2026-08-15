@@ -17,7 +17,7 @@ from pypinyin import lazy_pinyin
 BASE = Path(__file__).parent
 APPS_JSON = BASE / "apps.json"
 
-SERVER_HOST = "apps.sosun.cc"
+SERVER_HOST = "39.108.105.65"
 SERVER_USER = "root"
 SERVER_PASSWORD = os.environ.get("ROOT_PASSWORD", "")
 SERVER_DOWNLOAD_DIR = "/opt/dbdns/static/downloads"

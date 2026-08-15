@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-部署 DBStore 后台管理到服务器 apps.sosun.cc
+部署 DBStore 后台管理到服务器 39.108.105.65
 默认保留服务器端已有的 apps.json / openlist.config.json，避免覆盖线上数据。
 如需强制覆盖，请设置环境变量 FORCE_DATA_OVERWRITE=true
 """
@@ -13,7 +13,7 @@ from pathlib import Path
 from paramiko import SSHClient, AutoAddPolicy, Transport
 from paramiko.auth_handler import AuthenticationException
 
-SERVER_HOST = "apps.sosun.cc"
+SERVER_HOST = "39.108.105.65"
 SERVER_USER = "root"
 SERVER_PASSWORD = os.environ.get("ROOT_PASSWORD", "")
 FORCE_DATA_OVERWRITE = os.environ.get("FORCE_DATA_OVERWRITE", "false").lower() == "true"

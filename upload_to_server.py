@@ -2,7 +2,7 @@ import os
 import sys
 import paramiko
 
-HOST = "apps.sosun.cc"
+HOST = "39.108.105.65"
 USER = "root"
 PASSWORD = os.environ.get("ROOT_PASSWORD", "").strip()
 REMOTE_DIR = "/opt/dbdns/static/downloads"
