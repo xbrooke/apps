@@ -56,7 +56,7 @@
     "category": "工具",
     "description": "车机应用管理工具，修复优化版本",
     "icon": "./icons/yingyongguanjia.png",
-    "url": "http://39.108.105.65/static/downloads/app_tool_043_vv1.9.0.apk",
+    "url": "http://39.108.105.65/static/downloads/app_manager_v1.8.6.apk",
     "tags": []
   },
   {
@@ -66,7 +66,7 @@
     "category": "工具",
     "description": "车机桌面美化与管理工具",
     "icon": "./icons/xiaobazhuomian.png",
-    "url": "http://39.108.105.65/static/downloads/app_tool_064_vv2.7.3.apk",
+    "url": "http://39.108.105.65/static/downloads/xiao_ba_zhuo_mian_v2.7.3.apk",
     "tags": []
   },
   {
@@ -76,7 +76,7 @@
     "category": "工具",
     "description": "车机端查看行车记录仪画面",
     "icon": "./icons/dingdingpai.png",
-    "url": "http://39.108.105.65/static/downloads/app_tool_045_v-.apk",
+    "url": "http://39.108.105.65/static/downloads/ding_ding_pai_che_ji_ban_v1.apk",
     "tags": []
   },
   {
@@ -96,7 +96,7 @@
     "category": "工具",
     "description": "飞歌隐藏式记录仪车机应用",
     "icon": "./icons/app_tool_054.png",
-    "url": "http://39.108.105.65/static/downloads/app_tool_054_vv2.6.4.apk",
+    "url": "http://39.108.105.65/static/downloads/lu_ying_v2.6.4.apk",
     "tags": []
   },
   {
@@ -126,7 +126,7 @@
     "category": "工具",
     "description": "车机盲区监测补盲辅助工具",
     "icon": "./icons/lingshibumang.png",
-    "url": "http://39.108.105.65/static/downloads/app_tool_052_vv2.5.6.apk",
+    "url": "http://39.108.105.65/static/downloads/ling_shi_bu_mang_v2.5.6.apk",
     "tags": []
   },
   {
@@ -136,7 +136,7 @@
     "category": "工具",
     "description": "安卓活动管理工具，管理应用进程",
     "icon": "./icons/app_tool_039.png",
-    "url": "http://39.108.105.65/static/downloads/app_tool_039_vv5.4.13.apk",
+    "url": "http://39.108.105.65/static/downloads/activitymanager_vv5.4.13.apk",
     "tags": []
   },
   {
@@ -146,7 +146,7 @@
     "category": "工具",
     "description": "APK安装包编辑与管理工具",
     "icon": "./icons/app_tool_041.png",
-    "url": "http://39.108.105.65/static/downloads/app_tool_041_v-.apk",
+    "url": "http://39.108.105.65/static/downloads/apkkit_vv1.apk",
     "tags": []
   },
   {
@@ -156,7 +156,7 @@
     "category": "工具",
     "description": "车机悬浮球快捷操作工具",
     "icon": "./icons/app_tool_049.png",
-    "url": "http://39.108.105.65/static/downloads/app_tool_049_v-.apk",
+    "url": "http://39.108.105.65/static/downloads/fv_vv1.apk",
     "tags": []
   },
   {
@@ -165,8 +165,8 @@
     "version": "v4.4.2.8",
     "category": "工具",
     "description": "安卓设备文件管理浏览器",
-    "icon": "./icons/8b2d390062e5_2.jpg",
-    "url": "http://39.108.105.65/static/downloads/app_tool_046_vv4.4.2.8.apk",
+    "icon": "./icons/8b2d390062e5_1.jpg",
+    "url": "http://39.108.105.65/static/downloads/es_vv4.4.2.8.apk",
     "tags": []
   },
   {
@@ -176,7 +176,7 @@
     "category": "导航",
     "description": "车机屏幕边缘音乐可视化工具",
     "icon": "./icons/app_nav_003.png",
-    "url": "http://39.108.105.65/static/downloads/app_nav_003_vv2.0.3.0.apk",
+    "url": "http://39.108.105.65/static/downloads/muviz_edge-premium_vv2.0.3.0.apk",
     "tags": []
   },
   {
@@ -186,7 +186,7 @@
     "category": "工具",
     "description": "增强型文件与应用搜索工具",
     "icon": "./icons/app_tool_060.png",
-    "url": "http://39.108.105.65/static/downloads/app_tool_060_vv4.1.1.1.apk",
+    "url": "http://39.108.105.65/static/downloads/searchevo_vv4.1.1.1.apk",
     "tags": []
   },
   {
@@ -196,7 +196,7 @@
     "category": "工具",
     "description": "个人云存储网盘工具",
     "icon": "./icons/app_tool_057.png",
-    "url": "http://39.108.105.65/static/downloads/app_tool_057_vv3.1.5.apk",
+    "url": "http://39.108.105.65/static/downloads/123_vv3.1.5.apk",
     "tags": []
   },
   {
@@ -206,7 +206,7 @@
     "category": "工具",
     "description": "设备硬件信息检测工具",
     "icon": "./icons/app_tool_044.png",
-    "url": "http://39.108.105.65/static/downloads/app_tool_044_v-.apk",
+    "url": "http://39.108.105.65/static/downloads/devcheck_vv1.apk",
     "tags": []
   },
   {
@@ -216,7 +216,7 @@
     "category": "工具",
     "description": "安卓设备文件管理与编辑工具",
     "icon": "./icons/app_tool_055.png",
-    "url": "http://39.108.105.65/static/downloads/app_tool_055_vv2.14.5.apk",
+    "url": "http://39.108.105.65/static/downloads/mt_vv2.14.5.apk",
     "tags": []
   },
   {
@@ -256,7 +256,7 @@
     "category": "工具",
     "description": "车机端USB摄像头画面查看工具",
     "icon": "./icons/app_tool_047.png",
-    "url": "http://39.108.105.65/static/downloads/app_tool_047_vv1.2.1.apk",
+    "url": "http://39.108.105.65/static/downloads/evcam_vv1.2.1.apk",
     "tags": []
   },
   {
@@ -266,7 +266,7 @@
     "category": "工具",
     "description": "安卓端轻量级Kiwi浏览器",
     "icon": "./icons/app_tool_051.png",
-    "url": "http://39.108.105.65/static/downloads/app_tool_051_vv139.0.7339.0.apk",
+    "url": "http://39.108.105.65/static/downloads/kiwi_vv139.0.7339.0.apk",
     "tags": []
   },
   {
@@ -276,7 +276,7 @@
     "category": "视频",
     "description": "USB摄像头车机驱动工具",
     "icon": "./icons/app_vid_024.png",
-    "url": "http://39.108.105.65/static/downloads/app_vid_024_vv3.0.apk",
+    "url": "http://39.108.105.65/static/downloads/usbusb_vv3.0.apk",
     "tags": []
   },
   {
@@ -286,7 +286,7 @@
     "category": "工具",
     "description": "安卓应用权限管理工具",
     "icon": "./icons/app_tool_058.png",
-    "url": "http://39.108.105.65/static/downloads/app_tool_058_v-.apk",
+    "url": "http://39.108.105.65/static/downloads/quan_xian_gou_v1.apk",
     "tags": []
   },
   {
@@ -296,7 +296,7 @@
     "category": "工具",
     "description": "安卓端自动化任务执行工具",
     "icon": "./icons/app_tool_062.png",
-    "url": "http://39.108.105.65/static/downloads/app_tool_062_v-.apk",
+    "url": "http://39.108.105.65/static/downloads/tasker_vv1.apk",
     "tags": []
   },
   {
@@ -306,7 +306,7 @@
     "category": "工具",
     "description": "车机端无麦克风K歌应用",
     "icon": "./icons/app_tool_063.png",
-    "url": "http://39.108.105.65/static/downloads/app_tool_063_vv2.0.apk",
+    "url": "http://39.108.105.65/static/downloads/k_vv2.0.apk",
     "tags": []
   },
   {
@@ -316,7 +316,7 @@
     "category": "工具",
     "description": "车机桌面快捷方式创建工具",
     "icon": "./icons/app_tool_069.png",
-    "url": "http://39.108.105.65/static/downloads/app_tool_069_v-.apk",
+    "url": "http://39.108.105.65/static/downloads/chuang_jian_kuai_jie_fang_shi_v1.apk",
     "tags": []
   },
   {
@@ -356,7 +356,7 @@
     "category": "工具",
     "description": "安卓开发者调试辅助工具",
     "icon": "./icons/20650ca22e54.jpg",
-    "url": "http://39.108.105.65/static/downloads/app_tool_072_vv8.3.0.apk",
+    "url": "http://39.108.105.65/static/downloads/kai_fa_zhu_shou_v8.3.0.apk",
     "tags": []
   },
   {
@@ -376,7 +376,7 @@
     "category": "工具",
     "description": "车机应用一键横屏切换工具",
     "icon": "./icons/c27536075219.jpg",
-    "url": "http://39.108.105.65/static/downloads/app_tool_068_vv1.6.0.apk",
+    "url": "http://39.108.105.65/static/downloads/yi_jian_heng_ping_v1.6.0.apk",
     "tags": []
   },
   {
@@ -406,7 +406,7 @@
     "category": "视频",
     "description": "领克车机驾驶动画切换工具",
     "icon": "./icons/app_tool_071.png",
-    "url": "https://lz0.qaiu.top/parser?url=https://share.feijipan.com/s/nWcHdfVA",
+    "url": "http://39.108.105.65/static/downloads/ling_ke_jia_shi_dong_hua_qie_huan_v1.0.apk",
     "tags": []
   },
   {
@@ -416,7 +416,7 @@
     "category": "工具",
     "description": "车机端氢OS风格桌面",
     "icon": "./icons/qinzhuomian.png",
-    "url": "http://39.108.105.65/static/downloads/app_tool_073_v-.apk",
+    "url": "http://39.108.105.65/static/downloads/qing_zhuo_mian_pu_tong_ban_v1.apk",
     "tags": []
   },
   {
@@ -425,8 +425,8 @@
     "version": "v3.3.3",
     "category": "工具",
     "description": "安卓通用文件管理器",
-    "icon": "./icons/117cdbfc5f2e_1.jpg",
-    "url": "http://39.108.105.65/static/downloads/app_tool_048_vv3.3.3.apk",
+    "icon": "./icons/6716cb94c5f3.jpg",
+    "url": "http://39.108.105.65/static/downloads/file_manager_vv3.3.3.apk",
     "tags": []
   },
   {
@@ -436,7 +436,7 @@
     "category": "工具",
     "description": "迅雷下载工具车机版",
     "icon": "./icons/app_tool_076.png",
-    "url": "http://39.108.105.65/static/downloads/app_tool_076_vv8.03.0.9067.apk",
+    "url": "http://39.108.105.65/static/downloads/xun_lei_v8.03.0.9067.apk",
     "tags": []
   },
   {
@@ -446,7 +446,7 @@
     "category": "工具",
     "description": "车机壁纸管理与美化工具",
     "icon": "./icons/app_tool_071.png",
-    "url": "http://39.108.105.65/static/downloads/app_tool_071_vv2.1.apk",
+    "url": "http://39.108.105.65/static/downloads/xiao_ba_bi_zhi_da_shi_v2.1.apk",
     "tags": []
   },
   {
@@ -456,7 +456,7 @@
     "category": "工具",
     "description": "车机ADB权限管理助手",
     "icon": "./icons/app_tool_075.png",
-    "url": "http://39.108.105.65/static/downloads/app_tool_075_vv1.3.1.apk",
+    "url": "http://39.108.105.65/static/downloads/adb_vv1.3.1.apk",
     "tags": []
   },
   {
@@ -486,7 +486,7 @@
     "category": "视频",
     "description": "MX视频播放器车机版",
     "icon": "./icons/app_vid_026.png",
-    "url": "http://39.108.105.65/static/downloads/app_vid_026_vv2.0.5.apk",
+    "url": "http://39.108.105.65/static/downloads/mx_player_vv2.0.5.apk",
     "tags": []
   },
   {
@@ -496,7 +496,7 @@
     "category": "音乐",
     "description": "苹果音乐车机版",
     "icon": "./icons/app_mus_009.png",
-    "url": "http://39.108.105.65/static/downloads/app_mus_009_vv4.9.5.11.apk",
+    "url": "http://39.108.105.65/static/downloads/applemusic_vv4.6.0.apk",
     "tags": []
   },
   {
@@ -506,7 +506,7 @@
     "category": "视频",
     "description": "电视端高清影视播放应用，海量影视资源",
     "icon": "./icons/app_vid_023.png",
-    "url": "http://39.108.105.65/static/downloads/app_vid_023_vv5.0.0.apk",
+    "url": "http://39.108.105.65/static/downloads/ok_vv5.0.0.apk",
     "tags": []
   },
   {
@@ -516,7 +516,7 @@
     "category": "其他",
     "description": "云听_2.8.0.0001",
     "icon": "./icons/app_other_081.png",
-    "url": "http://39.108.105.65/static/downloads/app_other_081_vv2.8.0.0001.apk",
+    "url": "http://39.108.105.65/static/downloads/yun_ting_v2.8.0.0001.apk",
     "tags": []
   },
   {
@@ -526,7 +526,7 @@
     "category": "音乐",
     "description": "开源高颜值音乐播放器，支持网易云账号同步",
     "icon": "./icons/app_mus_008.png",
-    "url": "http://39.108.105.65/static/downloads/app_mus_008_vv5.1.0.apk",
+    "url": "http://39.108.105.65/static/downloads/algermusicplayer_vv5.1.0.apk",
     "tags": []
   },
   {
@@ -536,7 +536,7 @@
     "category": "其他",
     "description": "车载DJ音乐播放应用，海量潮流DJ曲库",
     "icon": "./icons/app_other_087.png",
-    "url": "http://39.108.105.65/static/downloads/app_other_087_v-.apk",
+    "url": "http://39.108.105.65/static/downloads/djuu-dj_vv1.apk",
     "tags": []
   },
   {
@@ -556,7 +556,7 @@
     "category": "视频",
     "description": "手机端高清影视播放软件，海量影视资源",
     "icon": "./icons/app_vid_030.png",
-    "url": "http://39.108.105.65/static/downloads/app_vid_030_vv5.1.5.apk",
+    "url": "http://39.108.105.65/static/downloads/ok2_vv5.1.5.apk",
     "tags": []
   },
   {
@@ -566,7 +566,7 @@
     "category": "音乐",
     "description": "纯净无广告的本地无损音乐播放器",
     "icon": "./icons/jiaoyanyinyue.png",
-    "url": "http://39.108.105.65/static/downloads/app_mus_023_vv11.0.0.apk",
+    "url": "http://39.108.105.65/static/downloads/salt_player_vv11.0.0.apk",
     "tags": []
   },
   {
@@ -576,7 +576,7 @@
     "category": "视频",
     "description": "抖音短视频车机适配版",
     "icon": "./icons/app_vid_029.png",
-    "url": "http://39.108.105.65/static/downloads/app_vid_029_v-.apk",
+    "url": "http://39.108.105.65/static/downloads/dou_yin_che_ji_ban_v1.apk",
     "tags": []
   },
   {
@@ -586,7 +586,7 @@
     "category": "电台",
     "description": "车机端有声书收听应用",
     "icon": "./icons/app_radio_078.png",
-    "url": "http://39.108.105.65/static/downloads/app_radio_078_vv1.0.6.apk",
+    "url": "http://39.108.105.65/static/downloads/xiao_li_ting_shu_v1.0.6.apk",
     "tags": []
   },
   {
@@ -596,7 +596,7 @@
     "category": "音乐",
     "description": "车机端本地音乐播放器",
     "icon": "./icons/jiaoyanyinyue.png",
-    "url": "http://39.108.105.65/static/downloads/app_mus_016_vv11.1.0.apk",
+    "url": "http://39.108.105.65/static/downloads/jiao_yan_yin_yue_v11.1.0.apk",
     "tags": []
   },
   {
@@ -616,7 +616,7 @@
     "category": "视频",
     "description": "好好看TV车机适配版",
     "icon": "./icons/app_vid_028.png",
-    "url": "http://39.108.105.65/static/downloads/app_vid_028_vv1.1.0.apk",
+    "url": "http://39.108.105.65/static/downloads/tv_vv1.1.0.apk",
     "tags": []
   },
   {
@@ -626,7 +626,7 @@
     "category": "电台",
     "description": "喜马拉雅车机适配版",
     "icon": "./icons/app_radio_077.png",
-    "url": "http://39.108.105.65/static/downloads/app_radio_077_v-.apk",
+    "url": "http://39.108.105.65/static/downloads/xi_ma_la_ya_xiao_ba_zhi_kong_shi_pei_v1.apk",
     "tags": []
   },
   {
@@ -636,7 +636,7 @@
     "category": "其他",
     "description": "全民K歌车机MV版",
     "icon": "./icons/app_other_082.png",
-    "url": "http://39.108.105.65/static/downloads/app_other_082_vv5.9.0.1.apk",
+    "url": "http://39.108.105.65/static/downloads/kmv_vv5.9.0.1.apk",
     "tags": []
   },
   {
@@ -646,7 +646,7 @@
     "category": "视频",
     "description": "B站车机适配版",
     "icon": "./icons/app_vid_027.png",
-    "url": "https://lz0.qaiu.top/parser?url=https://share.feijipan.com/s/mUdz5jdB",
+    "url": "http://39.108.105.65/static/downloads/bilibili_v2.9.5.apk",
     "tags": []
   },
   {
@@ -656,7 +656,7 @@
     "category": "车机",
     "description": "领克09提取音乐应用",
     "icon": "./icons/aiquting.png",
-    "url": "http://39.108.105.65/static/downloads/app_car_030_v-.apk",
+    "url": "http://39.108.105.65/static/downloads/09_vv1.apk",
     "tags": []
   },
   {
@@ -676,7 +676,7 @@
     "category": "音乐",
     "description": "酷狗音乐车机版",
     "icon": "./icons/app_mus_011.png",
-    "url": "http://39.108.105.65/static/downloads/app_mus_011_vv6.0.6.3.apk",
+    "url": "http://39.108.105.65/static/downloads/ku_gou_yin_yue_v6.0.6.3.apk",
     "tags": []
   },
   {
@@ -686,7 +686,7 @@
     "category": "音乐",
     "description": "网易云音乐车机版",
     "icon": "./icons/app_mus_012.png",
-    "url": "http://39.108.105.65/static/downloads/app_mus_012_vv6.2.81.apk",
+    "url": "http://39.108.105.65/static/downloads/wang_yi_yun_yin_yue_v6.2.81.apk",
     "tags": []
   },
   {
@@ -696,7 +696,7 @@
     "category": "音乐",
     "description": "酷我音乐VIP车机版",
     "icon": "./icons/kuwo.png",
-    "url": "http://39.108.105.65/static/downloads/app_mus_017_vv6.0.apk",
+    "url": "http://39.108.105.65/static/downloads/vip_vv6.0.apk",
     "tags": []
   },
   {
@@ -706,7 +706,7 @@
     "category": "音乐",
     "description": "酷狗音乐官方车机版",
     "icon": "./icons/app_mus_011.png",
-    "url": "http://39.108.105.65/static/downloads/app_mus_011_v2_vv6.0.9.1.apk",
+    "url": "http://39.108.105.65/static/downloads/ku_gou_yin_yue_che_ji_ban_v6.0.9.1.apk",
     "tags": []
   },
   {
@@ -716,17 +716,7 @@
     "category": "视频",
     "description": "优酷视频零跑提取版",
     "icon": "./icons/app_vid_025.png",
-    "url": "http://39.108.105.65/static/downloads/app_vid_025_vv11.0.31.259.apk",
-    "tags": []
-  },
-  {
-    "id": "app_mus_014",
-    "name": "汽水音乐手机破解版",
-    "version": "v14.7.0",
-    "category": "音乐",
-    "description": "汽水音乐手机破解版",
-    "icon": "./icons/app_mus_014.png",
-    "url": "http://39.108.105.65/static/downloads/QiShuiYinYueShouJiPoJieBan_v1470.apk",
+    "url": "http://39.108.105.65/static/downloads/c11_vv11.0.31.259.apk",
     "tags": []
   },
   {
@@ -736,7 +726,7 @@
     "category": "音乐",
     "description": "网易云音乐推荐版",
     "icon": "./icons/app_mus_018.png",
-    "url": "http://39.108.105.65/static/downloads/app_mus_018_v-.apk",
+    "url": "http://39.108.105.65/static/downloads/yun_yin_yue_v1.apk",
     "tags": []
   },
   {
@@ -746,7 +736,7 @@
     "category": "其他",
     "description": "红果短剧车机版",
     "icon": "./icons/app_other_084.png",
-    "url": "http://39.108.105.65/static/downloads/app_other_084_vv6.5.3.32.apk",
+    "url": "http://39.108.105.65/static/downloads/hong_guo_mian_fei_duan_ju_v6.5.3.32.apk",
     "tags": []
   },
   {
@@ -756,7 +746,7 @@
     "category": "其他",
     "description": "影视追剧电视版应用",
     "icon": "./icons/app_other_086.png",
-    "url": "http://39.108.105.65/static/downloads/app_other_086_vv3.2.2.apk",
+    "url": "http://39.108.105.65/static/downloads/guan_ying_zhui_ju_dian_shi_ban_v3.2.2.apk",
     "tags": []
   },
   {
@@ -766,7 +756,7 @@
     "category": "音乐",
     "description": "酷我车机VIP推荐版",
     "icon": "./icons/app_mus_019.png",
-    "url": "http://39.108.105.65/static/downloads/app_mus_019_v-.apk",
+    "url": "http://39.108.105.65/static/downloads/vip3_vv1.apk",
     "tags": []
   },
   {
@@ -776,7 +766,7 @@
     "category": "音乐",
     "description": "车机端有声内容收听应用",
     "icon": "./icons/app_mus_020.png",
-    "url": "http://39.108.105.65/static/downloads/app_mus_020_vv2.0.apk",
+    "url": "http://39.108.105.65/static/downloads/qing_yan_yun_ting_v2.0.apk",
     "tags": []
   },
   {
@@ -786,7 +776,7 @@
     "category": "其他",
     "description": "车机端DJ音乐播放应用",
     "icon": "./icons/app_other_079.png",
-    "url": "http://39.108.105.65/static/downloads/app_other_079_vv2.9.40.apk",
+    "url": "http://39.108.105.65/static/downloads/dj_vv2.9.40.apk",
     "tags": []
   },
   {
@@ -796,7 +786,7 @@
     "category": "其他",
     "description": "网易短视频车机版",
     "icon": "./icons/app_other_085.png",
-    "url": "http://39.108.105.65/static/downloads/app_other_085_v-.apk",
+    "url": "http://39.108.105.65/static/downloads/wang_yi_bao_mi_hua_v1.apk",
     "tags": []
   },
   {
@@ -826,17 +816,7 @@
     "category": "Carplay",
     "description": "CarPlay快捷方式创建工具",
     "icon": "./icons/app_car_032.png",
-    "url": "http://39.108.105.65/static/downloads/app_car_038_v-.apk",
-    "tags": []
-  },
-  {
-    "id": "app_nav_002",
-    "name": "高德地图",
-    "version": "v16.02.0.2045",
-    "category": "导航",
-    "description": "高德地图车机版",
-    "icon": "./icons/app_nav_002.png",
-    "url": "http://39.108.105.65/static/downloads/app_nav_002_vv16.02.0.2045.apk",
+    "url": "http://39.108.105.65/static/downloads/hy-carplay_vv1.apk",
     "tags": []
   },
   {
@@ -856,7 +836,7 @@
     "category": "导航",
     "description": "高德地图官方车机版",
     "icon": "./icons/app_nav_002.png",
-    "url": "https://mapdownload.autonavi.com/apps/auto/manual/V910/Auto_9.1.0.600087_release_signed.apk?u=6af40970e8febd609ff1193f151501bc",
+    "url": "http://39.108.105.65/static/downloads/gao_de_di_tu_che_ji_ban_v9.1.0.600087.apk",
     "tags": [
       "必备"
     ]
@@ -868,7 +848,7 @@
     "category": "导航",
     "description": "百度地图V20测试版",
     "icon": "./icons/app_nav_001.png",
-    "url": "http://39.108.105.65/static/downloads/app_nav_001_vv20.8.3.apk",
+    "url": "http://39.108.105.65/static/downloads/v20_vv20.8.3.apk",
     "tags": []
   },
   {
@@ -878,7 +858,7 @@
     "category": "导航",
     "description": "百度地图车机版",
     "icon": "./icons/app_nav_001.png",
-    "url": "http://39.108.105.65/static/downloads/app_nav_001_v2_vv21.6.3.apk",
+    "url": "http://39.108.105.65/static/downloads/bai_du_di_tu_v21.6.3.apk",
     "tags": []
   },
   {
@@ -888,7 +868,7 @@
     "category": "导航",
     "description": "奥维互动地图车机版",
     "icon": "./icons/app_nav_005.png",
-    "url": "http://39.108.105.65/static/downloads/app_nav_005_vv10.3.9.apk",
+    "url": "http://39.108.105.65/static/downloads/ao_wei_hu_dong_di_tu_v10.3.9.apk",
     "tags": []
   },
   {
@@ -898,7 +878,7 @@
     "category": "导航",
     "description": "百度地图V21测试版",
     "icon": "./icons/app_nav_001.png",
-    "url": "http://39.108.105.65/static/downloads/app_nav_001_v3_vv21.4.1.apk",
+    "url": "http://39.108.105.65/static/downloads/v21_vv21.4.1.apk",
     "tags": []
   },
   {
@@ -908,7 +888,7 @@
     "category": "导航",
     "description": "腾讯智驾地图车机版",
     "icon": "./icons/app_nav_006.png",
-    "url": "http://39.108.105.65/static/downloads/app_nav_006_vv8.4.3.20.apk",
+    "url": "http://39.108.105.65/static/downloads/teng_xun_zhi_jia_di_tu_v8.4.3.20.apk",
     "tags": []
   },
   {
@@ -918,7 +898,7 @@
     "category": "导航",
     "description": "高德16版手机适配版",
     "icon": "./icons/app_nav_002.png",
-    "url": "http://39.108.105.65/static/downloads/app_nav_002_v4_v-.apk",
+    "url": "http://39.108.105.65/static/downloads/16_11_vv1.apk",
     "tags": []
   },
   {
@@ -928,7 +908,7 @@
     "category": "导航",
     "description": "高德地图手机版",
     "icon": "./icons/app_nav_002.png",
-    "url": "http://39.108.105.65/static/downloads/app_nav_002_v5_vv16.01.1.2018.apk",
+    "url": "http://39.108.105.65/static/downloads/gao_de_shou_ji_ban_v16.01.1.2018.apk",
     "tags": []
   },
   {
@@ -938,7 +918,7 @@
     "category": "导航",
     "description": "百度地图汽车专用版",
     "icon": "./icons/app_nav_001.png",
-    "url": "http://39.108.105.65/static/downloads/app_nav_001_v4_vv21.7.3.apk",
+    "url": "http://39.108.105.65/static/downloads/bai_du_di_tu_qi_che_ban_v21.7.3.apk",
     "tags": []
   },
   {
@@ -948,7 +928,7 @@
     "category": "导航",
     "description": "高德低功耗手机版",
     "icon": "./icons/app_nav_002.png",
-    "url": "http://39.108.105.65/static/downloads/app_nav_002_v7_vv16.06.0.2023.apk",
+    "url": "http://39.108.105.65/static/downloads/gao_de_shou_ji_ban_di_xing_neng_xiao_hao_v16.06.0.2023.apk",
     "tags": []
   },
   {
@@ -1012,7 +992,7 @@
     "category": "其他",
     "description": "红绿灯领航",
     "icon": "./icons/app_mus_008.png",
-    "url": "http://39.108.105.65/static/downloads/%E7%BA%A2%E7%BB%BF%E7%81%AF%E9%A2%86%E8%88%AA_v2.6.1_20260513.apk",
+    "url": "http://39.108.105.65/static/downloads/hong_lv_deng_ling_hang_V2.6.1.apk",
     "tags": []
   },
   {
@@ -1036,13 +1016,133 @@
     "tags": []
   },
   {
-    "id": "测试",
-    "name": "测试",
-    "version": "1.0.1",
-    "category": "测试",
-    "description": "测试",
+    "id": "qq",
+    "name": "QQ音乐车机版",
+    "version": "v3.13.0.3",
+    "category": "",
+    "description": "同步自 OpenList：/CarMax/媒体影音/QQ音乐车机版_3.13.0.3_公版_小八智控适配.apk",
+    "icon": "./icons/app_mus_015.png",
+    "url": "http://39.108.105.65/static/downloads/qq_vv3.13.0.3.apk",
+    "tags": []
+  },
+  {
+    "id": "qq_by",
+    "name": "QQ音乐悬浮版_适配小八桌面双悬浮By小八",
+    "version": "-",
+    "category": "",
+    "description": "同步自 OpenList：/CarMax/媒体影音/QQ音乐悬浮版_适配小八桌面双悬浮By小八.apk",
+    "icon": "./icons/app_mus_015.png",
+    "url": "http://39.108.105.65/static/downloads/qq_by_vv1.apk",
+    "tags": []
+  },
+  {
+    "id": "qqhd",
+    "name": "QQ音乐HD",
+    "version": "v6.12.0.5",
+    "category": "",
+    "description": "同步自 OpenList：/CarMax/媒体影音/QQ音乐HD_6.12.0.5_公版_小八智控适配.apk",
+    "icon": "./icons/app_mus_015.png",
+    "url": "http://39.108.105.65/static/downloads/qqhd_vv6.12.0.5.apk",
+    "tags": []
+  },
+  {
+    "id": "qq_osn",
+    "name": "QQ音乐_领克OSN定制版",
+    "version": "-",
+    "category": "",
+    "description": "同步自 OpenList：/CarMax/媒体影音/QQ音乐_领克OSN定制版.apk",
+    "icon": "./icons/app_mus_015.png",
+    "url": "http://39.108.105.65/static/downloads/qq_osn_vv1.apk",
+    "tags": []
+  },
+  {
+    "id": "app_2f83f72",
+    "name": "汽水音乐手机版",
+    "version": "v14.7.0",
+    "category": "音乐",
+    "description": "同步自 OpenList：/CarMax/媒体影音/汽水音乐_14.7.0_去广告_小八智控已适配.apk",
     "icon": "./icons/app_mus_014.png",
-    "url": "http://39.108.105.65/static/downloads/FandengAdapter-2607021621-release-后台不可见.apk",
+    "url": "http://39.108.105.65/static/downloads/app_2f83f72_vv14.7.0.apk",
+    "tags": []
+  },
+  {
+    "id": "3d",
+    "name": "【关闭3D建筑】高德地图手机版",
+    "version": "v16.16.6.1030",
+    "category": "导航",
+    "description": "同步自 OpenList：/CarMax/地图导航/✅高德车机牛逼版V9.1(适配OSN)丨小八桌面HUD&悬浮&仪表飞(投)屏/手机高德V16——慎用丨除了车道级全是缺点/【关闭3D建筑】高德地图手机版16.16.6.1030_仪表车道级导航_适配OSN23款03——@Noidon-t地图哥制作by抖音车机导航.apk",
+    "icon": "./icons/app_nav_002.png",
+    "url": "http://39.108.105.65/static/downloads/3d_vv16.16.6.1030.apk",
+    "tags": []
+  },
+  {
+    "id": "app_66a497",
+    "name": "[特别版]高德地图牛逼版",
+    "version": "v7.5",
+    "category": "",
+    "description": "同步自 OpenList：/CarMax/地图导航/✅高德车机牛逼版V9.1(适配OSN)丨小八桌面HUD&悬浮&仪表飞(投)屏/牛逼版V7.5——三指飞屏/[特别版]高德地图牛逼版_V7.5养老(领克OSN通用)_尝鲜适配_荧光灯区间修复——@Noidon-t地图哥制作26.05.20.apk",
+    "icon": "./icons/app_nav_002.png",
+    "url": "http://39.108.105.65/static/downloads/gao_de_di_tu_niu_bi_ban_v7.5.apk",
+    "tags": []
+  },
+  {
+    "id": "app_90c584",
+    "name": "[共存版][问界底图]高德车机牛逼版",
+    "version": "v9.1",
+    "category": "",
+    "description": "同步自 OpenList：/CarMax/地图导航/✅高德车机牛逼版V9.1(适配OSN)丨小八桌面HUD&悬浮&仪表飞(投)屏/[共存版][问界底图]高德车机牛逼版V9.1(25款星越L专用稳定第⑩版)_新特性-适配小八桌面272新版本巡航出灯逻辑+全屏沉浸dock——@Noidon-t小骚哥.apk",
+    "icon": "./icons/app_nav_002.png",
+    "url": "http://39.108.105.65/static/downloads/gao_de_che_ji_niu_bi_ban_v9.1_2.apk",
+    "tags": []
+  },
+  {
+    "id": "navi-link_v.hud",
+    "name": "Navi-Link_[高德牛逼版v₉.₅]仪表HUD灵动岛悬浮窗插件——设置教程请看上方图示指南",
+    "version": "-",
+    "category": "",
+    "description": "同步自 OpenList：/CarMax/地图导航/☑️高德车机牛逼版V9.5(适配OSN)丨「小八桌面HUD&悬浮&仪表飞(投)屏联动」推荐专栏/Navi-Link_[高德牛逼版v₉.₅]仪表HUD灵动岛悬浮窗插件——设置教程请看上方图示指南.apk",
+    "icon": "./icons/app_nav_002.png",
+    "url": "http://39.108.105.65/static/downloads/navi-link_v.hud_vv1.apk",
+    "tags": []
+  },
+  {
+    "id": "hud",
+    "name": "修复小八HUD巡航灯[抬高版][经典底图]高德车机牛逼版",
+    "version": "v9.5",
+    "category": "",
+    "description": "同步自 OpenList：/CarMax/地图导航/☑️高德车机牛逼版V9.5(适配OSN)丨「小八桌面HUD&悬浮&仪表飞(投)屏联动」推荐专栏/修复小八HUD巡航灯[抬高版][经典底图]高德车机牛逼版V9.5(领克&星越全系通用稳定版)+Navi-Link灵动岛悬浮窗插件丨新特性_请看下方必读重要更新图示——@Noidon-t小骚哥.apk",
+    "icon": "./icons/app_nav_002.png",
+    "url": "http://39.108.105.65/static/downloads/hud_vv9.5.apk",
+    "tags": []
+  },
+  {
+    "id": "carplay4",
+    "name": "CarPlay【车易连、旧版奥风盒子专用】",
+    "version": "-",
+    "category": "",
+    "description": "同步自 OpenList：/CarMax/车机互联/CarPlay【车易连、旧版奥风盒子专用】.apk",
+    "icon": "./icons/5623d4823cb9.jpg",
+    "url": "http://39.108.105.65/static/downloads/carplay4_vv1.apk",
+    "tags": []
+  },
+  {
+    "id": "app_3c405c",
+    "name": "[抬高版]高德地图牛逼版",
+    "version": "v7.5",
+    "category": "导航",
+    "description": "同步自 OpenList：/CarMax/地图导航/✅高德车机牛逼版V9.1(适配OSN)丨小八桌面HUD&悬浮&仪表飞(投)屏/牛逼版V7.5——三指飞屏/[抬高版]高德地图牛逼版_V7.5养老(领克OSN通用)_尝鲜适配_荧光灯区间修复——@Noidon-t地图哥制作26.05.20.apk",
+    "icon": "./icons/app_nav_002.png",
+    "url": "http://39.108.105.65/static/downloads/gao_de_di_tu_niu_bi_ban_v7.5_2.apk",
+    "tags": []
+  },
+  {
+    "id": "app_19a221",
+    "name": "[抬高版][问界底图]高德车机牛逼版",
+    "version": "v9.1",
+    "category": "",
+    "description": "同步自 OpenList：/CarMax/地图导航/✅高德车机牛逼版V9.1(适配OSN)丨小八桌面HUD&悬浮&仪表飞(投)屏/[抬高版][问界底图]高德车机牛逼版V9.1(领克&星越全系通用稳定第⑩版)_新特性-适配小八桌面272新版本巡航出灯逻辑——@Noidon-t小骚哥.apk",
+    "icon": "./icons/app_nav_002.png",
+    "url": "http://39.108.105.65/static/downloads/gao_de_che_ji_niu_bi_ban_v9.1.apk",
     "tags": []
   }
 ]
