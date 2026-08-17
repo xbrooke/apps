@@ -1034,5 +1034,15 @@
     "icon": "./icons/app_mus_019.png",
     "url": "http://39.108.105.65/static/downloads/%E6%AD%8C%E8%AF%8D%E4%BC%B4%E4%BE%A3_20260813-738b550.apk",
     "tags": []
+  },
+  {
+    "id": "测试",
+    "name": "测试",
+    "version": "1.0.1",
+    "category": "测试",
+    "description": "测试",
+    "icon": "./icons/app_mus_014.png",
+    "url": "http://39.108.105.65/static/downloads/FandengAdapter-2607021621-release-后台不可见.apk",
+    "tags": []
   }
 ]
