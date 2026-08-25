@@ -6,7 +6,8 @@
     "category": "Carplay",
     "description": "HY-CarPlay最新版.apk",
     "icon": "./icons/app_car_031.png",
-    "url": "http://39.108.105.65/api/apps/hy-carplay/download",
+    "url": "https://apps.sosun.cc/static/downloads/hycarplay_zui_xin_ban_v1.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/hy-carplay/download",
     "tags": []
   },
   {
@@ -16,7 +17,8 @@
     "category": "导航",
     "description": "同步自 OpenList：/CarMax/地图导航/✅高德车机牛逼版V9.1(适配OSN)丨小八桌面HUD&悬浮&仪表飞(投)屏/牛逼版V7.5——三指飞屏/[抬高版]高德地图牛逼版_V7.5养老(领克OSN通用)_尝鲜适配_荧光灯区间修复——@Noidon-t地图哥制作26.05.20.apk",
     "icon": "./icons/app_nav_002.png",
-    "url": "http://39.108.105.65/api/apps/app_3c405c/download",
+    "url": "https://apps.sosun.cc/static/downloads/gao_de_di_tu_niu_bi_ban_v7.5_2.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_3c405c/download",
     "tags": []
   },
   {
@@ -26,7 +28,8 @@
     "category": "",
     "description": "同步自 OpenList：/CarMax/地图导航/✅高德车机牛逼版V9.1(适配OSN)丨小八桌面HUD&悬浮&仪表飞(投)屏/[抬高版][问界底图]高德车机牛逼版V9.1(领克&星越全系通用稳定第⑩版)_新特性-适配小八桌面272新版本巡航出灯逻辑——@Noidon-t小骚哥.apk",
     "icon": "./icons/app_nav_002.png",
-    "url": "http://39.108.105.65/api/apps/app_19a221/download",
+    "url": "https://apps.sosun.cc/static/downloads/gao_de_che_ji_niu_bi_ban_v9.1.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_19a221/download",
     "tags": []
   },
   {
@@ -36,7 +39,8 @@
     "category": "",
     "description": "同步自 OpenList：/CarMax/车机互联/CarPlay【车易连、旧版奥风盒子专用】.apk",
     "icon": "./icons/5623d4823cb9.jpg",
-    "url": "http://39.108.105.65/api/apps/carplay4/download",
+    "url": "https://apps.sosun.cc/static/downloads/carplay4_vv1.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/carplay4/download",
     "tags": []
   },
   {
@@ -46,7 +50,8 @@
     "category": "",
     "description": "同步自 OpenList：/CarMax/地图导航/☑️高德车机牛逼版V9.5(适配OSN)丨「小八桌面HUD&悬浮&仪表飞(投)屏联动」推荐专栏/修复小八HUD巡航灯[抬高版][经典底图]高德车机牛逼版V9.5(领克&星越全系通用稳定版)+Navi-Link灵动岛悬浮窗插件丨新特性_请看下方必读重要更新图示——@Noidon-t小骚哥.apk",
     "icon": "./icons/app_nav_002.png",
-    "url": "http://39.108.105.65/api/apps/hud/download",
+    "url": "https://apps.sosun.cc/static/downloads/hud_vv9.5.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/hud/download",
     "tags": []
   },
   {
@@ -56,7 +61,8 @@
     "category": "",
     "description": "同步自 OpenList：/CarMax/地图导航/☑️高德车机牛逼版V9.5(适配OSN)丨「小八桌面HUD&悬浮&仪表飞(投)屏联动」推荐专栏/Navi-Link_[高德牛逼版v₉.₅]仪表HUD灵动岛悬浮窗插件——设置教程请看上方图示指南.apk",
     "icon": "./icons/app_nav_002.png",
-    "url": "http://39.108.105.65/api/apps/navi-link_v.hud/download",
+    "url": "https://apps.sosun.cc/static/downloads/navi-link_v.hud_vv1.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/navi-link_v.hud/download",
     "tags": []
   },
   {
@@ -66,7 +72,8 @@
     "category": "",
     "description": "同步自 OpenList：/CarMax/地图导航/✅高德车机牛逼版V9.1(适配OSN)丨小八桌面HUD&悬浮&仪表飞(投)屏/牛逼版V7.5——三指飞屏/[特别版]高德地图牛逼版_V7.5养老(领克OSN通用)_尝鲜适配_荧光灯区间修复——@Noidon-t地图哥制作26.05.20.apk",
     "icon": "./icons/app_nav_002.png",
-    "url": "http://39.108.105.65/api/apps/app_66a497/download",
+    "url": "https://apps.sosun.cc/static/downloads/gao_de_di_tu_niu_bi_ban_v7.5.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_66a497/download",
     "tags": []
   },
   {
@@ -76,7 +83,8 @@
     "category": "导航",
     "description": "同步自 OpenList：/CarMax/地图导航/✅高德车机牛逼版V9.1(适配OSN)丨小八桌面HUD&悬浮&仪表飞(投)屏/手机高德V16——慎用丨除了车道级全是缺点/【关闭3D建筑】高德地图手机版16.16.6.1030_仪表车道级导航_适配OSN23款03——@Noidon-t地图哥制作by抖音车机导航.apk",
     "icon": "./icons/app_nav_002.png",
-    "url": "http://39.108.105.65/api/apps/3d/download",
+    "url": "https://apps.sosun.cc/static/downloads/3d_vv16.16.6.1030.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/3d/download",
     "tags": []
   },
   {
@@ -86,7 +94,8 @@
     "category": "音乐",
     "description": "同步自 OpenList：/CarMax/媒体影音/汽水音乐_14.7.0_去广告_小八智控已适配.apk",
     "icon": "./icons/app_mus_014.png",
-    "url": "http://39.108.105.65/api/apps/app_2f83f72/download",
+    "url": "https://apps.sosun.cc/static/downloads/app_2f83f72_vv14.7.0.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_2f83f72/download",
     "tags": []
   },
   {
@@ -96,7 +105,8 @@
     "category": "",
     "description": "同步自 OpenList：/CarMax/媒体影音/QQ音乐_领克OSN定制版.apk",
     "icon": "./icons/app_mus_015.png",
-    "url": "http://39.108.105.65/api/apps/qq_osn/download",
+    "url": "https://apps.sosun.cc/static/downloads/qq_osn_vv1.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/qq_osn/download",
     "tags": []
   },
   {
@@ -106,7 +116,8 @@
     "category": "",
     "description": "同步自 OpenList：/CarMax/媒体影音/QQ音乐HD_6.12.0.5_公版_小八智控适配.apk",
     "icon": "./icons/app_mus_015.png",
-    "url": "http://39.108.105.65/api/apps/qqhd/download",
+    "url": "https://apps.sosun.cc/static/downloads/qqhd_vv6.12.0.5.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/qqhd/download",
     "tags": []
   },
   {
@@ -116,7 +127,8 @@
     "category": "",
     "description": "同步自 OpenList：/CarMax/媒体影音/QQ音乐悬浮版_适配小八桌面双悬浮By小八.apk",
     "icon": "./icons/app_mus_015.png",
-    "url": "http://39.108.105.65/api/apps/qq_by/download",
+    "url": "https://apps.sosun.cc/static/downloads/qq_by_vv1.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/qq_by/download",
     "tags": []
   },
   {
@@ -126,7 +138,8 @@
     "category": "",
     "description": "同步自 OpenList：/CarMax/媒体影音/QQ音乐车机版_3.13.0.3_公版_小八智控适配.apk",
     "icon": "./icons/app_mus_015.png",
-    "url": "http://39.108.105.65/api/apps/qq/download",
+    "url": "https://apps.sosun.cc/static/downloads/qq_vv3.13.0.3.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/qq/download",
     "tags": []
   },
   {
@@ -136,7 +149,8 @@
     "category": "工具",
     "description": "适用于2026款Flyme车机领克03",
     "icon": "./icons/dbtool.png",
-    "url": "http://39.108.105.65/api/apps/dbtool/download",
+    "url": "https://apps.sosun.cc/static/downloads/dbtool3.0_v1.0.5_20260821_101031_protected_signed.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/dbtool/download",
     "tags": []
   },
   {
@@ -147,6 +161,7 @@
     "description": "适用于2026款Flyme车机的Carplay，已测试2026款03可用",
     "icon": "./icons/app_other_080.png",
     "url": "http://oss.iamonroad.com/app/shuiguo_flyme_v199.apk",
+    "download_url": "http://oss.iamonroad.com/app/shuiguo_flyme_v199.apk",
     "tags": []
   },
   {
@@ -157,6 +172,7 @@
     "description": "汽水音乐官方车机版本",
     "icon": "./icons/app_mus_021.png",
     "url": "https://zldb.netlify.app/apks/qishuiyinyue_1.1.27(101027).apk",
+    "download_url": "https://zldb.netlify.app/apks/qishuiyinyue_1.1.27(101027).apk",
     "tags": []
   },
   {
@@ -167,6 +183,7 @@
     "description": "车机智控功能插件，适配23/25多车型",
     "icon": "./icons/app_tool_067.png",
     "url": "https://apps.sosun.cc/static/downloads/XiaoBaZhiKongDaShiChaJian_v140.apk",
+    "download_url": "https://apps.sosun.cc/static/downloads/XiaoBaZhiKongDaShiChaJian_v140.apk",
     "tags": []
   },
   {
@@ -177,6 +194,7 @@
     "description": "车机智控管理工具，适配23/25款车型",
     "icon": "./icons/app_tool_065.png",
     "url": "https://lz0.qaiu.top/parser?url=https://share.feijipan.com/s/Sm2rkIOS",
+    "download_url": "https://lz0.qaiu.top/parser?url=https://share.feijipan.com/s/Sm2rkIOS",
     "tags": []
   },
   {
@@ -186,7 +204,8 @@
     "category": "工具",
     "description": "车机应用管理工具，修复优化版本",
     "icon": "./icons/yingyongguanjia.png",
-    "url": "http://39.108.105.65/api/apps/app_tool_043/download",
+    "url": "https://apps.sosun.cc/static/downloads/app_manager_v1.8.6.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_tool_043/download",
     "tags": []
   },
   {
@@ -196,7 +215,8 @@
     "category": "工具",
     "description": "车机桌面美化与管理工具",
     "icon": "./icons/xiaobazhuomian.png",
-    "url": "http://39.108.105.65/api/apps/app_tool_064/download",
+    "url": "https://apps.sosun.cc/static/downloads/xiao_ba_zhuo_mian_v2.7.3.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_tool_064/download",
     "tags": []
   },
   {
@@ -206,7 +226,8 @@
     "category": "工具",
     "description": "车机端查看行车记录仪画面",
     "icon": "./icons/dingdingpai.png",
-    "url": "http://39.108.105.65/api/apps/app_tool_045/download",
+    "url": "https://apps.sosun.cc/static/downloads/ding_ding_pai_che_ji_ban_v1.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_tool_045/download",
     "tags": []
   },
   {
@@ -217,6 +238,7 @@
     "description": "车机版行车记录仪应用",
     "icon": "./icons/app_tool_053.png",
     "url": "https://zldb.netlify.app/apks/daping-liuzhentanRelease-v1.0.12.260714.apk",
+    "download_url": "https://zldb.netlify.app/apks/daping-liuzhentanRelease-v1.0.12.260714.apk",
     "tags": []
   },
   {
@@ -226,7 +248,8 @@
     "category": "工具",
     "description": "飞歌隐藏式记录仪车机应用",
     "icon": "./icons/app_tool_054.png",
-    "url": "http://39.108.105.65/api/apps/app_tool_054/download",
+    "url": "https://apps.sosun.cc/static/downloads/lu_ying_v2.6.4.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_tool_054/download",
     "tags": []
   },
   {
@@ -237,6 +260,7 @@
     "description": "领克OSN车机多功能助手",
     "icon": "./icons/app_car_033.png",
     "url": "https://apps.sosun.cc/static/downloads/LingKeOsn_v104.apk",
+    "download_url": "https://apps.sosun.cc/static/downloads/LingKeOsn_v104.apk",
     "tags": []
   },
   {
@@ -247,6 +271,7 @@
     "description": "OSN车机风量显示恢复插件",
     "icon": "./icons/app_tool_067.png",
     "url": "https://apps.sosun.cc/static/downloads/OsnFengLiangXianShiChaJian_v20.apk",
+    "download_url": "https://apps.sosun.cc/static/downloads/OsnFengLiangXianShiChaJian_v20.apk",
     "tags": []
   },
   {
@@ -256,7 +281,8 @@
     "category": "工具",
     "description": "车机盲区监测补盲辅助工具",
     "icon": "./icons/lingshibumang.png",
-    "url": "http://39.108.105.65/api/apps/app_tool_052/download",
+    "url": "https://apps.sosun.cc/static/downloads/ling_shi_bu_mang_v2.5.6.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_tool_052/download",
     "tags": []
   },
   {
@@ -266,7 +292,8 @@
     "category": "工具",
     "description": "安卓活动管理工具，管理应用进程",
     "icon": "./icons/app_tool_039.png",
-    "url": "http://39.108.105.65/api/apps/app_tool_039/download",
+    "url": "https://apps.sosun.cc/static/downloads/activitymanager_vv5.4.13.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_tool_039/download",
     "tags": []
   },
   {
@@ -276,7 +303,8 @@
     "category": "工具",
     "description": "APK安装包编辑与管理工具",
     "icon": "./icons/app_tool_041.png",
-    "url": "http://39.108.105.65/api/apps/app_tool_041/download",
+    "url": "https://apps.sosun.cc/static/downloads/apkkit_vv1.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_tool_041/download",
     "tags": []
   },
   {
@@ -286,7 +314,8 @@
     "category": "工具",
     "description": "车机悬浮球快捷操作工具",
     "icon": "./icons/app_tool_049.png",
-    "url": "http://39.108.105.65/api/apps/app_tool_049/download",
+    "url": "https://apps.sosun.cc/static/downloads/fv_vv1.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_tool_049/download",
     "tags": []
   },
   {
@@ -296,7 +325,8 @@
     "category": "工具",
     "description": "安卓设备文件管理浏览器",
     "icon": "./icons/8b2d390062e5_1.jpg",
-    "url": "http://39.108.105.65/api/apps/app_tool_046/download",
+    "url": "https://apps.sosun.cc/static/downloads/es_vv4.4.2.8.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_tool_046/download",
     "tags": []
   },
   {
@@ -306,7 +336,8 @@
     "category": "导航",
     "description": "车机屏幕边缘音乐可视化工具",
     "icon": "./icons/app_nav_003.png",
-    "url": "http://39.108.105.65/api/apps/app_nav_003/download",
+    "url": "https://apps.sosun.cc/static/downloads/muviz_edge-premium_vv2.0.3.0.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_nav_003/download",
     "tags": []
   },
   {
@@ -316,7 +347,8 @@
     "category": "工具",
     "description": "增强型文件与应用搜索工具",
     "icon": "./icons/app_tool_060.png",
-    "url": "http://39.108.105.65/api/apps/app_tool_060/download",
+    "url": "https://apps.sosun.cc/static/downloads/searchevo_vv4.1.1.1.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_tool_060/download",
     "tags": []
   },
   {
@@ -326,7 +358,8 @@
     "category": "工具",
     "description": "个人云存储网盘工具",
     "icon": "./icons/app_tool_057.png",
-    "url": "http://39.108.105.65/api/apps/app_tool_057/download",
+    "url": "https://apps.sosun.cc/static/downloads/123_vv3.1.5.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_tool_057/download",
     "tags": []
   },
   {
@@ -336,7 +369,8 @@
     "category": "工具",
     "description": "设备硬件信息检测工具",
     "icon": "./icons/app_tool_044.png",
-    "url": "http://39.108.105.65/api/apps/app_tool_044/download",
+    "url": "https://apps.sosun.cc/static/downloads/devcheck_vv1.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_tool_044/download",
     "tags": []
   },
   {
@@ -346,7 +380,8 @@
     "category": "工具",
     "description": "安卓设备文件管理与编辑工具",
     "icon": "./icons/app_tool_055.png",
-    "url": "http://39.108.105.65/api/apps/app_tool_055/download",
+    "url": "https://apps.sosun.cc/static/downloads/mt_vv2.14.5.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_tool_055/download",
     "tags": []
   },
   {
@@ -357,6 +392,7 @@
     "description": "车机ADB调试开关工具",
     "icon": "./icons/app_tool_040.png",
     "url": "https://apps.sosun.cc/static/downloads/AdbKaiGuan.apk",
+    "download_url": "https://apps.sosun.cc/static/downloads/AdbKaiGuan.apk",
     "tags": []
   },
   {
@@ -367,6 +403,7 @@
     "description": "APK反编译与修改工具",
     "icon": "./icons/app_tool_042.png",
     "url": "https://apps.sosun.cc/static/downloads/AXGBHHQGX.apk",
+    "download_url": "https://apps.sosun.cc/static/downloads/AXGBHHQGX.apk",
     "tags": []
   },
   {
@@ -377,6 +414,7 @@
     "description": "领克车机ADB权限获取工具",
     "icon": "./icons/app_tool_040.png",
     "url": "https://apps.sosun.cc/static/downloads/Fuck.apk",
+    "download_url": "https://apps.sosun.cc/static/downloads/Fuck.apk",
     "tags": []
   },
   {
@@ -386,7 +424,8 @@
     "category": "工具",
     "description": "车机端USB摄像头画面查看工具",
     "icon": "./icons/app_tool_047.png",
-    "url": "http://39.108.105.65/api/apps/app_tool_047/download",
+    "url": "https://apps.sosun.cc/static/downloads/evcam_vv1.2.1.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_tool_047/download",
     "tags": []
   },
   {
@@ -396,7 +435,8 @@
     "category": "工具",
     "description": "安卓端轻量级Kiwi浏览器",
     "icon": "./icons/app_tool_051.png",
-    "url": "http://39.108.105.65/api/apps/app_tool_051/download",
+    "url": "https://apps.sosun.cc/static/downloads/kiwi_vv139.0.7339.0.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_tool_051/download",
     "tags": []
   },
   {
@@ -406,7 +446,8 @@
     "category": "视频",
     "description": "USB摄像头车机驱动工具",
     "icon": "./icons/app_vid_024.png",
-    "url": "http://39.108.105.65/api/apps/app_vid_024/download",
+    "url": "https://apps.sosun.cc/static/downloads/usbusb_vv3.0.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_vid_024/download",
     "tags": []
   },
   {
@@ -416,7 +457,8 @@
     "category": "工具",
     "description": "安卓应用权限管理工具",
     "icon": "./icons/app_tool_058.png",
-    "url": "http://39.108.105.65/api/apps/app_tool_058/download",
+    "url": "https://apps.sosun.cc/static/downloads/quan_xian_gou_v1.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_tool_058/download",
     "tags": []
   },
   {
@@ -426,7 +468,8 @@
     "category": "工具",
     "description": "安卓端自动化任务执行工具",
     "icon": "./icons/app_tool_062.png",
-    "url": "http://39.108.105.65/api/apps/app_tool_062/download",
+    "url": "https://apps.sosun.cc/static/downloads/tasker_vv1.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_tool_062/download",
     "tags": []
   },
   {
@@ -436,7 +479,8 @@
     "category": "工具",
     "description": "车机端无麦克风K歌应用",
     "icon": "./icons/app_tool_063.png",
-    "url": "http://39.108.105.65/api/apps/app_tool_063/download",
+    "url": "https://apps.sosun.cc/static/downloads/k_vv2.0.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_tool_063/download",
     "tags": []
   },
   {
@@ -446,7 +490,8 @@
     "category": "工具",
     "description": "车机桌面快捷方式创建工具",
     "icon": "./icons/app_tool_069.png",
-    "url": "http://39.108.105.65/api/apps/app_tool_069/download",
+    "url": "https://apps.sosun.cc/static/downloads/chuang_jian_kuai_jie_fang_shi_v1.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_tool_069/download",
     "tags": []
   },
   {
@@ -457,6 +502,7 @@
     "description": "吉利车机桌面启动器",
     "icon": "./icons/app_tool_059.png",
     "url": "https://apps.sosun.cc/static/downloads/JiLiQiDongQi_v117.apk",
+    "download_url": "https://apps.sosun.cc/static/downloads/JiLiQiDongQi_v117.apk",
     "tags": []
   },
   {
@@ -467,6 +513,7 @@
     "description": "夸克浏览器精简优化版",
     "icon": "./icons/app_tool_070.png",
     "url": "https://apps.sosun.cc/static/downloads/KuaKeLiuLanQi.apk",
+    "download_url": "https://apps.sosun.cc/static/downloads/KuaKeLiuLanQi.apk",
     "tags": []
   },
   {
@@ -477,6 +524,7 @@
     "description": "安卓9系统设置界面工具",
     "icon": "./icons/app_tool_067.png",
     "url": "https://apps.sosun.cc/static/downloads/Settings.apk",
+    "download_url": "https://apps.sosun.cc/static/downloads/Settings.apk",
     "tags": []
   },
   {
@@ -486,7 +534,8 @@
     "category": "工具",
     "description": "安卓开发者调试辅助工具",
     "icon": "./icons/20650ca22e54.jpg",
-    "url": "http://39.108.105.65/api/apps/app_tool_072/download",
+    "url": "https://apps.sosun.cc/static/downloads/kai_fa_zhu_shou_v8.3.0.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_tool_072/download",
     "tags": []
   },
   {
@@ -497,6 +546,7 @@
     "description": "车机一键关机重启工具",
     "icon": "./icons/app_tool_061.png",
     "url": "https://apps.sosun.cc/static/downloads/GuanJiChongQi.APK",
+    "download_url": "https://apps.sosun.cc/static/downloads/GuanJiChongQi.APK",
     "tags": []
   },
   {
@@ -506,7 +556,8 @@
     "category": "工具",
     "description": "车机应用一键横屏切换工具",
     "icon": "./icons/c27536075219.jpg",
-    "url": "http://39.108.105.65/api/apps/app_tool_068/download",
+    "url": "https://apps.sosun.cc/static/downloads/yi_jian_heng_ping_v1.6.0.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_tool_068/download",
     "tags": []
   },
   {
@@ -517,6 +568,7 @@
     "description": "oneOS系统防地图自启工具",
     "icon": "./icons/app_tool_067.png",
     "url": "https://apps.sosun.cc/static/downloads/Oneos.apk",
+    "download_url": "https://apps.sosun.cc/static/downloads/Oneos.apk",
     "tags": []
   },
   {
@@ -527,6 +579,7 @@
     "description": "领克车机桌面启动器",
     "icon": "./icons/app_tool_059.png",
     "url": "https://apps.sosun.cc/static/downloads/LynkcoQiDongQi_v117.apk",
+    "download_url": "https://apps.sosun.cc/static/downloads/LynkcoQiDongQi_v117.apk",
     "tags": []
   },
   {
@@ -536,7 +589,8 @@
     "category": "视频",
     "description": "领克车机驾驶动画切换工具",
     "icon": "./icons/app_tool_071.png",
-    "url": "http://39.108.105.65/api/apps/app_vid_022/download",
+    "url": "https://apps.sosun.cc/static/downloads/ling_ke_jia_shi_dong_hua_qie_huan_v1.0.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_vid_022/download",
     "tags": []
   },
   {
@@ -546,7 +600,8 @@
     "category": "工具",
     "description": "车机端氢OS风格桌面",
     "icon": "./icons/qinzhuomian.png",
-    "url": "http://39.108.105.65/api/apps/app_tool_073/download",
+    "url": "https://apps.sosun.cc/static/downloads/qing_zhuo_mian_pu_tong_ban_v1.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_tool_073/download",
     "tags": []
   },
   {
@@ -556,7 +611,8 @@
     "category": "工具",
     "description": "安卓通用文件管理器",
     "icon": "./icons/6716cb94c5f3.jpg",
-    "url": "http://39.108.105.65/api/apps/app_tool_048/download",
+    "url": "https://apps.sosun.cc/static/downloads/file_manager_vv3.3.3.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_tool_048/download",
     "tags": []
   },
   {
@@ -566,7 +622,8 @@
     "category": "工具",
     "description": "迅雷下载工具车机版",
     "icon": "./icons/app_tool_076.png",
-    "url": "http://39.108.105.65/api/apps/app_tool_076/download",
+    "url": "https://apps.sosun.cc/static/downloads/xun_lei_v8.03.0.9067.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_tool_076/download",
     "tags": []
   },
   {
@@ -576,7 +633,8 @@
     "category": "工具",
     "description": "车机壁纸管理与美化工具",
     "icon": "./icons/app_tool_071.png",
-    "url": "http://39.108.105.65/api/apps/app_tool_071/download",
+    "url": "https://apps.sosun.cc/static/downloads/xiao_ba_bi_zhi_da_shi_v2.1.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_tool_071/download",
     "tags": []
   },
   {
@@ -586,7 +644,8 @@
     "category": "工具",
     "description": "车机ADB权限管理助手",
     "icon": "./icons/app_tool_075.png",
-    "url": "http://39.108.105.65/api/apps/app_tool_075/download",
+    "url": "https://apps.sosun.cc/static/downloads/adb_vv1.3.1.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_tool_075/download",
     "tags": []
   },
   {
@@ -597,6 +656,7 @@
     "description": "QQ音乐官方车机版",
     "icon": "./icons/app_mus_015.png",
     "url": "https://apps.sosun.cc/static/downloads/QqYinYueCheJiGuanFang_v31205.apk",
+    "download_url": "https://apps.sosun.cc/static/downloads/QqYinYueCheJiGuanFang_v31205.apk",
     "tags": []
   },
   {
@@ -607,6 +667,7 @@
     "description": "汽水音乐破解版",
     "icon": "./icons/app_mus_021.png",
     "url": "https://lz0.qaiu.top/parser?url=https://share.feijipan.com/s/vedzeV3h",
+    "download_url": "https://lz0.qaiu.top/parser?url=https://share.feijipan.com/s/vedzeV3h",
     "tags": []
   },
   {
@@ -616,7 +677,8 @@
     "category": "视频",
     "description": "MX视频播放器车机版",
     "icon": "./icons/app_vid_026.png",
-    "url": "http://39.108.105.65/api/apps/app_vid_026/download",
+    "url": "https://apps.sosun.cc/static/downloads/mx_player_vv2.0.5.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_vid_026/download",
     "tags": []
   },
   {
@@ -626,7 +688,8 @@
     "category": "音乐",
     "description": "苹果音乐车机版",
     "icon": "./icons/app_mus_009.png",
-    "url": "http://39.108.105.65/api/apps/app_mus_009/download",
+    "url": "https://apps.sosun.cc/static/downloads/applemusic_vv4.6.0.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_mus_009/download",
     "tags": []
   },
   {
@@ -636,7 +699,8 @@
     "category": "视频",
     "description": "电视端高清影视播放应用，海量影视资源",
     "icon": "./icons/app_vid_023.png",
-    "url": "http://39.108.105.65/api/apps/app_vid_023/download",
+    "url": "https://apps.sosun.cc/static/downloads/ok_vv5.0.0.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_vid_023/download",
     "tags": []
   },
   {
@@ -646,7 +710,8 @@
     "category": "音乐",
     "description": "开源高颜值音乐播放器，支持网易云账号同步",
     "icon": "./icons/app_mus_008.png",
-    "url": "http://39.108.105.65/api/apps/app_mus_008/download",
+    "url": "https://apps.sosun.cc/static/downloads/algermusicplayer_vv5.1.0.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_mus_008/download",
     "tags": []
   },
   {
@@ -656,7 +721,8 @@
     "category": "视频",
     "description": "手机端高清影视播放软件，海量影视资源",
     "icon": "./icons/app_vid_030.png",
-    "url": "http://39.108.105.65/api/apps/app_vid_030/download",
+    "url": "https://apps.sosun.cc/static/downloads/ok2_vv5.1.5.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_vid_030/download",
     "tags": []
   },
   {
@@ -666,7 +732,8 @@
     "category": "音乐",
     "description": "纯净无广告的本地无损音乐播放器",
     "icon": "./icons/jiaoyanyinyue.png",
-    "url": "http://39.108.105.65/api/apps/app_mus_023/download",
+    "url": "https://apps.sosun.cc/static/downloads/salt_player_vv11.0.0.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_mus_023/download",
     "tags": []
   },
   {
@@ -676,7 +743,8 @@
     "category": "视频",
     "description": "抖音短视频车机适配版",
     "icon": "./icons/app_vid_029.png",
-    "url": "http://39.108.105.65/api/apps/app_vid_029/download",
+    "url": "https://apps.sosun.cc/static/downloads/dou_yin_che_ji_ban_v1.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_vid_029/download",
     "tags": []
   },
   {
@@ -686,7 +754,8 @@
     "category": "电台",
     "description": "车机端有声书收听应用",
     "icon": "./icons/app_radio_078.png",
-    "url": "http://39.108.105.65/api/apps/app_radio_078/download",
+    "url": "https://apps.sosun.cc/static/downloads/xiao_li_ting_shu_v1.0.6.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_radio_078/download",
     "tags": []
   },
   {
@@ -696,7 +765,8 @@
     "category": "音乐",
     "description": "车机端本地音乐播放器",
     "icon": "./icons/jiaoyanyinyue.png",
-    "url": "http://39.108.105.65/api/apps/app_mus_016/download",
+    "url": "https://apps.sosun.cc/static/downloads/jiao_yan_yin_yue_v11.1.0.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_mus_016/download",
     "tags": []
   },
   {
@@ -707,6 +777,7 @@
     "description": "领克07提取视听应用",
     "icon": "./icons/app_vid_021.png",
     "url": "https://apps.sosun.cc/static/downloads/CheYuShiTing.apk",
+    "download_url": "https://apps.sosun.cc/static/downloads/CheYuShiTing.apk",
     "tags": []
   },
   {
@@ -716,7 +787,8 @@
     "category": "视频",
     "description": "好好看TV车机适配版",
     "icon": "./icons/app_vid_028.png",
-    "url": "http://39.108.105.65/api/apps/app_vid_028/download",
+    "url": "https://apps.sosun.cc/static/downloads/tv_vv1.1.0.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_vid_028/download",
     "tags": []
   },
   {
@@ -726,7 +798,8 @@
     "category": "电台",
     "description": "喜马拉雅车机适配版",
     "icon": "./icons/app_radio_077.png",
-    "url": "http://39.108.105.65/api/apps/app_radio_077/download",
+    "url": "https://apps.sosun.cc/static/downloads/xi_ma_la_ya_xiao_ba_zhi_kong_shi_pei_v1.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_radio_077/download",
     "tags": []
   },
   {
@@ -736,7 +809,8 @@
     "category": "视频",
     "description": "B站车机适配版",
     "icon": "./icons/app_vid_027.png",
-    "url": "http://39.108.105.65/api/apps/app_vid_027/download",
+    "url": "https://apps.sosun.cc/static/downloads/bilibili_v2.9.5.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_vid_027/download",
     "tags": []
   },
   {
@@ -746,7 +820,8 @@
     "category": "车机",
     "description": "领克09提取音乐应用",
     "icon": "./icons/aiquting.png",
-    "url": "http://39.108.105.65/api/apps/app_car_030/download",
+    "url": "https://apps.sosun.cc/static/downloads/09_vv1.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_car_030/download",
     "tags": []
   },
   {
@@ -757,6 +832,7 @@
     "description": "QQ音乐领克OSN适配版",
     "icon": "./icons/app_mus_015.png",
     "url": "https://apps.sosun.cc/static/downloads/QqYinYue.apk",
+    "download_url": "https://apps.sosun.cc/static/downloads/QqYinYue.apk",
     "tags": []
   },
   {
@@ -766,7 +842,8 @@
     "category": "音乐",
     "description": "酷狗音乐车机版",
     "icon": "./icons/app_mus_011.png",
-    "url": "http://39.108.105.65/api/apps/app_mus_011/download",
+    "url": "https://apps.sosun.cc/static/downloads/ku_gou_yin_yue_v6.0.6.3.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_mus_011/download",
     "tags": []
   },
   {
@@ -776,7 +853,8 @@
     "category": "音乐",
     "description": "网易云音乐车机版",
     "icon": "./icons/app_mus_012.png",
-    "url": "http://39.108.105.65/api/apps/app_mus_012/download",
+    "url": "https://apps.sosun.cc/static/downloads/wang_yi_yun_yin_yue_v6.2.81.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_mus_012/download",
     "tags": []
   },
   {
@@ -786,7 +864,8 @@
     "category": "音乐",
     "description": "酷我音乐VIP车机版",
     "icon": "./icons/kuwo.png",
-    "url": "http://39.108.105.65/api/apps/app_mus_017/download",
+    "url": "https://apps.sosun.cc/static/downloads/vip_vv6.0.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_mus_017/download",
     "tags": []
   },
   {
@@ -796,7 +875,8 @@
     "category": "音乐",
     "description": "酷狗音乐官方车机版",
     "icon": "./icons/app_mus_011.png",
-    "url": "http://39.108.105.65/api/apps/app_mus_011_v2/download",
+    "url": "https://apps.sosun.cc/static/downloads/ku_gou_yin_yue_che_ji_ban_v6.0.9.1.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_mus_011_v2/download",
     "tags": []
   },
   {
@@ -806,7 +886,8 @@
     "category": "视频",
     "description": "优酷视频零跑提取版",
     "icon": "./icons/app_vid_025.png",
-    "url": "http://39.108.105.65/api/apps/app_vid_025/download",
+    "url": "https://apps.sosun.cc/static/downloads/c11_vv11.0.31.259.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_vid_025/download",
     "tags": []
   },
   {
@@ -816,7 +897,8 @@
     "category": "音乐",
     "description": "网易云音乐推荐版",
     "icon": "./icons/app_mus_018.png",
-    "url": "http://39.108.105.65/api/apps/app_mus_018/download",
+    "url": "https://apps.sosun.cc/static/downloads/yun_yin_yue_v1.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_mus_018/download",
     "tags": []
   },
   {
@@ -826,7 +908,8 @@
     "category": "音乐",
     "description": "酷我车机VIP推荐版",
     "icon": "./icons/app_mus_019.png",
-    "url": "http://39.108.105.65/api/apps/app_mus_019/download",
+    "url": "https://apps.sosun.cc/static/downloads/vip3_vv1.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_mus_019/download",
     "tags": []
   },
   {
@@ -836,7 +919,8 @@
     "category": "音乐",
     "description": "车机端有声内容收听应用",
     "icon": "./icons/app_mus_020.png",
-    "url": "http://39.108.105.65/api/apps/app_mus_020/download",
+    "url": "https://apps.sosun.cc/static/downloads/qing_yan_yun_ting_v2.0.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_mus_020/download",
     "tags": []
   },
   {
@@ -847,6 +931,7 @@
     "description": "CarPlay互联工具V177",
     "icon": "./icons/app_other_080.png",
     "url": "https://apps.sosun.cc/static/downloads/ShuiGuoHuLian_v183.apk",
+    "download_url": "https://apps.sosun.cc/static/downloads/ShuiGuoHuLian_v183.apk",
     "tags": []
   },
   {
@@ -857,6 +942,7 @@
     "description": "CarPlay互联工具V176",
     "icon": "./icons/app_other_080.png",
     "url": "https://apps.sosun.cc/static/downloads/ShuiGuoHuLian_v182.apk",
+    "download_url": "https://apps.sosun.cc/static/downloads/ShuiGuoHuLian_v182.apk",
     "tags": []
   },
   {
@@ -866,7 +952,8 @@
     "category": "Carplay",
     "description": "CarPlay快捷方式创建工具",
     "icon": "./icons/app_car_032.png",
-    "url": "http://39.108.105.65/api/apps/app_car_038/download",
+    "url": "https://apps.sosun.cc/static/downloads/hy-carplay_vv1.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_car_038/download",
     "tags": []
   },
   {
@@ -877,6 +964,7 @@
     "description": "高德地图官方车机版",
     "icon": "./icons/app_nav_002.png",
     "url": "https://apps.sosun.cc/static/downloads/GaoDeCheJi_v95.apk",
+    "download_url": "https://apps.sosun.cc/static/downloads/GaoDeCheJi_v95.apk",
     "tags": []
   },
   {
@@ -886,7 +974,8 @@
     "category": "导航",
     "description": "高德地图官方车机版",
     "icon": "./icons/app_nav_002.png",
-    "url": "http://39.108.105.65/api/apps/app_nav_002_v3/download",
+    "url": "https://apps.sosun.cc/static/downloads/gao_de_di_tu_che_ji_ban_v9.1.0.600087.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_nav_002_v3/download",
     "tags": [
       "必备"
     ]
@@ -898,7 +987,8 @@
     "category": "导航",
     "description": "百度地图V20测试版",
     "icon": "./icons/app_nav_001.png",
-    "url": "http://39.108.105.65/api/apps/app_nav_001/download",
+    "url": "https://apps.sosun.cc/static/downloads/v20_vv20.8.3.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_nav_001/download",
     "tags": []
   },
   {
@@ -908,7 +998,8 @@
     "category": "导航",
     "description": "百度地图车机版",
     "icon": "./icons/app_nav_001.png",
-    "url": "http://39.108.105.65/api/apps/app_nav_001_v2/download",
+    "url": "https://apps.sosun.cc/static/downloads/bai_du_di_tu_v21.6.3.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_nav_001_v2/download",
     "tags": []
   },
   {
@@ -918,7 +1009,8 @@
     "category": "导航",
     "description": "奥维互动地图车机版",
     "icon": "./icons/app_nav_005.png",
-    "url": "http://39.108.105.65/api/apps/app_nav_005/download",
+    "url": "https://apps.sosun.cc/static/downloads/ao_wei_hu_dong_di_tu_v10.3.9.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_nav_005/download",
     "tags": []
   },
   {
@@ -928,7 +1020,8 @@
     "category": "导航",
     "description": "百度地图V21测试版",
     "icon": "./icons/app_nav_001.png",
-    "url": "http://39.108.105.65/api/apps/app_nav_001_v3/download",
+    "url": "https://apps.sosun.cc/static/downloads/v21_vv21.4.1.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_nav_001_v3/download",
     "tags": []
   },
   {
@@ -938,7 +1031,8 @@
     "category": "导航",
     "description": "腾讯智驾地图车机版",
     "icon": "./icons/app_nav_006.png",
-    "url": "http://39.108.105.65/api/apps/app_nav_006/download",
+    "url": "https://apps.sosun.cc/static/downloads/teng_xun_zhi_jia_di_tu_v8.4.3.20.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_nav_006/download",
     "tags": []
   },
   {
@@ -948,7 +1042,8 @@
     "category": "导航",
     "description": "高德16版手机适配版",
     "icon": "./icons/app_nav_002.png",
-    "url": "http://39.108.105.65/api/apps/app_nav_002_v4/download",
+    "url": "https://apps.sosun.cc/static/downloads/16_11_vv1.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_nav_002_v4/download",
     "tags": []
   },
   {
@@ -958,7 +1053,8 @@
     "category": "导航",
     "description": "高德地图手机版",
     "icon": "./icons/app_nav_002.png",
-    "url": "http://39.108.105.65/api/apps/app_nav_002_v5/download",
+    "url": "https://apps.sosun.cc/static/downloads/gao_de_shou_ji_ban_v16.01.1.2018.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_nav_002_v5/download",
     "tags": []
   },
   {
@@ -968,7 +1064,8 @@
     "category": "导航",
     "description": "百度地图汽车专用版",
     "icon": "./icons/app_nav_001.png",
-    "url": "http://39.108.105.65/api/apps/app_nav_001_v4/download",
+    "url": "https://apps.sosun.cc/static/downloads/bai_du_di_tu_qi_che_ban_v21.7.3.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_nav_001_v4/download",
     "tags": []
   },
   {
@@ -978,7 +1075,8 @@
     "category": "导航",
     "description": "高德低功耗手机版",
     "icon": "./icons/app_nav_002.png",
-    "url": "http://39.108.105.65/api/apps/app_nav_002_v7/download",
+    "url": "https://apps.sosun.cc/static/downloads/gao_de_shou_ji_ban_di_xing_neng_xiao_hao_v16.06.0.2023.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/app_nav_002_v7/download",
     "tags": []
   },
   {
@@ -989,6 +1087,7 @@
     "description": "CarPlay互联工具",
     "icon": "./icons/app_car_032.png",
     "url": "https://lz0.qaiu.top/parser?url=https://share.feijipan.com/s/Wwcp4ocj",
+    "download_url": "https://lz0.qaiu.top/parser?url=https://share.feijipan.com/s/Wwcp4ocj",
     "tags": []
   },
   {
@@ -999,6 +1098,7 @@
     "description": "车机桌面启动器",
     "icon": "./icons/app_car_034.png",
     "url": "https://lz0.qaiu.top/parser?url=https://share.feijipan.com/s/BAcpaXaA",
+    "download_url": "https://lz0.qaiu.top/parser?url=https://share.feijipan.com/s/BAcpaXaA",
     "tags": [
       "必备"
     ]
@@ -1011,6 +1111,7 @@
     "description": "领克车机多功能辅助工具",
     "icon": "./icons/app_car_033.png",
     "url": "https://lz0.qaiu.top/parser?url=https://share.feijipan.com/s/WSdz6013",
+    "download_url": "https://lz0.qaiu.top/parser?url=https://share.feijipan.com/s/WSdz6013",
     "tags": [
       "最新"
     ]
@@ -1023,6 +1124,7 @@
     "description": "26款车型CarPlay工具",
     "icon": "./icons/app_car_031.png",
     "url": "https://lz0.qaiu.top/parser?url=https://share.feijipan.com/s/21cH4guF",
+    "download_url": "https://lz0.qaiu.top/parser?url=https://share.feijipan.com/s/21cH4guF",
     "tags": []
   },
   {
@@ -1032,7 +1134,8 @@
     "category": "其他",
     "description": "红绿灯领航",
     "icon": "./icons/app_mus_008.png",
-    "url": "http://39.108.105.65/api/apps/honglvdegnlinghang/download",
+    "url": "https://apps.sosun.cc/static/downloads/hong_lv_deng_ling_hang_V2.6.1.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/honglvdegnlinghang/download",
     "tags": []
   }
 ]
