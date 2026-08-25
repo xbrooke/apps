@@ -1,5 +1,16 @@
 [
   {
+    "id": "ff3fd707aeab",
+    "name": "车辆数据采集",
+    "version": "v0.3",
+    "category": "测试",
+    "description": "",
+    "icon": "./icons/a229fbbb584c.jpg",
+    "url": "https://apps.sosun.cc/static/downloads/che_liang_shu_ju_cai_ji_0.3_20260825_165826.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/ff3fd707aeab/download",
+    "tags": []
+  },
+  {
     "id": "hy-carplay",
     "name": "HY-CarPlay最新版2.0",
     "version": "2.0",
