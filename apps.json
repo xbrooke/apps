@@ -1058,17 +1058,6 @@
     "tags": []
   },
   {
-    "id": "app_nav_006",
-    "name": "腾讯智驾地图",
-    "version": "v8.4.3.20",
-    "category": "导航",
-    "description": "腾讯智驾地图车机版",
-    "icon": "./icons/app_nav_006.png",
-    "url": "https://apps.sosun.cc/static/downloads/teng_xun_zhi_jia_di_tu_v8.4.3.20.apk",
-    "download_url": "https://apps.sosun.cc/api/apps/app_nav_006/download",
-    "tags": []
-  },
-  {
     "id": "app_nav_002_v4",
     "name": "高德地图16手机版_安卓11可用",
     "version": "-",
