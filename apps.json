@@ -1058,17 +1058,6 @@
     "tags": []
   },
   {
-    "id": "app_nav_001_v3",
-    "name": "百度地图V21尝鲜版",
-    "version": "v21.4.1",
-    "category": "导航",
-    "description": "百度地图V21测试版",
-    "icon": "./icons/app_nav_001.png",
-    "url": "https://apps.sosun.cc/static/downloads/v21_vv21.4.1.apk",
-    "download_url": "https://apps.sosun.cc/api/apps/app_nav_001_v3/download",
-    "tags": []
-  },
-  {
     "id": "app_nav_006",
     "name": "腾讯智驾地图",
     "version": "v8.4.3.20",
