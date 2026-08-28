@@ -35,11 +35,11 @@
   {
     "id": "ff3fd707aeab",
     "name": "车辆数据采集",
-    "version": "v0.9",
+    "version": "v0.10",
     "category": "测试",
     "description": "",
     "icon": "./icons/a229fbbb584c.jpg",
-    "url": "https://apps.sosun.cc/static/downloads/che_liang_shu_ju_cai_ji_0.9_20260828_175135.apk",
+    "url": "https://apps.sosun.cc/static/downloads/che_liang_shu_ju_cai_ji_0.10_20260828_182232.apk",
     "download_url": "https://apps.sosun.cc/api/apps/ff3fd707aeab/download",
     "tags": []
   },
