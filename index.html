@@ -838,6 +838,86 @@
             display: block;
         }
 
+        /* WeChat Login Modal */
+        .wechat-login-modal { max-width: 400px; }
+        .wechat-login-body {
+            padding: 16px 24px 28px;
+            text-align: center;
+        }
+        .wechat-qrcode-wrap {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 16px;
+            border-radius: 12px;
+            overflow: hidden;
+            background: var(--bg-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .wechat-qrcode-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .short-code-display {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 8px;
+            color: var(--primary);
+            margin: 12px 0;
+            font-variant-numeric: tabular-nums;
+        }
+        .login-status {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-top: 12px;
+        }
+        .login-status .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #34c759;
+            animation: pulse 1.5s infinite;
+        }
+        .login-status .dot.error { background: #ff3b30; animation: none; }
+        .login-status .dot.success { background: #34c759; animation: none; }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+        .login-hint {
+            font-size: 13px;
+            color: var(--text-tertiary);
+            margin-top: 12px;
+        }
+        .user-menu-modal { max-width: 320px; }
+        .user-menu-body {
+            padding: 16px 24px 24px;
+            text-align: center;
+        }
+        .user-menu-body p { font-size: 14px; color: var(--text-secondary); margin-bottom: 16px; }
+        .menu-btn {
+            width: 100%;
+            height: 44px;
+            border: none;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all var(--transition);
+            margin-bottom: 10px;
+        }
+        .menu-btn.primary { background: var(--primary); color: white; }
+        .menu-btn.primary:hover { background: var(--primary-hover); }
+        .menu-btn.danger { background: #ff3b30; color: white; }
+        .menu-btn.danger:hover { background: #ff453a; }
+
         /* Footer */
         footer {
             text-align: center;
@@ -940,6 +1020,14 @@
                         <path d="M21 14h0M21 17h0M14 21h0M17 21h0M21 21h0"/>
                     </svg>
                 </button>
+                <!-- 微信登录入口 -->
+                <button class="icon-btn" id="userBtn" onclick="handleUserClick()" title="用户" aria-label="用户" style="display:none">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                </button>
+                <span id="userName" class="user-name" style="display:none; font-size:13px; color:var(--text-secondary); cursor:pointer;" onclick="handleUserClick()"></span>
             </div>
         </div>
 
@@ -1069,7 +1157,54 @@
         </div>
     </div>
 
+    <!-- WeChat OAuth Login Modal -->
+    <div class="modal-overlay" id="wechatLoginOverlay" role="dialog" aria-modal="true">
+        <div class="modal wechat-login-modal">
+            <div class="modal-header">
+                <button class="modal-close" id="wechatLoginCloseBtn" aria-label="关闭">×</button>
+                <h2>微信扫码登录</h2>
+                <p>关注公众号并发送验证码完成登录</p>
+            </div>
+            <div class="modal-body wechat-login-body">
+                <div class="wechat-qrcode-wrap" id="wechatQrcodeWrap">
+                    <img id="wechatQrcodeImg" src="" alt="公众号二维码" style="display:none;">
+                    <span id="wechatQrcodePlaceholder" style="color:var(--text-tertiary); font-size:14px;">加载中...</span>
+                </div>
+                <p style="font-size:14px; color:var(--text);">或在公众号发送验证码：</p>
+                <div class="short-code-display" id="shortCodeDisplay">------</div>
+                <div class="login-status" id="loginStatus">
+                    <span class="dot" id="loginStatusDot"></span>
+                    <span id="loginStatusText">等待扫码...</span>
+                </div>
+                <p class="login-hint">验证码 5 分钟内有效</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- User Menu Modal -->
+    <div class="modal-overlay" id="userMenuOverlay" role="dialog" aria-modal="true">
+        <div class="modal user-menu-modal">
+            <div class="modal-header">
+                <button class="modal-close" id="userMenuCloseBtn" aria-label="关闭">×</button>
+                <h2>用户中心</h2>
+                <p id="userMenuOpenid" style="font-size:12px; color:var(--text-tertiary); word-break:break-all;"></p>
+            </div>
+            <div class="modal-body user-menu-body">
+                <p>已通过微信登录</p>
+                <button class="menu-btn danger" onclick="logout()">退出登录</button>
+            </div>
+        </div>
+    </div>
+
     <script>
+        // ================== OAuth Config ==================
+        // 安全提示：纯前端暴露 AppSecret 有安全风险，建议后续迁移到后端代理
+        const OAUTH_CONFIG = {
+            baseUrl: 'https://app.sosun.cc',                               // DBStore 实际域名
+            appKey: 'wxk_3f876cbf114b2d4569cffb6762135a28',               // AppKey
+            appSecret: 'Yxwn1KDlOqkoWU5Cdlx2OvbuNYRHuLwsaETGdqu4bGk'    // AppSecret（仅前端暴露，建议后续迁后端代理）
+        };
+
         const state = {
             apps: [],
             filteredApps: [],
@@ -1077,7 +1212,10 @@
             currentVehicle: 'OSN车型',
             currentCategory: '全部',
             heroIndex: 0,
-            heroTimer: null
+            heroTimer: null,
+            user: null,          // { openid, authorizedAt }
+            pollTimer: null,
+            pollAbort: null
         };
 
         // Default fallback apps
@@ -1488,7 +1626,207 @@
         }
         updateThemeIcon();
 
-        // Show skeleton briefly for nice UX
+        // ================== WeChat OAuth Login ==================
+        function initUser() {
+            try {
+                const saved = localStorage.getItem('dbstore_user');
+                if (saved) state.user = JSON.parse(saved);
+            } catch (e) {}
+            updateUserUI();
+        }
+
+        function updateUserUI() {
+            const btn = $('userBtn');
+            const nameEl = $('userName');
+            if (state.user && state.user.openid) {
+                btn.style.display = 'none';
+                nameEl.style.display = 'inline';
+                nameEl.textContent = '已登录';
+            } else {
+                btn.style.display = 'flex';
+                nameEl.style.display = 'none';
+                nameEl.textContent = '';
+            }
+        }
+
+        function handleUserClick() {
+            if (state.user && state.user.openid) {
+                openUserMenu();
+            } else {
+                openWechatLogin();
+            }
+        }
+
+        function openUserMenu() {
+            $('userMenuOpenid').textContent = 'openid: ' + (state.user.openid || '');
+            $('userMenuOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeUserMenu() {
+            $('userMenuOverlay').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function openWechatLogin() {
+            // 重置状态
+            $('wechatQrcodeImg').style.display = 'none';
+            $('wechatQrcodePlaceholder').style.display = 'inline';
+            $('shortCodeDisplay').textContent = '------';
+            setLoginStatus('等待扫码...', 'loading');
+            $('wechatLoginOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+            startWechatAuth();
+        }
+
+        function closeWechatLogin() {
+            $('wechatLoginOverlay').classList.remove('active');
+            document.body.style.overflow = '';
+            if (state.pollAbort) {
+                state.pollAbort.abort();
+                state.pollAbort = null;
+            }
+            if (state.pollTimer) {
+                clearTimeout(state.pollTimer);
+                state.pollTimer = null;
+            }
+        }
+
+        function setLoginStatus(text, type) {
+            $('loginStatusText').textContent = text;
+            const dot = $('loginStatusDot');
+            dot.className = 'dot';
+            if (type === 'error') dot.classList.add('error');
+            if (type === 'success') dot.classList.add('success');
+        }
+
+        async function startWechatAuth() {
+            try {
+                const stateStr = Math.random().toString(36).slice(2) + Date.now().toString(36);
+                const res = await fetch(`${OAUTH_CONFIG.baseUrl}/api/oauth/wechat/authorize`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-App-Key': OAUTH_CONFIG.appKey,
+                        'X-App-Secret': OAUTH_CONFIG.appSecret
+                    },
+                    body: JSON.stringify({
+                        redirectUri: window.location.href,
+                        scope: 'openid',
+                        state: stateStr
+                    })
+                });
+                const data = await res.json();
+                if (!data.success) {
+                    setLoginStatus(data.message || '授权发起失败', 'error');
+                    return;
+                }
+                // 显示二维码和短码
+                if (data.qrcodeUrl) {
+                    $('wechatQrcodeImg').src = data.qrcodeUrl;
+                    $('wechatQrcodeImg').style.display = 'block';
+                    $('wechatQrcodePlaceholder').style.display = 'none';
+                }
+                $('shortCodeDisplay').textContent = (data.shortCode || '').split('').join(' ');
+                setLoginStatus('等待用户扫码并发送验证码...', 'loading');
+                // 开始轮询
+                pollAuthorization(data.authorizeId, stateStr);
+            } catch (err) {
+                setLoginStatus('网络错误，请稍后重试', 'error');
+                console.error('WeChat auth error:', err);
+            }
+        }
+
+        async function pollAuthorization(authorizeId, expectedState) {
+            if (state.pollAbort) state.pollAbort.abort();
+            state.pollAbort = new AbortController();
+            const signal = state.pollAbort.signal;
+
+            const maxAttempts = 60;
+            const interval = 3000;
+
+            for (let i = 0; i < maxAttempts; i++) {
+                if (signal.aborted) return;
+                await new Promise(r => { state.pollTimer = setTimeout(r, interval); });
+                if (signal.aborted) return;
+
+                try {
+                    const res = await fetch(
+                        `${OAUTH_CONFIG.baseUrl}/api/oauth/wechat/poll?authorizeId=${encodeURIComponent(authorizeId)}`,
+                        {
+                            headers: {
+                                'X-App-Key': OAUTH_CONFIG.appKey,
+                                'X-App-Secret': OAUTH_CONFIG.appSecret
+                            },
+                            signal
+                        }
+                    );
+                    const data = await res.json();
+
+                    if (data.status === 'authorized') {
+                        if (data.state !== expectedState) {
+                            setLoginStatus('State 不匹配，可能存在安全风险', 'error');
+                            return;
+                        }
+                        state.user = {
+                            openid: data.openid,
+                            authorizedAt: data.authorizedAt
+                        };
+                        localStorage.setItem('dbstore_user', JSON.stringify(state.user));
+                        setLoginStatus('登录成功！', 'success');
+                        updateUserUI();
+                        setTimeout(() => {
+                            closeWechatLogin();
+                            showToast('微信登录成功');
+                        }, 800);
+                        return;
+                    }
+
+                    if (data.status === 'expired') {
+                        setLoginStatus('验证码已过期，请关闭后重试', 'error');
+                        return;
+                    }
+                    if (data.status === 'denied') {
+                        setLoginStatus('授权失败：' + (data.message || '用户取消'), 'error');
+                        return;
+                    }
+                    // pending
+                    setLoginStatus(data.message || '等待用户扫码并发送验证码...', 'loading');
+                } catch (err) {
+                    if (err.name === 'AbortError') return;
+                    console.error('Poll error:', err);
+                }
+            }
+            setLoginStatus('授权超时，请关闭后重试', 'error');
+        }
+
+        function logout() {
+            state.user = null;
+            localStorage.removeItem('dbstore_user');
+            updateUserUI();
+            closeUserMenu();
+            showToast('已退出登录');
+        }
+
+        // WeChat login modal events
+        $('wechatLoginCloseBtn').addEventListener('click', closeWechatLogin);
+        $('wechatLoginOverlay').addEventListener('click', (e) => {
+            if (e.target === e.currentTarget) closeWechatLogin();
+        });
+        $('userMenuCloseBtn').addEventListener('click', closeUserMenu);
+        $('userMenuOverlay').addEventListener('click', (e) => {
+            if (e.target === e.currentTarget) closeUserMenu();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                if ($('wechatLoginOverlay').classList.contains('active')) closeWechatLogin();
+                if ($('userMenuOverlay').classList.contains('active')) closeUserMenu();
+            }
+        });
+
+        // ================== Init ==================
+        initUser();
         renderSkeleton();
         loadApps();
     </script>
