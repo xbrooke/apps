@@ -1730,6 +1730,17 @@
                 const saved = localStorage.getItem('dbstore_user');
                 if (saved) state.user = JSON.parse(saved);
             } catch (e) {}
+
+            // 检查登录态是否超过 1 天（24 小时）
+            if (state.user && state.user.authorizedAt) {
+                const authorizedTime = new Date(state.user.authorizedAt).getTime();
+                const oneDay = 24 * 60 * 60 * 1000;
+                if (Date.now() - authorizedTime > oneDay) {
+                    state.user = null;
+                    localStorage.removeItem('dbstore_user');
+                }
+            }
+
             updateUserUI();
             if (!state.user) {
                 // 未登录：强制显示登录门禁层，隐藏主内容
@@ -1904,7 +1915,7 @@
                         }
                         state.user = {
                             openid: data.openid,
-                            authorizedAt: data.authorizedAt
+                            authorizedAt: Date.now()
                         };
                         localStorage.setItem('dbstore_user', JSON.stringify(state.user));
                         setLoginStatus('登录成功！', 'success');
