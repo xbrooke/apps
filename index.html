@@ -1633,6 +1633,10 @@
                 if (saved) state.user = JSON.parse(saved);
             } catch (e) {}
             updateUserUI();
+            // 未登录且本次会话未关闭过登录窗 → 自动弹出
+            if (!state.user && !sessionStorage.getItem('wechat_login_dismissed')) {
+                openWechatLogin();
+            }
         }
 
         function updateUserUI() {
@@ -1690,6 +1694,8 @@
                 clearTimeout(state.pollTimer);
                 state.pollTimer = null;
             }
+            // 记录本次会话已关闭，避免刷新反复弹窗
+            sessionStorage.setItem('wechat_login_dismissed', '1');
         }
 
         function setLoginStatus(text, type) {
