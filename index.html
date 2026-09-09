@@ -1267,7 +1267,7 @@
                     <img id="wechatQrcodeImg" src="" alt="公众号二维码" style="display:none;">
                     <span id="wechatQrcodePlaceholder" style="color:var(--text-tertiary); font-size:14px;">加载中...</span>
                 </div>
-                <p style="font-size:14px; color:var(--text);">或在公众号发送验证码：</p>
+                <p style="font-size:14px; color:var(--text);" id="shortCodeLabel">或在公众号发送验证码：</p>
                 <div class="short-code-display" id="shortCodeDisplay">------</div>
                 <div class="login-status" id="loginStatus">
                     <span class="dot" id="loginStatusDot"></span>
@@ -1785,6 +1785,8 @@
             $('wechatQrcodeImg').style.display = 'none';
             $('wechatQrcodePlaceholder').style.display = 'inline';
             $('shortCodeDisplay').textContent = '------';
+            $('shortCodeLabel').style.display = 'block';
+            $('shortCodeDisplay').style.display = 'block';
             setLoginStatus('等待扫码...', 'loading');
             $('wechatLoginOverlay').classList.add('active');
             document.body.style.overflow = 'hidden';
@@ -1841,6 +1843,8 @@
                     $('wechatQrcodeImg').style.display = 'block';
                     $('wechatQrcodePlaceholder').style.display = 'none';
                 }
+                $('shortCodeLabel').style.display = 'block';
+                $('shortCodeDisplay').style.display = 'block';
                 $('shortCodeDisplay').textContent = (data.shortCode || '').split('').join(' ');
                 setLoginStatus('等待用户扫码并发送验证码...', 'loading');
                 // 开始轮询
@@ -1857,6 +1861,9 @@
             $('wechatQrcodeImg').src = './wechat_qrcode.png';
             $('wechatQrcodeImg').style.display = 'block';
             $('wechatQrcodePlaceholder').style.display = 'none';
+            // 本地二维码没有短码，隐藏短码区域
+            $('shortCodeLabel').style.display = 'none';
+            $('shortCodeDisplay').style.display = 'none';
         }
 
         async function pollAuthorization(authorizeId, expectedState) {
