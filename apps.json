@@ -1,8 +1,19 @@
 [
   {
+    "id": "995b28016fba",
+    "name": "CarPlay插件",
+    "version": "v0.1.9",
+    "category": "Carplay",
+    "description": "",
+    "icon": "./icons/app_tool_067.png",
+    "url": "https://apps.sosun.cc/static/downloads/hudbridge_v0.1.9_dao_hang_xin_xi_qiao_jie_cha_jian.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/995b28016fba/download",
+    "tags": []
+  },
+  {
     "id": "1953f4ac592e",
     "name": "CarPlay第三方",
-    "version": "1.0.1",
+    "version": "v32.12",
     "category": "Carplay",
     "description": "",
     "icon": "./icons/app_car_032.png",
