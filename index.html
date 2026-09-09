@@ -1137,7 +1137,7 @@
     <div class="login-gate" id="loginGate">
         <div class="brand-mark-lg">D</div>
         <h1>DBStore</h1>
-        <p>微信扫码登录后即可浏览全部应用</p>
+        <p>服务器能力有限暂时只对群友提供</p>
         <div class="qrcode-wrap">
             <img src="./wechat_qrcode.png" alt="公众号二维码" onerror="this.style.display='none'">
         </div>
@@ -1830,6 +1830,8 @@
                 const data = await res.json();
                 if (!data.success) {
                     setLoginStatus(data.message || '授权发起失败', 'error');
+                    // fallback：显示本地二维码
+                    showLocalQrcode();
                     return;
                 }
                 // 显示二维码和短码
@@ -1843,9 +1845,17 @@
                 // 开始轮询
                 pollAuthorization(data.authorizeId, stateStr);
             } catch (err) {
-                setLoginStatus('网络错误，请稍后重试', 'error');
                 console.error('WeChat auth error:', err);
+                setLoginStatus('连接服务器失败，已显示公众号二维码', 'error');
+                // fallback：显示本地二维码，让用户仍可关注公众号
+                showLocalQrcode();
             }
+        }
+
+        function showLocalQrcode() {
+            $('wechatQrcodeImg').src = './wechat_qrcode.png';
+            $('wechatQrcodeImg').style.display = 'block';
+            $('wechatQrcodePlaceholder').style.display = 'none';
         }
 
         async function pollAuthorization(authorizeId, expectedState) {
