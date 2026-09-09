@@ -1908,6 +1908,8 @@
                         setTimeout(() => {
                             closeWechatLogin();
                             showToast('微信登录成功');
+                            // 刷新页面，以登录态重新进入应用列表
+                            window.location.reload();
                         }, 800);
                         return;
                     }
