@@ -863,10 +863,11 @@
         .short-code-display {
             font-size: 32px;
             font-weight: 700;
-            letter-spacing: 8px;
+            letter-spacing: 12px;
             color: var(--primary);
             margin: 12px 0;
             font-variant-numeric: tabular-nums;
+            padding-left: 12px; /* 抵消首字母左侧多出的间距 */
         }
         .login-status {
             display: flex;
@@ -1845,7 +1846,7 @@
                 }
                 $('shortCodeLabel').style.display = 'block';
                 $('shortCodeDisplay').style.display = 'block';
-                $('shortCodeDisplay').textContent = (data.shortCode || '').split('').join(' ');
+                $('shortCodeDisplay').textContent = data.shortCode || '';
                 setLoginStatus('等待用户扫码并发送验证码...', 'loading');
                 // 开始轮询
                 pollAuthorization(data.authorizeId, stateStr);
