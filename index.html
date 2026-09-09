@@ -986,6 +986,88 @@
             .install-btn { height: 28px; font-size: 11px; border-radius: 14px; }
             .large-title { font-size: 28px; }
         }
+
+        /* Login Gate — 强制登录层 */
+        .login-gate {
+            position: fixed;
+            inset: 0;
+            z-index: 150;
+            background: var(--bg);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            text-align: center;
+        }
+        .login-gate.active { display: flex; }
+        .login-gate .brand-mark-lg {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, var(--primary) 0%, #5856d6 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 32px;
+            font-weight: 700;
+            box-shadow: 0 4px 16px rgba(0, 113, 227, 0.3);
+            margin-bottom: 20px;
+        }
+        .login-gate h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.025em;
+        }
+        .login-gate p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+        }
+        .login-gate .qrcode-wrap {
+            width: 180px;
+            height: 180px;
+            border-radius: 16px;
+            overflow: hidden;
+            background: var(--bg-secondary);
+            margin-bottom: 24px;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .login-gate .qrcode-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .login-gate .wechat-btn {
+            height: 50px;
+            padding: 0 32px;
+            background: #07c160;
+            color: white;
+            border: none;
+            border-radius: 14px;
+            font-size: 17px;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: inherit;
+            transition: all var(--transition);
+        }
+        .login-gate .wechat-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 20px rgba(7, 193, 96, 0.35);
+        }
+        .login-gate .wechat-btn svg {
+            width: 22px;
+            height: 22px;
+        }
+        .main-locked { display: none !important; }
     </style>
 </head>
 <body>
@@ -1051,7 +1133,21 @@
         </div>
     </nav>
 
-    <div class="container">
+    <!-- Login Gate — 未登录时覆盖全屏 -->
+    <div class="login-gate" id="loginGate">
+        <div class="brand-mark-lg">D</div>
+        <h1>DBStore</h1>
+        <p>微信扫码登录后即可浏览全部应用</p>
+        <div class="qrcode-wrap">
+            <img src="./wechat_qrcode.png" alt="公众号二维码" onerror="this.style.display='none'">
+        </div>
+        <button class="wechat-btn" onclick="openWechatLogin()">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8.5 14.5c-3.5 0-6.5-2.5-6.5-5.5S5 3.5 8.5 3.5 15 6 15 9s-3 5.5-6.5 5.5zm-1.8-4.8c-.4 0-.8.4-.8.8s.4.8.8.8.8-.4.8-.8-.4-.8-.8-.8zm3.6 0c-.4 0-.8.4-.8.8s.4.8.8.8.8-.4.8-.8-.4-.8-.8-.8zM16 8c3.5 0 6.5 2.5 6.5 5.5S19.5 19 16 19c-.6 0-1.1-.1-1.7-.2l-1.8 1.1.4-1.5C11.3 17.7 10 16.5 10 15c0-3 3-7 6-7z"/></svg>
+            微信扫码登录
+        </button>
+    </div>
+
+    <div class="container" id="mainContainer">
         <main class="main">
             <!-- Hero / Featured -->
             <section class="hero" id="hero" aria-label="精选应用">
@@ -1633,10 +1729,21 @@
                 if (saved) state.user = JSON.parse(saved);
             } catch (e) {}
             updateUserUI();
-            // 未登录且本次会话未关闭过登录窗 → 自动弹出
-            if (!state.user && !sessionStorage.getItem('wechat_login_dismissed')) {
+            if (!state.user) {
+                // 未登录：强制显示登录门禁层，隐藏主内容
+                $('loginGate').classList.add('active');
+                $('mainContainer').classList.add('main-locked');
                 openWechatLogin();
+            } else {
+                // 已登录：正常显示
+                $('loginGate').classList.remove('active');
+                $('mainContainer').classList.remove('main-locked');
             }
+        }
+
+        function unlockApp() {
+            $('loginGate').classList.remove('active');
+            $('mainContainer').classList.remove('main-locked');
         }
 
         function updateUserUI() {
@@ -1694,8 +1801,6 @@
                 clearTimeout(state.pollTimer);
                 state.pollTimer = null;
             }
-            // 记录本次会话已关闭，避免刷新反复弹窗
-            sessionStorage.setItem('wechat_login_dismissed', '1');
         }
 
         function setLoginStatus(text, type) {
@@ -1781,6 +1886,7 @@
                         localStorage.setItem('dbstore_user', JSON.stringify(state.user));
                         setLoginStatus('登录成功！', 'success');
                         updateUserUI();
+                        unlockApp();
                         setTimeout(() => {
                             closeWechatLogin();
                             showToast('微信登录成功');
@@ -1812,6 +1918,10 @@
             updateUserUI();
             closeUserMenu();
             showToast('已退出登录');
+            // 重新锁定页面
+            $('loginGate').classList.add('active');
+            $('mainContainer').classList.add('main-locked');
+            openWechatLogin();
         }
 
         // WeChat login modal events
