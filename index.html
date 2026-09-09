@@ -1892,8 +1892,11 @@
                         }
                     );
                     const data = await res.json();
+                    console.log('[poll]', data);
 
-                    if (data.status === 'authorized') {
+                    const isAuthorized = data.status === 'authorized' || data.status === 'success' || data.status === 'verified' || data.authorized === true || !!data.openid;
+
+                    if (isAuthorized) {
                         if (data.state !== expectedState) {
                             setLoginStatus('State 不匹配，可能存在安全风险', 'error');
                             return;
