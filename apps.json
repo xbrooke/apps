@@ -1,11 +1,44 @@
 [
   {
+    "id": "0e82d989cd6f",
+    "name": "小柚投屏",
+    "version": "2.14.1701",
+    "category": "",
+    "description": "",
+    "icon": "./icons/48e042f59070.jpg",
+    "url": "https://apps.sosun.cc/static/downloads/tou_ping.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/0e82d989cd6f/download",
+    "tags": []
+  },
+  {
+    "id": "977b4da1a318",
+    "name": "豆包",
+    "version": "15.0.0",
+    "category": "",
+    "description": "",
+    "icon": "./icons/a4ab1a7c5a59.jpg",
+    "url": "https://apps.sosun.cc/static/downloads/hong_lv_deng_ling_hang.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/977b4da1a318/download",
+    "tags": []
+  },
+  {
+    "id": "gao_de",
+    "name": "【强烈推荐】高德",
+    "version": "v9.5",
+    "category": "导航",
+    "description": "同步自 OpenList：/CarMax/地图导航/【强烈推荐】高德9.5仪表飞屏_仪表路口放大图_路况巡航导航路线修复_v234_小八桌面v3.0深度适配_小八免费公开.apk",
+    "icon": "",
+    "url": "https://apps.sosun.cc/static/downloads/gao_de_v9.5.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/gao_de/download",
+    "tags": []
+  },
+  {
     "id": "3a1ad15f0d88",
     "name": "当贝",
-    "version": "",
+    "version": "v3.0.0",
     "category": "安卓",
     "description": "",
-    "icon": "./icons/app_vid_021.png",
+    "icon": "./icons/c433efdca1dd.jpg",
     "url": "https://apps.sosun.cc/static/downloads/dang_bei_tou_ping.apk",
     "download_url": "https://apps.sosun.cc/api/apps/3a1ad15f0d88/download",
     "tags": []
@@ -13,10 +46,10 @@
   {
     "id": "b74a93876b5c",
     "name": "红绿灯",
-    "version": "v2.6.1",
+    "version": "v9.9.9",
     "category": "安卓",
     "description": "",
-    "icon": "./icons/app_vid_021.png",
+    "icon": "./icons/5221302eb9c1.jpg",
     "url": "https://apps.sosun.cc/static/downloads/红绿灯领航_v2.6.1_20260513.apk",
     "download_url": "https://apps.sosun.cc/api/apps/b74a93876b5c/download",
     "tags": []
