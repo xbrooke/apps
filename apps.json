@@ -1,5 +1,16 @@
 [
   {
+    "id": "3a1ad15f0d88",
+    "name": "当贝",
+    "version": "",
+    "category": "安卓",
+    "description": "",
+    "icon": "./icons/app_vid_021.png",
+    "url": "https://apps.sosun.cc/static/downloads/dang_bei_tou_ping.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/3a1ad15f0d88/download",
+    "tags": []
+  },
+  {
     "id": "b74a93876b5c",
     "name": "红绿灯",
     "version": "v2.6.1",
