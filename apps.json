@@ -1,5 +1,16 @@
 [
   {
+    "id": "b74a93876b5c",
+    "name": "红绿灯",
+    "version": "v2.6.1",
+    "category": "安卓",
+    "description": "",
+    "icon": "./icons/app_vid_021.png",
+    "url": "https://apps.sosun.cc/static/downloads/红绿灯领航_v2.6.1_20260513.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/b74a93876b5c/download",
+    "tags": []
+  },
+  {
     "id": "0ef5d42e0454",
     "name": "Flyme酷狗占位包",
     "version": "1.0",
