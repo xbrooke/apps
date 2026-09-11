@@ -1,5 +1,27 @@
 [
   {
+    "id": "8fe8bd38e664",
+    "name": "当贝",
+    "version": "V2.9.1",
+    "category": "",
+    "description": "",
+    "icon": "./icons/7d1564f11766.jpg",
+    "url": "https://apps.sosun.cc/static/downloads/dang_bei_tou_ping.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/8fe8bd38e664/download",
+    "tags": []
+  },
+  {
+    "id": "b5b079a02c6a",
+    "name": "番茄小说",
+    "version": "7.3.5.32",
+    "category": "安卓",
+    "description": "",
+    "icon": "",
+    "url": "https://apps.sosun.cc/static/downloads/fan_qie_xiao_shuo.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/b5b079a02c6a/download",
+    "tags": []
+  },
+  {
     "id": "0e82d989cd6f",
     "name": "小柚投屏",
     "version": "2.14.1701",
@@ -30,17 +52,6 @@
     "icon": "",
     "url": "https://apps.sosun.cc/static/downloads/gao_de_v9.5.apk",
     "download_url": "https://apps.sosun.cc/api/apps/gao_de/download",
-    "tags": []
-  },
-  {
-    "id": "3a1ad15f0d88",
-    "name": "当贝",
-    "version": "v3.0.0",
-    "category": "安卓",
-    "description": "",
-    "icon": "./icons/c433efdca1dd.jpg",
-    "url": "https://apps.sosun.cc/static/downloads/dang_bei_tou_ping.apk",
-    "download_url": "https://apps.sosun.cc/api/apps/3a1ad15f0d88/download",
     "tags": []
   },
   {
