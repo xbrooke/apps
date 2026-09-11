@@ -310,11 +310,11 @@
   {
     "id": "dbtool",
     "name": "DBtool车机助手",
-    "version": "v1.0.8",
+    "version": "v1.0.6",
     "category": "工具",
     "description": "适用于2026款Flyme车机领克03",
     "icon": "./icons/dbtool.png",
-    "url": "https://apps.sosun.cc/static/downloads/dbtool3.0_v1.0.9_20260911_122950_protected_signed.apk",
+    "url": "https://apps.sosun.cc/static/downloads/dbtool3.0_v1.0.6_20260911_125133_protected_signed.apk",
     "download_url": "https://apps.sosun.cc/api/apps/dbtool/download",
     "tags": []
   },
