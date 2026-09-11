@@ -1,5 +1,16 @@
 [
   {
+    "id": "9a520b1197a3",
+    "name": "汽水音乐车机官方版本",
+    "version": "1.1.35",
+    "category": "音乐",
+    "description": "汽水音乐车机官方1.1.35版本",
+    "icon": "./icons/app_mus_021.png",
+    "url": "https://apps.sosun.cc/static/downloads/qi_shui_yin_yue_che_ji_ban_1.1.35.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/9a520b1197a3/download",
+    "tags": []
+  },
+  {
     "id": "8fe8bd38e664",
     "name": "当贝",
     "version": "V2.9.1",
