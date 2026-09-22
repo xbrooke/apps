@@ -82,7 +82,7 @@
     "version": "v9.5",
     "category": "导航",
     "description": "同步自 OpenList：/CarMax/地图导航/【强烈推荐】高德9.5仪表飞屏_仪表路口放大图_路况巡航导航路线修复_v234_小八桌面v3.0深度适配_小八免费公开.apk",
-    "icon": "",
+    "icon": "./icons/app_nav_002.png",
     "url": "https://apps.sosun.cc/static/downloads/gao_de_v9.5.apk",
     "download_url": "https://apps.sosun.cc/api/apps/gao_de/download",
     "tags": []
