@@ -1,5 +1,16 @@
 [
   {
+    "id": "f00f2ab73b06",
+    "name": "安装器",
+    "version": "",
+    "category": "其他",
+    "description": "",
+    "icon": "./icons/app_tool_062.png",
+    "url": "https://apps.sosun.cc/static/downloads/apkinstaller.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/f00f2ab73b06/download",
+    "tags": []
+  },
+  {
     "id": "99c82cad1a3f",
     "name": "星舱助手",
     "version": "v1.8.8",
