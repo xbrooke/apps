@@ -1,5 +1,38 @@
 [
   {
+    "id": "dfcc0fc3bfbf",
+    "name": "音乐桥接umb-release-1.5汉化2.apk",
+    "version": "v1.5",
+    "category": "工具",
+    "description": "",
+    "icon": "./icons/aiquting.png",
+    "url": "https://apps.sosun.cc/static/downloads/yin_yue_qiao_jie_umb_release_1.5_han_hua_2.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/dfcc0fc3bfbf/download",
+    "tags": []
+  },
+  {
+    "id": "wang_yi_yun_yin_yue_xiao_ba_zhi_kong_ding_zhi_ba",
+    "name": "网易云音乐-小八智控定制版-小八桌面适配分屏.apk",
+    "version": "-",
+    "category": "音乐",
+    "description": "同步自 OpenList：/CarMax/媒体影音/小八桌面定制音乐版本/网易云音乐-小八智控定制版-小八桌面适配分屏.apk.apk",
+    "icon": "",
+    "url": "https://apps.sosun.cc/static/downloads/wang_yi_yun_yin_yue_xiao_ba_zhi_kong_ding_zhi_ba_v1.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/wang_yi_yun_yin_yue_xiao_ba_zhi_kong_ding_zhi_ba/download",
+    "tags": []
+  },
+  {
+    "id": "xiaobacarlink_xiao_ba_zhuo_mian_yuan_sheng_chi_c",
+    "name": "xiaoba_carlink_小八桌面原生尺寸适配",
+    "version": "-",
+    "category": "工具",
+    "description": "同步自 OpenList：/CarMax/车机互联/xiaoba_carlink_小八桌面原生尺寸适配.apk",
+    "icon": "",
+    "url": "https://apps.sosun.cc/static/downloads/xiaobacarlink_xiao_ba_zhuo_mian_yuan_sheng_chi_c_v1.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/xiaobacarlink_xiao_ba_zhuo_mian_yuan_sheng_chi_c/download",
+    "tags": []
+  },
+  {
     "id": "4641d642162b",
     "name": "MediaBridge for Flvmeauto V3（方控小窗桥接）.apk",
     "version": "",
