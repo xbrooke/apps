@@ -1,5 +1,16 @@
 [
   {
+    "id": "c3079d6441f4",
+    "name": "导航",
+    "version": "9.5.00013",
+    "category": "导航",
+    "description": "大神修改版",
+    "icon": "./icons/app_nav_002.png",
+    "url": "https://apps.sosun.cc/static/downloads/dao_hang.apk",
+    "download_url": "https://apps.sosun.cc/api/apps/c3079d6441f4/download",
+    "tags": []
+  },
+  {
     "id": "dfcc0fc3bfbf",
     "name": "音乐桥接umb-release-1.5汉化2.apk",
     "version": "v1.5",
